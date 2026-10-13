@@ -1,0 +1,2139 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="依當天當地氣溫、自選色系與風格推薦穿搭。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2315161a'/%3E%3Cpath d='M32 14a6 6 0 0 1 6 6c0 3-2 4.5-4.5 6L32 27.5 10 42a3 3 0 0 0 1.7 5.5h40.6A3 3 0 0 0 54 42L32 27.5' fill='none' stroke='%23f7f8fa' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>OOTD 今天穿什麼</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap">
+<style>
+/* Layout: masthead, then a 330px control rail beside one lookbook sheet; on phones the lookbook comes first and the rail follows */
+:root{
+  --bg:#e9ebef; --surface:#f7f8fa; --tile:#ffffff;
+  --ink:#15161a; --ink-2:#585c66; --line:#d3d6dd; --line-2:#b4b8c2;
+  --accent:#2b38c4; --accent-ink:#ffffff; --accent-soft:#e2e5fa;
+  --sel:#15161a; --sel-ink:#f7f8fa;
+  --glyph-line:#24262c; --photo-hi:#fbfaf7; --photo-lo:#e8e6e0; --photo-ink:#3d3a34;
+  --ok:#2b7a52; --warn:#a8650c; --cold:#3460c4;
+  --f-display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  --f-head:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --f-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#111216; --surface:#191a1f; --tile:#212329;
+    --ink:#ebecef; --ink-2:#a0a4ae; --line:#2f323a; --line-2:#474b55;
+    --accent:#9aa2ff; --accent-ink:#10121c; --accent-soft:#262a4a;
+    --sel:#ebecef; --sel-ink:#15161a;
+    --glyph-line:#d6d8de; --photo-hi:#dddbd5; --photo-lo:#c7c4bc;
+    --ok:#6cc596; --warn:#e3a04a; --cold:#86a8f3;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#111216; --surface:#191a1f; --tile:#212329;
+  --ink:#ebecef; --ink-2:#a0a4ae; --line:#2f323a; --line-2:#474b55;
+  --accent:#9aa2ff; --accent-ink:#10121c; --accent-soft:#262a4a;
+  --sel:#ebecef; --sel-ink:#15161a;
+  --glyph-line:#d6d8de; --photo-hi:#dddbd5; --photo-lo:#c7c4bc;
+  --ok:#6cc596; --warn:#e3a04a; --cold:#86a8f3;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{margin:0;text-wrap:balance}
+p{margin:0}
+button,input,select{font:inherit;color:inherit}
+.sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);border:0;white-space:nowrap}
+
+.wrap{max-width:1180px;margin:0 auto;padding-inline:20px;padding-block:22px 56px;display:grid;gap:22px}
+
+/* masthead */
+.mast{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 20px;border-bottom:1px solid var(--line);padding-bottom:14px}
+.brand{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.word{font-family:var(--f-display);font-style:italic;font-weight:800;font-size:44px;line-height:1;letter-spacing:-.01em;color:var(--accent)}
+.brand h1{font-family:var(--f-head);font-weight:700;font-size:22px;letter-spacing:.04em}
+.src{font-family:var(--f-mono);font-size:12px;color:var(--ink-2);letter-spacing:.02em}
+.src a{color:inherit;text-underline-offset:2px}
+.src b{font-weight:500;color:var(--ink)}
+
+.app{display:grid;grid-template-columns:minmax(0,1fr);gap:22px;align-items:start}
+@media (min-width:920px){
+  .app{grid-template-columns:330px minmax(0,1fr)}
+  .rail{position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px)}
+}
+@media (max-width:919px){ .look{order:-1} }
+
+/* control rail */
+.rail{background:var(--surface);border:1px solid var(--line);padding:20px;display:grid;gap:24px;min-width:0}
+.grp{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;min-width:0}
+.lbl{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.lbl > span:first-child{font-weight:700;font-size:15px}
+.code{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+
+select{width:100%;padding:10px 12px;background:var(--tile);border:1px solid var(--line-2);border-radius:3px;font-size:15px;appearance:none;-webkit-appearance:none;
+  background-image:linear-gradient(45deg,transparent 50%,var(--ink-2) 50%),linear-gradient(135deg,var(--ink-2) 50%,transparent 50%);
+  background-position:calc(100% - 18px) 52%,calc(100% - 13px) 52%;background-size:5px 5px,5px 5px;background-repeat:no-repeat;cursor:pointer}
+select:focus-visible,.sr:focus-visible + label,.tile:focus-visible,.btn:focus-visible,.switch input:focus-visible + .track,input[type=range]:focus-visible,.check input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.days{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+.day{display:grid;gap:0;min-width:70px;padding:7px 10px;border:1px solid var(--line-2);border-radius:3px;background:var(--tile);cursor:pointer;line-height:1.35}
+.day b{font-size:14px;font-weight:700}
+.day{flex:none}
+.day span{font-family:var(--f-mono);font-size:11px;color:var(--ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.sr:checked + .day{background:var(--sel);border-color:var(--sel);color:var(--sel-ink)}
+.sr:checked + .day span{color:inherit;opacity:.75}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--line-2);border-radius:3px;background:var(--tile);cursor:pointer;font-size:14px;line-height:1.3}
+.sr:checked + .chip{background:var(--sel);border-color:var(--sel);color:var(--sel-ink)}
+.sr:checked + .chip small{color:inherit;opacity:.72}
+
+.pal{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.pal .chip{display:grid;gap:6px;justify-items:start;padding:9px 10px}
+.dots{display:flex;gap:0;border:1px solid var(--line-2)}
+.dots i{display:block;width:16px;height:14px}
+
+.styles{display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:8px}
+.styles .chip{display:grid;gap:1px;justify-items:start;padding:8px 11px}
+.styles .chip b{font-size:15px}
+.styles .chip small{font-size:12px;color:var(--ink-2)}
+
+.seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;border:1px solid var(--line-2);border-radius:3px;overflow:hidden;background:var(--tile)}
+.seg label{display:block;text-align:center;padding:8px 6px;cursor:pointer;font-size:14px;border-left:1px solid var(--line)}
+.seg input:first-child + label{border-left:0}
+.seg .sr:checked + label{background:var(--sel);color:var(--sel-ink)}
+
+.manual{display:grid;gap:10px;border-top:1px dashed var(--line-2);padding-top:12px}
+.switch{display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;position:relative}
+.switch input{position:absolute;opacity:0;width:36px;height:20px;margin:0}
+.track{width:36px;height:20px;border-radius:10px;background:var(--line-2);position:relative;flex:none;transition:background .15s}
+.track::after{content:"";position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:var(--tile);transition:transform .15s}
+.switch input:checked + .track{background:var(--accent)}
+.switch input:checked + .track::after{transform:translateX(16px)}
+.switch input:disabled + .track{opacity:.6}
+.note{font-size:13px;color:var(--warn)}
+.search{display:flex;gap:8px}
+.search input{flex:1;width:0;min-width:0;padding:9px 12px;background:var(--tile);border:1px solid var(--line-2);border-radius:3px;font-size:14px}
+.search input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.search button{padding:9px 14px;border:1px solid var(--line-2);border-radius:3px;background:var(--tile);cursor:pointer;font-size:14px;white-space:nowrap}
+.search button:disabled{opacity:.5;cursor:default}
+.found{font-size:12px;color:var(--ink-2);overflow-wrap:anywhere}
+.status{font-size:13px;color:var(--ink-2);display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;line-height:1.5}
+.status .dot{width:8px;height:8px;border-radius:50%;background:var(--line-2);flex:none}
+.status[data-mode="live"] .dot{background:var(--ok)}
+.status[data-mode="loading"] .dot,.status[data-mode="warn"] .dot{background:var(--warn)}
+.status > span:nth-child(2){flex:1;min-width:0}
+.status button{padding:3px 10px;border:1px solid var(--line-2);border-radius:3px;background:var(--tile);cursor:pointer;font-size:12px}
+#manualBox{display:grid;gap:10px}
+.range-row{display:flex;justify-content:space-between;align-items:baseline;font-size:14px}
+.range-row output{font-family:var(--f-display);font-style:italic;font-size:24px;font-variant-numeric:tabular-nums;line-height:1}
+input[type=range]{width:100%;accent-color:var(--accent)}
+.check{display:flex;align-items:center;gap:8px;font-size:14px;cursor:pointer}
+.check input{accent-color:var(--accent);width:16px;height:16px}
+
+/* lookbook sheet */
+.look{background:var(--surface);border:1px solid var(--line);padding:24px;display:grid;gap:26px;min-width:0}
+.wx{display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-areas:"stamp meta" "temp meta";gap:6px 32px;align-items:end;border-bottom:1px solid var(--line);padding-bottom:22px}
+.stamp{grid-area:stamp;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.stamp .d{font-family:var(--f-display);font-weight:600;font-size:26px;font-variant-numeric:tabular-nums;letter-spacing:.02em;line-height:1}
+.stamp .w{font-family:var(--f-mono);font-size:12px;letter-spacing:.16em;color:var(--ink-2)}
+.stamp .c{font-family:var(--f-head);font-weight:700;font-size:18px}
+.temp{grid-area:temp;display:flex;align-items:flex-start;gap:10px}
+.temp .n{font-family:var(--f-display);font-style:italic;font-weight:400;font-size:clamp(84px,13vw,136px);line-height:.82;letter-spacing:-.03em;font-variant-numeric:lining-nums}
+.temp .u{display:grid;gap:4px;padding-top:6px}
+.temp .u sup{font-family:var(--f-display);font-size:30px;line-height:1;color:var(--accent);vertical-align:baseline;top:0}
+.temp .u small{font-size:12px;color:var(--ink-2);writing-mode:vertical-rl;letter-spacing:.2em}
+.meta{grid-area:meta;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 20px;margin:0;align-self:end}
+.meta div{min-width:0;border-top:1px solid var(--line);padding-top:8px}
+.meta dt{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
+.meta dd{margin:2px 0 0;font-size:15px;font-weight:500;font-variant-numeric:tabular-nums}
+@media (max-width:640px){
+  .wx{grid-template-columns:minmax(0,1fr);grid-template-areas:"stamp" "temp" "meta";gap:14px}
+}
+
+.look-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 16px}
+.look-title{display:grid;gap:4px;min-width:0}
+.viewseg{flex:none;min-width:210px}
+.look-head h2{font-family:var(--f-head);font-weight:700;font-size:28px;letter-spacing:.03em}
+.look-head h2 .x{font-family:var(--f-display);font-style:italic;font-weight:400;color:var(--accent);padding-inline:.15em}
+.look-head p{font-size:15px;color:var(--ink-2)}
+
+.flat{display:grid;gap:12px;grid-template-columns:repeat(var(--cols,3),minmax(0,1fr))}
+@media (max-width:560px){
+  .flat{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .flat[data-odd="1"] > .tile:first-child{grid-column:1 / -1}
+  .flat[data-odd="1"] > .tile:first-child .tile-art{width:55%;justify-self:center}
+}
+.tile{position:relative;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto auto auto;align-content:start;gap:4px;text-align:left;padding:12px 12px 14px;background:var(--tile);border:1px solid var(--line);border-radius:2px;cursor:pointer;min-width:0;transition:border-color .15s}
+.tile:hover{border-color:var(--ink-2)}
+.tile.is-spare{border-style:dashed;border-color:var(--line-2)}
+.tile-slot{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:baseline;font-size:12px}
+.tile-slot b{font-weight:700}
+.tile-slot i{font-style:normal;font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;color:var(--ink-2)}
+.tile-tag{margin-left:auto;font-size:11px;padding:0 6px;border:1px solid var(--line-2);border-radius:2px;color:var(--ink-2);background:var(--surface);white-space:nowrap}
+.tile-art{display:grid;place-items:center;aspect-ratio:1/1;width:100%;max-width:100%;margin-block:2px;border-radius:2px;background:radial-gradient(120% 90% at 50% 35%,var(--photo-hi),var(--photo-lo))}
+.tile-art svg{width:88%;height:88%;overflow:visible}
+.fx{position:absolute;width:0;height:0;overflow:hidden}
+.tile-art.pop svg{animation:pop .32s ease-out}
+@keyframes pop{from{transform:scale(.92) rotate(-2deg);opacity:.35}to{transform:none;opacity:1}}
+.tile-name{font-size:15px;font-weight:500;line-height:1.35;overflow-wrap:anywhere}
+.tile-color{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--ink-2)}
+.tile-color i{width:11px;height:11px;border:1px solid var(--line-2);flex:none}
+.stage{display:grid;grid-template-columns:minmax(0,1fr);gap:20px;align-items:start}
+@media (min-width:700px){.stage{grid-template-columns:minmax(0,360px) minmax(0,1fr)}}
+.fig-box{display:grid;justify-items:center;gap:8px;padding:14px 10px 12px;border:1px solid var(--line);border-radius:2px;background:radial-gradient(120% 80% at 50% 30%,var(--photo-hi),var(--photo-lo))}
+#fig{width:100%;max-width:340px}
+#fig > svg{display:block;width:100%;height:auto;overflow:visible;animation:figin .35s ease-out}
+@keyframes figin{from{opacity:.4;transform:translateY(4px)}to{opacity:1;transform:none}}
+.fig-opt{color:var(--photo-ink)}
+.wear{display:grid;gap:4px;min-width:0}
+.wear-list{list-style:none;margin:6px 0 4px;padding:0;display:grid;gap:6px}
+.wear-list button{width:100%;display:grid;grid-template-columns:30px minmax(0,1fr) auto;align-items:center;gap:10px;padding:8px 10px;text-align:left;background:var(--tile);border:1px solid var(--line);border-radius:2px;cursor:pointer}
+.wear-list button:hover{border-color:var(--ink-2)}
+.wear-list button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.w-fab{display:block;width:30px;height:30px;overflow:hidden;border:1px solid var(--line-2)}
+.w-main{display:grid;gap:1px;min-width:0}
+.w-name{font-size:14px;font-weight:500;overflow-wrap:anywhere}
+.w-name b{font-weight:700;margin-right:8px;font-size:12px;color:var(--ink-2)}
+.w-sub{font-size:12px;color:var(--ink-2);overflow-wrap:anywhere}
+.w-tag{font-size:11px;padding:0 6px;border:1px dashed var(--line-2);border-radius:2px;color:var(--ink-2);white-space:nowrap}
+.tile-scale{display:flex;align-items:center;gap:6px;font-family:var(--f-mono);font-size:10px;line-height:1;color:var(--ink-2);margin-top:-2px}
+.tile-scale i{display:block;height:5px;border:1px solid var(--ink-2);border-top:0;flex:none}
+.tile-ref{font-size:11px;line-height:1.4;color:var(--ink-2);border-top:1px dashed var(--line);padding-top:6px;margin-top:4px;overflow-wrap:anywhere}
+.notes a{color:var(--accent);text-underline-offset:2px}
+
+.strip-wrap{display:grid;gap:10px}
+.strip{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:0;border:1px solid var(--line);background:var(--tile)}
+.sw{display:grid;align-content:start;min-width:0;background:var(--tile)}
+.sw-fab{display:block;height:46px;overflow:hidden}
+.sw-fab svg,.w-fab svg{display:block;width:100%;height:100%}
+.sw-lab{padding:6px 8px 7px;font-size:12px;line-height:1.35;border-top:1px solid var(--line)}
+.sw-lab em{display:block;font-style:normal;font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;color:var(--ink-2);text-transform:uppercase}
+.lbl-sm{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+.lbl-sm b{font-family:var(--f-body);font-weight:700;letter-spacing:.04em;color:var(--ink);margin-right:8px;font-size:13px;text-transform:none}
+
+.notes{display:grid;grid-template-columns:minmax(0,1fr);gap:20px}
+@media (min-width:700px){.notes{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.notes ul{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:8px}
+.notes li{position:relative;padding-left:16px;font-size:14px;line-height:1.65}
+.notes li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;background:var(--ink)}
+.notes .style-li::before{background:var(--accent)}
+
+.clo{display:grid;gap:10px;border-top:1px solid var(--line);padding-top:18px}
+.clo-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px}
+.pill{font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px;border:1px solid currentColor}
+.pill.ok{color:var(--ok)} .pill.warn{color:var(--warn)} .pill.cold{color:var(--cold)}
+.bar{position:relative;height:10px;background:var(--line);border-radius:1px;margin-top:4px}
+.bar .fill{position:absolute;inset:0 auto 0 0;background:var(--ink);border-radius:1px;transition:width .3s ease}
+.bar .mark{position:absolute;top:-5px;bottom:-5px;width:3px;margin-left:-1.5px;background:var(--accent)}
+.scale{position:relative;height:16px;font-family:var(--f-mono);font-size:10px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.scale span{position:absolute;top:0;transform:translateX(-50%)}
+.scale span:first-child{transform:none}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;font-variant-numeric:tabular-nums}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{display:inline-block;width:14px;height:8px;background:var(--ink)}
+.legend i.m{width:3px;height:14px;background:var(--accent)}
+.fine{font-size:12px;color:var(--ink-2)}
+
+.actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px}
+.btn{padding:11px 18px;border-radius:3px;border:1px solid var(--line-2);background:var(--tile);cursor:pointer;font-size:15px;font-weight:500}
+.btn:hover{border-color:var(--ink-2)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:700;padding-inline:24px}
+.btn.primary:hover{filter:brightness(1.08)}
+.hint{font-size:13px;color:var(--ink-2)}
+#copyBox{width:100%;min-height:150px;padding:10px;border:1px solid var(--line-2);background:var(--tile);font-family:var(--f-mono);font-size:12px;border-radius:3px}
+
+.toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 20px);transform:translateX(-50%);display:flex;align-items:center;gap:12px;max-width:calc(100% - 32px);padding:10px 14px;background:var(--sel);color:var(--sel-ink);border-radius:3px;font-size:14px;z-index:10;box-shadow:0 6px 24px rgba(0,0,0,.18)}
+.toast button{background:transparent;border:1px solid currentColor;color:inherit;border-radius:3px;padding:4px 10px;cursor:pointer;font-size:13px}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="mast">
+    <div class="brand">
+      <span class="word" aria-hidden="true">OOTD</span>
+      <h1>今天穿什麼</h1>
+    </div>
+    <p class="src" id="src">中央氣象署一週預報・10/12 擷取</p>
+  </header>
+
+  <div class="app">
+    <aside class="rail" aria-label="穿搭條件">
+      <section class="grp">
+        <div class="lbl"><span>地點與日期</span><span class="code">Where · When</span></div>
+        <label class="sr" for="city">地點</label>
+        <select id="city"></select>
+        <form class="search" id="searchForm" role="search">
+          <label class="sr" for="q">搜尋其他城市</label>
+          <input id="q" type="search" placeholder="搜尋其他城市，例如 Tokyo, Japan" autocomplete="off">
+          <button type="submit" id="qBtn">搜尋</button>
+        </form>
+        <p class="found" id="found" hidden></p>
+        <p class="status" id="wxStatus" data-mode="loading" aria-live="polite"><span class="dot" aria-hidden="true"></span><span id="wxStatusText">正在連線 AccuWeather…</span><button type="button" id="wxStatusBtn" hidden></button></p>
+        <div class="days" id="days" role="radiogroup" aria-label="日期"></div>
+        <div class="manual">
+          <label class="switch" for="manualOn"><input type="checkbox" id="manualOn"><span class="track" aria-hidden="true"></span><span>自己輸入氣溫</span></label>
+          <p class="note" id="staleNote" hidden></p>
+          <div id="manualBox" hidden>
+            <div class="range-row"><label for="mT">體感溫度</label><output id="mTOut" for="mT">20°C</output></div>
+            <input type="range" id="mT" min="0" max="38" step="1" value="20">
+            <div class="seg" role="radiogroup" aria-label="天氣">
+              <input class="sr" type="radio" name="mW" id="mW-sun" value="sun" checked><label for="mW-sun">晴</label>
+              <input class="sr" type="radio" name="mW" id="mW-cloud" value="cloud"><label for="mW-cloud">多雲</label>
+              <input class="sr" type="radio" name="mW" id="mW-rain" value="rain"><label for="mW-rain">下雨</label>
+            </div>
+            <label class="check" for="mSwing"><input type="checkbox" id="mSwing">早晚溫差大</label>
+          </div>
+        </div>
+      </section>
+
+      <section class="grp">
+        <div class="lbl"><span>出門時段</span><span class="code">Hours</span></div>
+        <div class="seg" role="radiogroup" aria-label="出門時段" id="periodSeg">
+          <input class="sr" type="radio" name="period" id="period-all" value="all" checked><label for="period-all">整天</label>
+          <input class="sr" type="radio" name="period" id="period-day" value="day"><label for="period-day">白天</label>
+          <input class="sr" type="radio" name="period" id="period-night" value="night"><label for="period-night">晚上</label>
+        </div>
+      </section>
+
+      <section class="grp">
+        <div class="lbl"><span>色系</span><span class="code">Palette</span></div>
+        <div class="pal" id="palettes" role="radiogroup" aria-label="色系"></div>
+      </section>
+
+      <section class="grp">
+        <div class="lbl"><span>風格</span><span class="code">Style</span></div>
+        <div class="styles" id="styles" role="radiogroup" aria-label="風格"></div>
+      </section>
+
+      <section class="grp">
+        <div class="lbl"><span>版型</span><span class="code">Fit</span></div>
+        <div class="seg" role="radiogroup" aria-label="版型" id="genderSeg">
+          <input class="sr" type="radio" name="gender" id="gender-m" value="m"><label for="gender-m">男生</label>
+          <input class="sr" type="radio" name="gender" id="gender-f" value="f"><label for="gender-f">女生</label>
+          <input class="sr" type="radio" name="gender" id="gender-u" value="u" checked><label for="gender-u">中性</label>
+        </div>
+      </section>
+    </aside>
+
+    <section class="look" id="look" aria-label="今日穿搭">
+      <div class="wx">
+        <div class="stamp"><span class="d" id="wxDate">10.12</span><span class="w" id="wxDow">MON</span><span class="c" id="wxCity">臺北市</span></div>
+        <div class="temp"><span class="n" id="wxT">28</span><span class="u"><sup>°C</sup><small>穿搭體感</small></span></div>
+        <dl class="meta" id="wxMeta"></dl>
+      </div>
+
+      <div class="look-head">
+        <div class="look-title" aria-live="polite">
+          <h2 id="lookTitle">日系 × 大地色</h2>
+          <p id="lookSub"></p>
+        </div>
+        <div class="seg viewseg" role="radiogroup" aria-label="檢視方式" id="viewSeg">
+          <input class="sr" type="radio" name="view" id="view-flat" value="flat" checked><label for="view-flat">單品平拍</label>
+          <input class="sr" type="radio" name="view" id="view-fig" value="fig"><label for="view-fig">整體預覽</label>
+        </div>
+      </div>
+
+      <div class="flat" id="flat"></div>
+
+      <div class="stage" id="stage" hidden>
+        <div class="fig-box">
+          <div id="fig"></div>
+          <label class="check fig-opt" for="openOuter" id="openWrap"><input type="checkbox" id="openOuter" checked>外套拉開</label>
+        </div>
+        <div class="wear">
+          <div class="lbl-sm"><b>這套穿了什麼</b>Wearing</div>
+          <ul class="wear-list" id="wearList"></ul>
+          <p class="fine">依各單品的實際尺寸等比例組合，點任一單品可以只換那一件。</p>
+        </div>
+      </div>
+
+      <div class="strip-wrap">
+        <div class="lbl-sm"><b>顏色與布料</b>Swatches</div>
+        <div class="strip" id="strip"></div>
+      </div>
+
+      <div class="notes">
+        <div><div class="lbl-sm"><b>今日提醒</b>Weather notes</div><ul id="wxTips"></ul></div>
+        <div><div class="lbl-sm"><b>搭配心法</b>Styling notes</div><ul id="styleTips"></ul></div>
+      </div>
+
+      <div class="clo" id="clo"></div>
+
+      <div class="actions">
+        <button type="button" class="btn primary" id="shuffle">換一套</button>
+        <button type="button" class="btn" id="copy">複製穿搭清單</button>
+        <span class="hint">點任一單品，可以只換那一件</span>
+        <textarea id="copyBox" hidden aria-label="穿搭清單文字"></textarea>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" hidden><span id="toastMsg"></span><button type="button" id="toastBtn" hidden>查看穿搭</button></div>
+
+<script>
+(function(){
+"use strict";
+var $ = function(s){ return document.querySelector(s); };
+
+/* ---------- weather snapshot: CWA one-week county forecast, fetched 2026-10-12 ----------
+   row: [date, tempLow, tempHigh, feelsLow, feelsHigh, uv, dayWeather, nightWeather] */
+var CITIES = [
+  {id:"tpe", name:"臺北市", lat:25.033, lon:121.565, d:[
+    ["2026-10-12",21,30,23,31,8,"晴時多雲","晴時多雲"],
+    ["2026-10-13",21,30,23,32,8,"晴時多雲","晴時多雲"],
+    ["2026-10-14",22,28,24,30,6,"多雲","多雲"],
+    ["2026-10-15",24,29,25,31,6,"多雲短暫陣雨","晴時多雲"],
+    ["2026-10-16",24,32,26,36,7,"多雲時晴","晴時多雲"],
+    ["2026-10-17",25,33,26,37,8,"晴時多雲","晴時多雲"],
+    ["2026-10-18",25,34,27,38,9,"晴時多雲","晴時多雲"]]},
+  {id:"ntpc", name:"新北市", lat:25.012, lon:121.465, d:[
+    ["2026-10-12",22,29,25,30,7,"晴時多雲","晴時多雲"],
+    ["2026-10-13",22,30,24,33,8,"晴時多雲","晴時多雲"],
+    ["2026-10-14",23,28,24,30,6,"晴時多雲","多雲時晴"],
+    ["2026-10-15",24,29,25,30,6,"晴時多雲","晴時多雲"],
+    ["2026-10-16",25,32,26,35,8,"晴時多雲","晴時多雲"],
+    ["2026-10-17",25,32,27,35,8,"晴時多雲","晴時多雲"]]},
+  {id:"tyn", name:"桃園市", lat:24.994, lon:121.301, d:[
+    ["2026-10-12",22,30,24,32,7,"晴時多雲","晴時多雲"],
+    ["2026-10-13",22,30,23,33,8,"晴時多雲","晴時多雲"],
+    ["2026-10-14",23,30,23,31,7,"晴時多雲","多雲時晴"],
+    ["2026-10-15",24,32,24,33,7,"晴時多雲","晴時多雲"],
+    ["2026-10-16",24,33,24,35,8,"晴時多雲","晴時多雲"],
+    ["2026-10-17",24,33,26,36,8,"晴時多雲","晴時多雲"]]},
+  {id:"hsz", name:"新竹市", lat:24.814, lon:120.968, d:[
+    ["2026-10-12",20,31,21,31,7,"晴時多雲","晴時多雲"],
+    ["2026-10-13",20,30,20,30,7,"晴時多雲","晴時多雲"],
+    ["2026-10-14",23,29,20,26,7,"晴時多雲","晴時多雲"],
+    ["2026-10-15",23,31,22,33,7,"晴時多雲","晴時多雲"],
+    ["2026-10-16",23,30,26,33,7,"晴時多雲","晴時多雲"],
+    ["2026-10-17",24,31,26,34,7,"晴時多雲","晴時多雲"],
+    ["2026-10-18",24,30,27,34,7,"晴時多雲","晴時多雲"]]},
+  {id:"txg", name:"臺中市", lat:24.148, lon:120.674, d:[
+    ["2026-10-12",22,33,24,34,7,"晴時多雲","晴時多雲"],
+    ["2026-10-13",22,32,24,34,7,"晴時多雲","晴時多雲"],
+    ["2026-10-14",23,33,25,34,7,"晴時多雲","晴時多雲"],
+    ["2026-10-15",24,33,27,35,7,"晴時多雲","晴時多雲"],
+    ["2026-10-16",25,33,27,35,7,"晴時多雲","晴時多雲"],
+    ["2026-10-17",25,33,27,36,7,"晴時多雲","晴時多雲"],
+    ["2026-10-18",25,33,28,36,7,"晴時多雲","晴時多雲"]]},
+  {id:"cyi", name:"嘉義市", lat:23.480, lon:120.449, d:[
+    ["2026-10-12",22,33,25,37,8,"晴時多雲","晴時多雲"],
+    ["2026-10-13",22,33,25,36,7,"晴時多雲","晴時多雲"],
+    ["2026-10-14",22,33,25,36,7,"晴時多雲","晴時多雲"],
+    ["2026-10-15",23,34,25,37,7,"晴時多雲","晴時多雲"],
+    ["2026-10-16",23,34,25,37,8,"晴時多雲","晴時多雲"],
+    ["2026-10-17",23,34,26,37,8,"晴時多雲","晴時多雲"],
+    ["2026-10-18",24,33,26,37,8,"晴時多雲","晴時多雲"]]},
+  {id:"tnn", name:"臺南市", lat:22.999, lon:120.227, d:[
+    ["2026-10-12",26,31,28,34,8,"晴時多雲","晴時多雲"],
+    ["2026-10-13",26,32,28,33,7,"晴時多雲","晴時多雲"],
+    ["2026-10-14",26,31,28,34,7,"晴時多雲","晴時多雲"],
+    ["2026-10-15",26,31,28,33,7,"晴時多雲","晴時多雲"],
+    ["2026-10-16",26,31,29,34,7,"晴時多雲","晴時多雲"],
+    ["2026-10-17",27,31,29,34,7,"晴時多雲","晴時多雲"]]},
+  {id:"khh", name:"高雄市", lat:22.627, lon:120.301, d:[
+    ["2026-10-12",26,32,29,34,7,"晴時多雲","晴時多雲"],
+    ["2026-10-13",26,32,29,34,7,"晴時多雲","晴時多雲"],
+    ["2026-10-14",26,31,28,33,7,"晴時多雲","晴時多雲"],
+    ["2026-10-15",26,32,29,35,7,"晴時多雲","晴時多雲"],
+    ["2026-10-16",26,32,28,35,7,"晴時多雲","晴時多雲"],
+    ["2026-10-17",26,32,29,35,7,"晴時多雲","晴時多雲"],
+    ["2026-10-18",26,32,29,36,7,"晴時多雲","晴時多雲"]]},
+  {id:"hun", name:"花蓮縣", lat:23.987, lon:121.602, d:[
+    ["2026-10-12",23,30,24,32,8,"晴時多雲","晴時多雲"],
+    ["2026-10-13",23,29,24,32,8,"晴時多雲","晴時多雲"],
+    ["2026-10-14",23,29,24,31,8,"晴時多雲","陰時多雲"],
+    ["2026-10-15",24,29,25,32,7,"晴時多雲","多雲"],
+    ["2026-10-16",24,30,26,33,7,"多雲","多雲"],
+    ["2026-10-17",24,30,26,34,7,"晴時多雲","多雲"],
+    ["2026-10-18",24,31,25,34,8,"晴時多雲","晴時多雲"]]}
+];
+
+/* AccuWeather location keys for the quick list; Keelung, Yilan and Taitung have no snapshot rows */
+var KEYS = {tpe:"2516532", ntpc:"1980312", tyn:"2517479", hsz:"2517734", txg:"2516085", cyi:"2515514", tnn:"697899", khh:"2517149", hun:"2516761"};
+CITIES.forEach(function(c){ c.key = KEYS[c.id]; });
+CITIES.push({id:"klu", name:"基隆市", key:"2515636", lat:25.128, lon:121.742, d:[]}, {id:"ila", name:"宜蘭縣", key:"2515720", lat:24.757, lon:121.753, d:[]},
+  {id:"ttt", name:"臺東縣", key:"1947450", lat:22.756, lon:121.144, d:[]});
+var CITY_ORDER = ["klu","tpe","ntpc","tyn","hsz","txg","cyi","tnn","khh","ila","hun","ttt"];
+var PLACES = [];
+var LIVE = {};
+
+var BRANDS = {
+  A:[["Carhartt WIP","https://www.carhartt-wip.com/en-de"],["Levi's","https://www.levis.com.tw/"],["BEAMS PLUS","https://www.beams.tw/"]],
+  K:[["MUSINSA","https://global.musinsa.com/tw/main/fashion"],["Raucohouse","https://raucohouse.com/"]],
+  J:[["BEAMS","https://www.beams.co.jp/zh-CHT/"],["URBAN RESEARCH","https://www.urban-research.tw/"],["niko and...","https://www.dot-st.tw/page/nikoand"]],
+  S:[["Stüssy","https://www.stussy.com/"],["KITH","https://kith.com/"]],
+  M:[["COS","https://www.cos.com/zh-tw/"],["Studio Nicholson","https://studionicholson.com/"]]
+};
+var STYLES = {
+  A:{name:"美式", en:"Americana", desc:"古著、工裝、寬鬆", tip:"美式的重點是耐看的材質，牛仔、帆布、法蘭絨都很適合。全身留一件印花或格紋當焦點，其他保持素面。"},
+  K:{name:"韓系", en:"Seoul", desc:"俐落、西裝褲、針織", tip:"韓系講究比例，上寬下窄或上短下長，褲子挑西裝褲或直筒褲，全身控制在兩到三色。"},
+  J:{name:"日系", en:"Tokyo", desc:"疊穿、寬褲、自然材質", tip:"日系靠寬鬆的層次感，褲長落在腳踝，再加一頂帽子或托特包，整體就很有生活感。"},
+  S:{name:"街頭", en:"Street", desc:"大廓形、球鞋主角", tip:"街頭風讓鞋子當主角，上衣選大一號的廓形，配件可以大膽一點。"},
+  M:{name:"極簡", en:"Minimal", desc:"無裝飾、三色以內", tip:"極簡靠剪裁和質感撐場，單品不放多餘裝飾，配件一到兩件就夠。"}
+};
+var STYLE_ORDER = ["A","K","J","S","M"];
+
+var PALETTES = {
+  mono:{name:"黑白灰", colors:{"黑":"#1d1d1f","炭灰":"#45464b","霧灰":"#8e9095","淺灰":"#cfd0d3","白":"#f6f6f3"},
+    light:["白","淺灰"], main:["黑","炭灰","霧灰","白"], base:["黑","炭灰","霧灰"], shoes:["白","黑"], accent:["黑","炭灰","白"],
+    tip:"黑白負責明暗對比，灰色當過渡。鞋子和上衣挑同一色，整體會更完整。"},
+  earth:{name:"大地色", colors:{"深咖":"#4a3326","焦糖":"#a4652f","駝色":"#c29a6b","卡其":"#b8a47c","橄欖":"#6e6c3c","奶茶":"#d6bf9f","米白":"#eee5d6"},
+    light:["米白","奶茶"], main:["焦糖","駝色","橄欖","卡其","奶茶"], base:["深咖","卡其","橄欖","米白"], shoes:["深咖","米白","焦糖"], accent:["焦糖","深咖","駝色"],
+    tip:"同色系深淺疊穿，上淺下深最穩，焦糖或橄欖拿來當亮點。"},
+  morandi:{name:"莫蘭迪", colors:{"灰藍":"#8b9cab","豆沙粉":"#c09a96","鼠尾草綠":"#a2ad95","燕麥":"#d9d0c1","霧紫":"#a497a8","灰褐":"#8c7f78","霧白":"#ecebe6"},
+    light:["霧白","燕麥"], main:["灰藍","豆沙粉","鼠尾草綠","霧紫"], base:["灰褐","燕麥","灰藍"], shoes:["霧白","燕麥","灰褐"], accent:["豆沙粉","鼠尾草綠","灰褐"],
+    tip:"低飽和色彼此不打架，挑一個顏色當主角，其他用燕麥、灰褐收斂。"},
+  denim:{name:"丹寧藍", colors:{"靛藍":"#2d3e5e","中藍":"#5677a2","淺藍":"#a8c0db","海軍藍":"#1f2a45","白":"#f5f5f1","灰":"#9da3a9"},
+    light:["白","淺藍"], main:["靛藍","中藍","淺藍","海軍藍"], base:["靛藍","中藍","海軍藍"], shoes:["白","海軍藍","灰"], accent:["海軍藍","白","灰"],
+    tip:"深淺不同的藍疊在一起就有丹寧感，白色單品負責提亮。"},
+  olive:{name:"軍綠工裝", colors:{"軍綠":"#4d5939","橄欖":"#77763f","卡其":"#b4a27b","黑":"#1f1f1e","沙色":"#d4c7a5","米白":"#eee6d6"},
+    light:["米白","沙色"], main:["軍綠","橄欖","卡其","黑"], base:["黑","卡其","軍綠"], shoes:["黑","沙色"], accent:["軍綠","黑","卡其"],
+    tip:"軍綠配卡其或黑色最不容易出錯，口袋、織帶這類細節是加分題。"}
+};
+var PAL_ORDER = ["mono","earth","morandi","denim","olive"];
+
+/* ---------- wardrobe: [slot, name, glyph, lowT, highT, styles, fit(u/m/f), clo, flags, reference] ----------
+   references come from the brand sites the styles are built on; a model name appears only where the site shows it */
+var RAW = [
+  ["top","圖案短袖T","teeGraphic",24,40,"S","u",.08,"","Stüssy・Tees Graphics"],
+  ["top","羽毛印花短袖T","teeGraphic",24,40,"AS","u",.08,"","Carhartt WIP・S/S Feather Progress T-Shirt"],
+  ["top","口袋短袖T","teePocket",24,40,"AJ","u",.08,"","Carhartt WIP"],
+  ["top","落肩寬版T","tee",24,40,"JKS","u",.09,"","niko and..."],
+  ["top","寬版素面短袖T","tee",24,40,"K","u",.09,"","MUSINSA STANDARD"],
+  ["top","厚磅素面T恤","teeHeavy",24,40,"M","u",.09,"","Studio Nicholson・T-Shirts & Jersey"],
+  ["top","短袖POLO衫","polo",24,40,"AKM","u",.1,"","Levi's・男裝上衣"],
+  ["top","古巴領短袖襯衫","camp",25,40,"AJS","u",.1,"","BEAMS"],
+  ["top","亞麻短袖襯衫","shirtS",25,40,"JM","u",.1,"","URBAN RESEARCH DOORS"],
+  ["top","網眼球衣背心","jersey",27,40,"S","m",.05,"","Stüssy・Jerseys"],
+  ["top","羅紋背心","tankRib",27,40,"KJM","f",.05,"","COS"],
+  ["top","方領短版上衣","sqTop",25,40,"K","f",.07,"","MUSINSA STANDARD WOMAN"],
+  ["top","合身針織短袖","teeFit",24,34,"KM","f",.1,"","COS"],
+  ["top","長袖素T","long",0,26,"AKJSM","u",.12,"","Stüssy・Tees Basics"],
+  ["top","條紋長袖T","stripe",5,26,"JK","u",.12,"","niko and..."],
+  ["top","扣領牛津襯衫","oxford",5,28,"AJ","u",.2,"","BEAMS PLUS・扣領牛津長袖襯衫"],
+  ["top","重磅牛津襯衫","oxford",5,28,"JK","u",.22,"","BEAMS・重磅牛津扣領襯衫"],
+  ["top","刺繡牛津襯衫","oxfordEmb",10,28,"J","u",.2,"","BEAMS・刺繡長袖牛津襯衫"],
+  ["top","西部牛仔襯衫","western",8,26,"A","u",.24,"","Levi's・西部美式經典"],
+  ["top","法蘭絨格紋襯衫","flannel",8,22,"A","u",.25,"","Levi's・男襯衫"],
+  ["top","層次條紋襯衫","stripeShirt",10,28,"SK","u",.2,"","KITH・Layered Striped Georgie Shirt"],
+  ["top","立領襯衫","bandShirt",10,28,"KM","u",.2,"","COS"],
+  ["top","華夫格長袖","thermal",0,24,"AS","u",.15,"","Stüssy・Thermals"],
+  ["top","寬版長袖T","long",0,26,"S","u",.14,"","KITH・Tees"],
+  ["top","薄高領打底衫","turtle",0,20,"KM","u",.15,"","COS"],
+  ["top","雪紡襯衫","blouse",18,30,"K","f",.15,"","MUSINSA STANDARD WOMAN"],
+  ["top","寬鬆長版襯衫","longShirt",12,28,"J","u",.2,"","URBAN RESEARCH"],
+  ["top","襯衫洋裝","dressShirt",20,32,"KJM","f",.3,"one","MUSINSA STANDARD WOMAN"],
+  ["top","亞麻無袖洋裝","dress",25,40,"J","f",.2,"one","URBAN RESEARCH DOORS"],
+  ["top","碎花長洋裝","dressFloral",22,34,"JK","f",.25,"one","niko and..."],
+  ["top","針織長洋裝","dressL",8,20,"KM","f",.45,"one","Studio Nicholson・Dresses & Skirts"],
+
+  ["inner","發熱衣","inner",-15,10,"AKJSM","u",.12,"",""],
+  ["inner","高領發熱衣","turtle",-15,8,"KM","u",.15,"",""],
+
+  ["mid","圓領針織毛衣","knit",0,18,"AKJM","u",.28,"","MUSINSA STANDARD"],
+  ["mid","粗麻花毛衣","cable",-5,14,"AJ","u",.36,"","BEAMS PLUS"],
+  ["mid","V領針織毛衣","vneck",2,17,"KM","u",.28,"","COS"],
+  ["mid","美麗諾針織衫","knitFine",3,18,"M","u",.26,"","Studio Nicholson・Knitwear"],
+  ["mid","高領毛衣","turtleKnit",-5,14,"KM","u",.35,"","COS"],
+  ["mid","草寫標誌帽T","hoodieChest",5,20,"A","u",.3,"","Carhartt WIP・Hooded American Script Sweatshirt"],
+  ["mid","撞色運動帽T","hoodieBlock",5,20,"S","u",.3,"","Stüssy・Block Sport Hoodie"],
+  ["mid","垂墜感連帽拉鍊衫","hoodieZip",8,22,"KS","u",.28,"","Raucohouse・드레이프 컬러 후드 집업"],
+  ["mid","水洗連帽拉鍊衫","hoodieZip",8,22,"KJS","u",.28,"","Raucohouse・빈티지 다잉 후드 집업"],
+  ["mid","大學T","sweat",6,20,"AJS","u",.28,"","KITH・Crewnecks"],
+  ["mid","半拉鍊套頭衫","quarterZip",4,18,"SK","u",.3,"","KITH・Javier Quarter Zip Pullover"],
+  ["mid","搖粒絨半拉鍊","fleeceHalf",0,17,"AJS","u",.32,"","URBAN RESEARCH"],
+  ["mid","寬版針織毛衣","knitBand",-5,16,"S","u",.32,"","Stüssy・Knits"],
+  ["mid","針織背心","vest",10,20,"KJ","u",.15,"","niko and..."],
+  ["mid","短版針織上衣","knitCrop",8,20,"K","f",.25,"","MUSINSA STANDARD WOMAN"],
+
+  ["outer","短版工作夾克","workJacket",10,21,"AS","u",.32,"","Carhartt WIP・OG Detroit Jacket"],
+  ["outer","立領工作外套","santaFe",8,20,"A","u",.35,"","Carhartt WIP・OG Santa Fe Jacket"],
+  ["outer","連帽機能外套","vista",12,24,"ASJ","u",.25,"ac","Carhartt WIP・Hooded Vista Jacket"],
+  ["outer","牛仔外套","trucker",13,23,"AJ","u",.3,"ac","Levi's・男裝外套"],
+  ["outer","飛行外套","bomber",5,17,"AS","u",.4,"","Carhartt WIP・Orman Bomber"],
+  ["outer","工裝派克大衣","parkaWork",-5,13,"AS","u",.55,"","Carhartt WIP・Stanwood Parka"],
+  ["outer","工裝長大衣","coatWork",-5,13,"A","u",.55,"","Carhartt WIP・Lander Coat"],
+  ["outer","雙面毛絨外套","sherpa",0,14,"SA","u",.5,"","Stüssy・Sherpa Reversible Jacket"],
+  ["outer","教練外套","coach",14,24,"S","u",.25,"ac","Stüssy・Outerwear"],
+  ["outer","皮革騎士外套","moto",5,18,"SKM","u",.4,"","KITH・Wayne Moto Jacket"],
+  ["outer","皮革丹寧夾克","trucker",10,21,"SA","u",.35,"","KITH・Leather Denim Dario Trucker Jacket"],
+  ["outer","人字紋丹寧外套","chore",12,22,"SK","u",.32,"","KITH・Herringbone Denim Nyx Jacket"],
+  ["outer","寬版西裝外套","blazer",12,24,"KM","u",.35,"ac","MUSINSA STANDARD・Outerwear"],
+  ["outer","開襟針織外套","cardigan",15,26,"KJ","u",.25,"ac","MUSINSA STANDARD"],
+  ["outer","毛領麂皮外套","shearling",0,12,"KS","u",.5,"","Raucohouse・글로우 무스탕 퍼 자켓"],
+  ["outer","刷毛拉鍊外套","fleeceZip",3,16,"KS","u",.4,"","Raucohouse・네이드 후리스 집업 점퍼"],
+  ["outer","鋪棉飛行外套","bomber",5,16,"MK","u",.42,"","COS・Padded nylon zip-up bomber jacket"],
+  ["outer","長版羽絨外套","downParka",-15,8,"KM","u",.85,"","MUSINSA STANDARD・Outerwear"],
+  ["outer","工裝襯衫外套","overshirt",13,23,"AJ","u",.3,"","BEAMS PLUS"],
+  ["outer","燈芯絨外套","chore",7,18,"JA","u",.38,"","BEAMS"],
+  ["outer","鋪棉夾克","quiltLiner",4,16,"J","u",.45,"","URBAN RESEARCH・羽絨/填充外套"],
+  ["outer","短版羽絨外套","pufferHood",-15,11,"AJS","u",.7,"","URBAN RESEARCH・羽絨/填充外套"],
+  ["outer","牛角扣大衣","duffle",-5,12,"J","u",.6,"","BEAMS"],
+  ["outer","亞麻罩衫外套","overshirt",20,32,"J","u",.15,"ac","URBAN RESEARCH DOORS"],
+  ["outer","機能防風外套","shell",12,24,"JS","u",.25,"ac","URBAN RESEARCH・UR TECH 機能系列"],
+  ["outer","開襟襯衫外搭","openShirt",20,32,"AKS","u",.15,"ac","Levi's・男襯衫"],
+  ["outer","雙面羊毛襯衫外套","overshirt",8,20,"M","u",.35,"","COS・Double-faced wool overshirt"],
+  ["outer","Harrington 夾克","harrington",12,22,"MA","u",.3,"","COS・Cotton-nylon harrington jacket"],
+  ["outer","亞麻工作襯衫","overshirt",20,32,"M","u",.15,"ac","COS・Relaxed linen utility overshirt"],
+  ["outer","短版機能風衣","trenchShort",12,22,"M","u",.35,"","COS・Technical nylon short trench jacket"],
+  ["outer","長版風衣","trench",10,21,"MK","u",.4,"","Studio Nicholson・Revere Trench"],
+  ["outer","羊毛短夾克","chore",6,16,"M","m",.42,"","Studio Nicholson・Rick Wool Jacket"],
+  ["outer","雙面羊毛大衣","coat",-5,13,"MK","u",.6,"","COS・Tailored double-faced wool-blend coat"],
+  ["outer","短版海軍大衣","peacoat",-3,12,"MK","u",.55,"","COS・Double-faced wool short pea coat"],
+  ["outer","羊毛長大衣","coat",-5,12,"M","f",.6,"","Studio Nicholson・Mori Wool Coat"],
+  ["outer","鋪棉短外套","quiltLiner",2,14,"M","f",.45,"","Studio Nicholson・Vaner Padded Jacket"],
+  ["outer","連帽羽絨派克","downParka",-15,10,"M","u",.8,"","COS・Technical hooded down parka"],
+  ["outer","GORE-TEX 防水外套","shell",5,26,"S","u",.25,"rain","Stüssy・GORE-TEX Guide Shell"],
+  ["outer","防水連帽外套","shell",8,30,"AKJM","u",.2,"rain",""],
+
+  ["bottom","寬鬆牛仔褲","jeansLoose",-5,28,"AJS","u",.25,"","Levi's・568 STAY LOOSE"],
+  ["bottom","直筒牛仔褲","jeans",-5,28,"AKM","u",.25,"","Levi's・501"],
+  ["bottom","經典牛仔褲","jeansLoose",-5,28,"S","u",.25,"","Stüssy・New Classic Jean"],
+  ["bottom","丹寧拼接寬褲","jeansPanel",-5,28,"JK","u",.25,"","niko and...・JEANS 丹寧牛仔異色拼接寬褲"],
+  ["bottom","工作寬褲","jeansLoose",5,28,"AS","u",.26,"","Carhartt WIP・Landon Pant"],
+  ["bottom","工作直筒褲","workPant",8,30,"A","u",.24,"","Carhartt WIP・Brady Pant"],
+  ["bottom","工裝褲","cargo",5,28,"SA","u",.26,"","Stüssy・Cargos"],
+  ["bottom","刷毛運動褲","sweatpant",3,22,"S","u",.28,"","Stüssy・Fleece Pant"],
+  ["bottom","卡其褲","chino",8,30,"AKM","u",.24,"","MUSINSA STANDARD・Chinos"],
+  ["bottom","西裝寬褲","slacks",8,30,"KM","u",.22,"","MUSINSA STANDARD"],
+  ["bottom","寬版西裝褲","slacks",5,30,"M","u",.22,"","COS・Wide-leg Trousers"],
+  ["bottom","弧形喇叭褲","flare",8,28,"K","u",.22,"","Raucohouse・커브드 플레어 밴딩 팬츠"],
+  ["bottom","飄逸寬褲","flow",12,32,"J","u",.18,"","niko and...・素色柔軟飄逸寬褲"],
+  ["bottom","燈芯絨寬褲","slacksCord",-5,18,"JA","u",.28,"","BEAMS"],
+  ["bottom","羊毛西裝褲","slacks",-5,16,"KM","u",.28,"","Studio Nicholson・Trousers"],
+  ["bottom","亞麻寬褲","flow",24,40,"JM","u",.15,"","URBAN RESEARCH DOORS"],
+  ["bottom","厚棉寬褲","slacks",0,22,"M","f",.26,"","Studio Nicholson・Chalco Wide Leg Pant"],
+  ["bottom","工作短褲","workShort",26,40,"AS","u",.08,"","Carhartt WIP・OG Single Knee Long Short"],
+  ["bottom","卡其短褲","shorts",26,40,"AJ","u",.06,"","BEAMS PLUS"],
+  ["bottom","籃球短褲","bball",27,40,"S","u",.06,"","Stüssy・Shorts"],
+  ["bottom","寬版五分褲","wideShort",26,40,"JKS","u",.08,"","niko and..."],
+  ["bottom","西裝短褲","tailoredShort",26,40,"KM","u",.07,"","COS"],
+  ["bottom","百褶長裙","skirt",12,32,"KJ","f",.14,"","MUSINSA STANDARD WOMAN"],
+  ["bottom","牛仔長裙","denimSkirt",10,30,"JA","f",.15,"","Levi's"],
+  ["bottom","A字短裙","skirtS",20,34,"K","f",.1,"","MUSINSA STANDARD WOMAN"],
+  ["bottom","針織長裙","knitSkirt",0,18,"KM","f",.2,"","COS"],
+  ["bottom","緞面中長裙","satinSkirt",18,32,"M","f",.12,"","Studio Nicholson・Dresses & Skirts"],
+
+  ["shoes","經典帆布鞋","canvasLow",12,40,"AKJS","u",.03,"","KITH・Converse Chuck Taylor All Star"],
+  ["shoes","小白鞋","leatherLow",5,40,"KM","u",.03,"",""],
+  ["shoes","復古慢跑鞋","runner",0,36,"SJK","u",.03,"","KITH・Saucony Jazz Original"],
+  ["shoes","低筒德訓鞋","terrace",5,36,"SKM","u",.03,"","KITH・adidas Samba"],
+  ["shoes","高筒籃球鞋","hoopHigh",0,32,"SA","u",.04,"","KITH・Jordan 1 Retro High OG"],
+  ["shoes","樂福鞋","loafer",5,32,"KMJ","u",.03,"","KITH・Loafers"],
+  ["shoes","德比皮鞋","derby",0,28,"MA","u",.03,"wp","KITH・Derbies"],
+  ["shoes","工作靴","workBoot",-15,22,"ASJ","u",.06,"wp","Stüssy・Our Legacy Work Boot"],
+  ["shoes","切爾西靴","chelsea",-15,22,"KM","u",.06,"wp",""],
+  ["shoes","勃肯涼鞋","corkSandal",27,40,"JA","u",.01,"",""],
+  ["shoes","運動涼鞋","sportSandal",27,40,"SJ","u",.01,"","KITH・Sandals"],
+  ["shoes","瑪莉珍鞋","maryJane",8,30,"KJ","f",.02,"",""],
+  ["shoes","防水機能鞋","trail",0,36,"AKJSM","u",.04,"wp",""],
+
+  ["head","棒球帽","cap",5,40,"ASK","u",0,"","Stüssy・9TWENTY Basic Cap"],
+  ["head","漁夫帽","bucket",18,40,"JKS","u",0,"","Stüssy・Buckets"],
+  ["head","針織毛帽","skullcap",-15,16,"ASJK","u",.01,"","Stüssy・Skullcap"],
+  ["head","針織圍巾","scarf",-15,14,"KMJA","u",.05,"","Carhartt WIP・Parson Scarf"],
+  ["head","太陽眼鏡","sunglasses",20,40,"ASMK","u",0,"","Stüssy・Sunglasses"],
+  ["head","細框眼鏡","glasses",-15,40,"JKM","u",0,"",""],
+  ["head","銀色項鍊","necklace",5,40,"SK","u",0,"silver",""],
+  ["head","皮革錶帶手錶","watch",-15,40,"AM","u",0,"",""],
+
+  ["bag","兩用托特包","twoWayTote",-15,40,"K","u",0,"","Raucohouse・포스 투웨이 토트 백"],
+  ["bag","帆布托特包","tote",-15,40,"JMA","u",0,"",""],
+  ["bag","尼龍斜背包","cross",-15,40,"S","u",0,"","Stüssy・Bags"],
+  ["bag","皮革肩背包","shoulderBag",-15,40,"KM","u",0,"","Studio Nicholson・Bags & Leather Goods"],
+  ["bag","帆布後背包","backpack",-15,40,"AJ","u",0,"","Carhartt WIP・Accessories"],
+  ["bag","胸前小包","sling",-15,40,"SA","u",0,"",""]
+];
+var ITEMS = RAW.map(function(r){ return {slot:r[0], n:r[1], gl:r[2], lo:r[3], hi:r[4], st:r[5], g:r[6], c:r[7], f:r[8], ref:r[9]||""}; });
+
+/* ---------- garment glyphs: flat technical drawings on a 100×100 grid ----------
+   silhouettes and construction follow the reference items (collar, pockets, yokes, ribbing, soles);
+   brand logos and signature marks are never drawn */
+var RUBBER = "#efece4", GUM = "#b98a4e", CORK = "#c9a27a", SOLE = "#34302c", FUR = "#efe7da";
+
+/* bodies */
+var TEE = "M28 17 L42 13 Q50 21 58 13 L72 17 L90 33 L81 45 L73 40 L73 88 L27 88 L27 40 L19 45 L10 33 Z";
+var TEEFIT = "M33 18 L43 14 Q50 21 57 14 L67 18 L79 30 L72 39 L67 35 L67 82 L33 82 L33 35 L28 39 L21 30 Z";
+var SQTOP = "M33 18 L42 14 L42 24 L58 24 L58 14 L67 18 L79 30 L72 39 L67 35 L66 70 L34 70 L33 35 L28 39 L21 30 Z";
+var JERSEY = "M35 11 L43 11 Q50 28 57 11 L65 11 Q65 30 74 36 L74 90 L26 90 L26 36 Q35 30 35 11 Z";
+var TANKRIB = "M38 10 L42 10 Q42 26 50 28 Q58 26 58 10 L62 10 Q62 30 68 36 L68 84 L32 84 L32 36 Q38 30 38 10 Z";
+var LONG = "M28 16 L42 12 Q50 20 58 12 L72 16 L84 28 L92 82 L81 84 L73 46 L73 88 L27 88 L27 46 L19 84 L8 82 L16 28 Z";
+var VLONG = "M28 16 L42 12 L50 30 L58 12 L72 16 L84 28 L92 82 L81 84 L73 46 L73 88 L27 88 L27 46 L19 84 L8 82 L16 28 Z";
+var CROPKNIT = "M33 18 L43 14 Q50 21 57 14 L67 18 L78 30 L86 70 L78 72 L67 38 L67 70 L33 70 L33 38 L22 72 L14 70 L22 30 Z";
+var TURT = "M31 20 L42 16 L42 5 L58 5 L58 16 L69 20 L83 32 L91 80 L81 82 L71 48 L71 88 L29 88 L29 48 L19 82 L9 80 L17 32 Z";
+var INNER = "M34 16 L43 12 Q50 18 57 12 L66 16 L78 28 L86 82 L78 84 L68 44 L68 88 L32 88 L32 44 L22 84 L14 82 L22 28 Z";
+var SHIRT_S = "M28 16 L42 12 L50 18 L58 12 L72 16 L89 33 L80 45 L72 40 L72 86 L28 86 L28 40 L20 45 L11 33 Z";
+var SHIRT = "M28 16 L42 12 L50 18 L58 12 L72 16 L84 28 L91 82 L81 84 L73 46 L73 84 Q62 91 50 87 Q38 91 27 84 L27 46 L19 84 L9 82 L16 28 Z";
+var LSHIRT = "M28 16 L42 12 L50 18 L58 12 L72 16 L84 28 L91 82 L81 84 L73 46 L74 94 L26 94 L27 46 L19 84 L9 82 L16 28 Z";
+var JACK = "M28 15 L42 11 L50 17 L58 11 L72 15 L86 28 L92 80 L82 82 L73 45 L73 82 L27 82 L27 45 L18 82 L8 80 L14 28 Z";
+var ROUNDJ = "M28 15 L40 12 Q50 20 60 12 L72 15 L86 28 L92 80 L82 82 L73 45 L73 82 L27 82 L27 45 L18 82 L8 80 L14 28 Z";
+var TRUCK = "M28 15 L42 11 L50 17 L58 11 L72 15 L86 28 L92 78 L82 80 L73 45 L73 78 L27 78 L27 45 L18 80 L8 78 L14 28 Z";
+var COACH = "M28 15 L42 11 L50 17 L58 11 L72 15 L86 28 L92 80 L82 82 L73 45 L73 80 Q50 86 27 80 L27 45 L18 82 L8 80 L14 28 Z";
+var SHELL = "M28 15 L42 11 L50 17 L58 11 L72 15 L86 28 L92 82 L82 84 L73 45 L74 88 Q50 92 26 88 L27 45 L18 84 L8 82 L14 28 Z";
+var COAT = "M30 14 L42 10 L50 16 L58 10 L70 14 L83 26 L90 78 L80 80 L72 44 L75 96 L25 96 L28 44 L20 80 L10 78 L17 26 Z";
+var COATS = "M30 14 L42 10 L50 16 L58 10 L70 14 L83 26 L90 78 L80 80 L72 44 L73 84 L27 84 L28 44 L20 80 L10 78 L17 26 Z";
+var HOOD = "M37 16 Q33 1 50 1 Q67 1 63 16 Q57 22 50 22 Q43 22 37 16 Z";
+var HOODB = "M36 17 Q31 2 50 1 Q69 2 64 17 Q57 23 50 23 Q43 23 36 17 Z";
+var PANT = "M30 8 L70 8 L72 94 L55 94 L50 34 L45 94 L28 94 Z";
+var PANTW = "M29 8 L71 8 L74 94 L54 94 L50 35 L46 94 L26 94 Z";
+var BAGGY = "M28 8 L72 8 L77 94 L54 94 L50 36 L46 94 L23 94 Z";
+var WIDE = "M30 8 L70 8 L79 94 L55 94 L50 36 L45 94 L21 94 Z";
+var TAPER = "M30 8 L70 8 L69 84 L68 94 L55 94 L54.5 84 L50 34 L45.5 84 L45 94 L32 94 L31 84 Z";
+var FLARE = "M31 8 L69 8 L68.5 58 Q69 80 77 94 L54 94 Q52 76 51.5 60 L50 38 L48.5 60 Q48 76 46 94 L23 94 Q31 80 31.5 58 Z";
+var FLOW = "M31 10 L69 10 L82 94 L55 94 L50 40 L45 94 L18 94 Z";
+var SHORT = "M28 22 L72 22 L78 66 L54 66 L50 42 L46 66 L22 66 Z";
+var LSHORT = "M27 14 L73 14 L78 74 L54 74 L50 38 L46 74 L22 74 Z";
+var WSHORT = "M28 16 L72 16 L80 72 L54 72 L50 40 L46 72 L20 72 Z";
+var BSHORT = "M26 18 L74 18 L80 68 L54 68 L50 44 L46 68 L20 68 Z";
+
+/* shared details */
+var NECK_T = "M43.5 15.5 Q50 24 56.5 15.5", SL_T = "M13 31 L22 42.5 M87 31 L78 42.5", HEM_T = "M27 84 L73 84";
+var NECK_L = "M43.5 14.5 Q50 23 56.5 14.5", CUFF_L = "M9 76 L20 78 M91 76 L80 78";
+var RIB_L = "M27 82 L73 82 M32 82 L32 88 M38 82 L38 88 M44 82 L44 88 M50 82 L50 88 M56 82 L56 88 M62 82 L62 88 M68 82 L68 88";
+var CUFF_J = "M9 74 L19 77 M91 74 L81 77", CUFF_C = "M11 72 L21 74 M89 72 L79 74";
+var CUFF_S = "M9.5 76 L20.5 78 M90.5 76 L79.5 78";
+var COLLAR_S = ["M42 12 Q50 8 58 12 L58 14 Q50 11 42 14 Z", "M42 12 L38 26 L50 19 Z", "M58 12 L62 26 L50 19 Z"];
+var CAMP_S = ["M42 12 L37 27 L46 24 L50 31 Z", "M58 12 L63 27 L54 24 L50 31 Z"];
+var STAND = "M41 12 L41 5 Q50 3 59 5 L59 12 Q50 15 41 12 Z";
+var BTN6 = [[50,30],[50,42],[50,54],[50,66],[50,78]];
+var CURLS = "M30 50 q2 -3 4 0 M38 58 q2 -3 4 0 M31 68 q2 -3 4 0 M60 54 q2 -3 4 0 M64 66 q2 -3 4 0 M54 72 q2 -3 4 0 M18 46 q2 -3 4 0 M14 62 q2 -3 4 0 M78 46 q2 -3 4 0 M82 62 q2 -3 4 0 M36 26 q2 -3 4 0 M60 24 q2 -3 4 0";
+var JEANS_D = "M30 14 L70 14 M46 14 L46 29 Q47 33 50 34 M40 14 Q38 23 30.4 25 M60 14 Q62 23 69.6 25 M34 16 L38.5 16 L38.5 21 L34 21";
+var LOOSE_D = "M28 14 L72 14 M46 14 L46 30 Q47 34 50 35 M40 14 Q38 24 28.7 26 M60 14 Q62 24 71.3 26 M33 16 L37.5 16 L37.5 21 L33 21 M24 86 Q34 88 45.6 86 M54.4 86 Q66 88 76.5 86 M24.5 80 Q34 82 46 80 M54 80 Q66 82 76 80";
+function cable(x){
+  var a = "M"+x+" 26", b = "M"+x+" 26";
+  for (var i = 0, y = 26; y < 74; i++, y += 8){
+    var l = (i % 2) ? x+4 : x-4, r = (i % 2) ? x-4 : x+4;
+    a += " Q"+l+" "+(y+4)+" "+x+" "+(y+8); b += " Q"+r+" "+(y+4)+" "+x+" "+(y+8);
+  }
+  return a+" "+b;
+}
+var RIBS6 = "M38 40 L38 84 M44 33 L44 84 M50 30 L50 84 M56 33 L56 84 M62 40 L62 84";
+
+var G = {
+  /* tops */
+  tee:{b:[TEE], d:NECK_T+" "+SL_T+" "+HEM_T},
+  teeHeavy:{b:[TEE], d:NECK_T+" M45 18.5 Q50 22.5 55 18.5 "+SL_T+" "+HEM_T},
+  teePocket:{b:[TEE], d:NECK_T+" "+SL_T+" "+HEM_T+" M56 30 L65 30 L65 40 L56 40 Z"},
+  teeGraphic:{b:[TEE], f:[["M41 40 a9 9 0 1 0 18 0 a9 9 0 1 0 -18 0","dk",1,false]], d:NECK_T+" "+SL_T+" "+HEM_T+" M40 56 L60 56 M44 61 L56 61"},
+  polo:{b:[TEE,"M42 13 L38 22 L47 20 L50 17 Z","M58 13 L62 22 L53 20 L50 17 Z"], d:"M47 19 L47 34 L53 34 L53 19 "+SL_T+" "+HEM_T, dots:[[50,25],[50,30]]},
+  camp:{b:[SHIRT_S].concat(CAMP_S), d:"M50 31 L50 86 M13.5 31.5 L22.5 42.5 M86.5 31.5 L77.5 42.5", dots:[[50,42],[50,56],[50,70]]},
+  shirtS:{b:[SHIRT_S].concat(COLLAR_S), d:"M50 19 L50 86 M56 32 L66 32 L66 43 L56 43 Z M13.5 31.5 L22.5 42.5 M86.5 31.5 L77.5 42.5", dots:[[50,30],[50,44],[50,58],[50,72]]},
+  jersey:{b:[JERSEY], d:"M44.5 12.5 Q50 25 55.5 12.5 M36.5 12 Q36.5 31 27.5 37 M63.5 12 Q63.5 31 72.5 37 M26 85 L74 85"},
+  tankRib:{b:[TANKRIB]},
+  sqTop:{b:[SQTOP], d:"M43.5 15 L43.5 25.5 L56.5 25.5 L56.5 15 M34 66 L66 66"},
+  teeFit:{b:[TEEFIT], d:"M44 16 Q50 23 56 16 M33 78 L67 78"},
+  long:{b:[LONG], d:NECK_L+" "+CUFF_L+" "+HEM_T},
+  stripe:{b:[LONG], d:NECK_L+" "+CUFF_L, pl:["M0 36H100 M0 46H100 M0 56H100 M0 66H100 M0 76H100", 3.4, .9, 0]},
+  thermal:{b:[LONG], d:NECK_L+" "+CUFF_L+" "+HEM_T},
+  turtle:{b:[TURT], d:"M42 9 L58 9 M42 13 L58 13 M10 74 L21 76 M90 74 L79 76 M29 84 L71 84"},
+  inner:{b:[INNER], d:"M43 12 Q50 18 57 12"},
+  oxford:{b:[SHIRT].concat(COLLAR_S), d:"M50 19 L50 87 M56 32 L66 32 L66 44 L56 44 Z "+CUFF_S, dots:[[39,24.5],[61,24.5]].concat(BTN6)},
+  oxfordEmb:{b:[SHIRT].concat(COLLAR_S), d:"M50 19 L50 87 M57 34 q2 -3 4 0 q2 3 4 0 "+CUFF_S, dots:[[39,24.5],[61,24.5]].concat(BTN6)},
+  western:{b:[SHIRT].concat(COLLAR_S, ["M31 36 L44 36 L44 39 L37.5 43 L31 39 Z","M56 36 L69 36 L69 39 L62.5 43 L56 39 Z"]),
+    d:"M50 19 L50 87 M27 28 L36 28 L40 35 L44 28 L50 28 M50 28 L56 28 L60 35 L64 28 L73 28 M31 39 L31 50 L44 50 L44 39 M56 39 L56 50 L69 50 L69 39 "+CUFF_S,
+    dots:[[37.5,42],[62.5,42]].concat(BTN6)},
+  flannel:{b:[SHIRT].concat(COLLAR_S), d:"M50 19 L50 87 "+CUFF_S, pl:["M35 0V100 M43 0V100 M57 0V100 M65 0V100 M13 0V100 M20 0V100 M80 0V100 M87 0V100 M0 34H100 M0 48H100 M0 62H100 M0 76H100", 3.4, .34, 1], dots:BTN6},
+  stripeShirt:{u:[["M27 84 Q38 91 50 87 Q62 91 73 84 L73 89 Q62 96 50 92 Q38 96 27 89 Z","lt"]], b:[SHIRT].concat(COLLAR_S),
+    d:"M50 19 L50 87 "+CUFF_S, pl:["M33 0V100 M38 0V100 M44 0V100 M56 0V100 M62 0V100 M67 0V100 M14 0V100 M20 0V100 M80 0V100 M86 0V100", 1.3, .75, 0], dots:BTN6},
+  bandShirt:{b:[SHIRT, STAND], d:"M50 14 L50 87 M53 14 L53 80 "+CUFF_S},
+  blouse:{b:[SHIRT, STAND], f:[["M8.6 74 L20.5 76 L19.6 80 L8.3 78 Z","dk",0.5,false],["M91.4 74 L79.5 76 L80.4 80 L91.7 78 Z","dk",0.5,false]], d:"M50 14 L50 87 M30 18 L31 22 M34 17 L35 21 M66 17 L65 21 M70 18 L69 22", dots:[[50,24],[50,38],[50,52],[50,66]]},
+  longShirt:{b:[LSHIRT].concat(COLLAR_S), d:"M50 19 L50 94 M26.3 86 L26.3 94 M73.7 86 L73.7 94 "+CUFF_S, dots:[[50,30],[50,44],[50,58],[50,72],[50,86]]},
+  dress:{b:["M37 10 L44 8 Q50 14 56 8 L63 10 L69 22 L65 40 L84 92 L16 92 L35 40 L31 22 Z"], d:"M35 40 L65 40 M42 52 L36 90 M58 52 L64 90"},
+  dressShirt:{b:["M32 14 L43 9 Q50 15 57 9 L68 14 L82 32 L74 40 L67 33 L65 42 L84 92 L16 92 L35 42 L33 33 L26 40 L18 32 Z","M43 9 L46 17 L50 12 Z","M57 9 L54 17 L50 12 Z"],
+    f:[["M35 42 L65 42 L65.6 47 L34.4 47 Z","dk",1,true]], d:"M50 12 L50 92", dots:[[50,22],[50,32],[50,56],[50,68]]},
+  dressFloral:{b:["M32 14 L43 9 Q50 15 57 9 L68 14 L82 32 L74 40 L67 33 L65 42 L84 92 L16 92 L35 42 L33 33 L26 40 L18 32 Z"],
+    f:[["M40 54 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0","lt",1,false],["M56 62 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0","lt",1,false],["M34 74 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0","lt",1,false],["M60 80 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0","lt",1,false],["M46 84 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0","lt",1,false],["M44 26 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0","lt",1,false]],
+    d:"M44 11 Q50 17 56 11 M35 42 L65 42"},
+  dressL:{b:["M32 14 L43 9 Q50 15 57 9 L68 14 L80 28 L88 74 L79 76 L68 40 L66 44 L84 94 L16 94 L34 44 L32 40 L21 76 L12 74 L20 28 Z"], d:"M44 11 Q50 17 56 11 M34 44 L66 44 M40 50 L38 94 M50 50 L50 94 M60 50 L62 94"},
+
+  /* mid layers */
+  knit:{b:[LONG], d:NECK_L+" M45 17.5 Q50 22 55 17.5 "+RIB_L+" "+CUFF_L},
+  knitFine:{b:[LONG], d:NECK_L+" M27 84 L73 84 "+CUFF_L},
+  cable:{b:[LONG], d:NECK_L+" "+RIB_L+" "+CUFF_L+" "+cable(50)+" "+cable(38)+" "+cable(62)},
+  vneck:{b:[VLONG], d:"M43.5 13.5 L50 27 L56.5 13.5 "+RIB_L+" "+CUFF_L},
+  turtleKnit:{b:[TURT], d:"M42 9 L58 9 M42 13 L58 13 M10 74 L21 76 M90 74 L79 76 M29 82 L71 82 M34 82 L34 88 M42 82 L42 88 M50 82 L50 88 M58 82 L58 88 M66 82 L66 88"},
+  knitBand:{b:[LONG], f:[["M27 40 L73 40 L73 50 L27 50 Z","dk",0.6,false],["M27 62 L73 62 L73 72 L27 72 Z","dk",0.6,false]], d:NECK_L+" "+RIB_L+" "+CUFF_L},
+  knitCrop:{b:[CROPKNIT], d:"M44 16 Q50 23 56 16 M33 64 L67 64 M38 64 L38 70 M44 64 L44 70 M50 64 L50 70 M56 64 L56 70 M62 64 L62 70 M15 64 L23 66 M85 64 L77 66"},
+  vest:{b:["M34 12 L42 12 L50 34 L58 12 L66 12 Q66 28 74 34 L74 86 L26 86 L26 34 Q34 28 34 12 Z"], d:"M26 80 L74 80 M32 80 L32 86 M38 80 L38 86 M44 80 L44 86 M50 80 L50 86 M56 80 L56 86 M62 80 L62 86 M68 80 L68 86 M43.5 13.5 L50 30 L56.5 13.5"},
+  hoodie:{b:[HOOD, LONG], d:"M41 15 Q50 6 59 15 M36 62 L64 62 L68 76 L32 76 Z M46 22 L45 36 M54 22 L55 36 "+RIB_L+" "+CUFF_L},
+  hoodieChest:{b:[HOOD, LONG], d:"M41 15 Q50 6 59 15 M36 62 L64 62 L68 76 L32 76 Z M46 22 L45 36 M54 22 L55 36 M56 32 q2 -3 4 0 q2 3 4 0 "+RIB_L+" "+CUFF_L},
+  hoodieBlock:{b:[HOOD, LONG], f:[["M27 38 L73 38 L73 54 L27 54 Z","dk",0.7,false]], d:"M41 15 Q50 6 59 15 M36 62 L64 62 L68 76 L32 76 Z M46 22 L45 36 M54 22 L55 36 "+RIB_L+" "+CUFF_L},
+  hoodieZip:{b:[HOOD, LONG], z:["M50 22 L50 88"], d:"M41 15 Q50 6 59 15 M33 60 L37 74 M67 60 L63 74 M46 22 L45 34 M54 22 L55 34 "+RIB_L+" "+CUFF_L},
+  sweat:{b:[LONG], d:NECK_L+" M48 18 L50 23 L52 18 "+RIB_L+" "+CUFF_L},
+  quarterZip:{b:[LONG, STAND], z:["M50 4 L50 38"], d:RIB_L+" "+CUFF_L},
+  fleeceHalf:{b:[LONG, STAND], f:[["M56 40 L67 40 L67 52 L56 52 Z","dk",1,true,"nylon"]], z:["M50 4 L50 38"], d:"M27 84 L73 84 "+CUFF_L},
+
+  /* outerwear */
+  workJacket:{b:[JACK], f:[["M42 11 L33 25 L50 17 Z","dk",1,true,"cord"],["M58 11 L67 25 L50 17 Z","dk",1,true,"cord"],["M42 11 Q50 7 58 11 L58 13.5 Q50 10.5 42 13.5 Z","dk",1,true,"cord"]],
+    z:["M50 17 L50 82"], d:"M31 55 L37 67 M69 55 L63 67 M56 31 L64 31 L64 40 L56 40 Z M27 76 L73 76 "+CUFF_J},
+  santaFe:{b:[JACK], f:[[STAND,"dk",1,true]], d:"M50 14 L50 82 M27 30 Q35 30 39 37 Q43 31 49 31 M51 31 Q57 31 61 37 Q65 30 73 30 M31 55 L37 67 M69 55 L63 67 M27 76 L73 76 "+CUFF_J, dots:[[50,24],[50,40],[50,56],[50,70]]},
+  vista:{b:[HOOD, JACK], z:["M50 22 L50 82"], d:"M41 15 Q50 6 59 15 M30 54 L36 68 M70 54 L64 68 M27 76 L73 76 M46 22 L45 32 M54 22 L55 32 "+CUFF_J},
+  trucker:{b:[TRUCK, "M42 11 L35 24 L50 17 Z", "M58 11 L65 24 L50 17 Z", "M31 31 L44 31 L44 34.5 L37.5 38 L31 34.5 Z", "M56 31 L69 31 L69 34.5 L62.5 38 L56 34.5 Z"],
+    d:"M50 17 L50 78 M31 34.5 L31 45 L44 45 L44 34.5 M56 34.5 L56 45 L69 45 L69 34.5 M37.5 38 L37 72 M62.5 38 L63 72 M28 26 L42 25 M58 25 L72 26 M27 72 L73 72 M9 72 L19 75 M91 72 L81 75",
+    dots:[[50,24],[50,36],[50,48],[50,60],[50,75],[37.5,36],[62.5,36],[35,75],[65,75]]},
+  chore:{b:[JACK, "M42 11 L35 24 L50 17 Z", "M58 11 L65 24 L50 17 Z"], d:"M50 17 L50 82 M56 30 L65 30 L65 40 L56 40 Z M30 52 L42 52 L42 66 L30 66 Z M58 52 L70 52 L70 66 L58 66 Z "+CUFF_J, dots:[[50,26],[50,40],[50,54],[50,68]]},
+  overshirt:{b:[JACK].concat(["M42 11 Q50 7 58 11 L58 13 Q50 10 42 13 Z","M42 11 L37 24 L50 17 Z","M58 11 L63 24 L50 17 Z","M31 30 L43 30 L43 34 L31 34 Z","M57 30 L69 30 L69 34 L57 34 Z"]),
+    d:"M50 17 L50 82 M31 34 L31 44 L43 44 L43 34 M57 34 L57 44 L69 44 L69 34 "+CUFF_J, dots:[[50,26],[50,40],[50,54],[50,68],[37,32],[63,32]]},
+  bomber:{b:[JACK], f:[["M40.5 11.5 Q50 21 59.5 11.5 L61.5 13.5 Q50 25 38.5 13.5 Z","dk",1,true,"rib"],["M27 75 L73 75 L73 82 L27 82 Z","dk",1,true,"rib"],["M8.6 74 L19.4 77 L18 82 L8 80 Z","dk",1,true,"rib"],["M91.4 74 L80.6 77 L82 82 L92 80 Z","dk",1,true,"rib"]],
+    z:["M50 21 L50 75"], d:"M31 50 L36 62 M69 50 L64 62 M79 36 L85 35 L86.5 45 L80.5 46 Z M82 36 L83 45.5"},
+  harrington:{b:[JACK, STAND, "M30 52 L39 50 L40 55 L31 57 Z", "M70 52 L61 50 L60 55 L69 57 Z"], f:[["M27 75 L73 75 L73 82 L27 82 Z","dk",1,true,"rib"],["M8.6 74 L19.4 77 L18 82 L8 80 Z","dk",1,true,"rib"],["M91.4 74 L80.6 77 L82 82 L92 80 Z","dk",1,true,"rib"]], z:["M50 8 L50 75"]},
+  parkaWork:{b:[HOOD, COAT], d:"M41 15 Q50 6 59 15 M50 22 L50 96 M53.5 22 L53.5 96 M31 30 L43 30 L43 42 L31 42 Z M31 34 L43 34 M57 30 L69 30 L69 42 L57 42 Z M57 34 L69 34 M29 62 L44 62 L44 78 L29 78 Z M29 66 L44 66 M56 62 L71 62 L71 78 L56 78 Z M56 66 L71 66 "+CUFF_C, dots:[[51.7,32],[51.7,48],[51.7,64],[51.7,80]]},
+  coatWork:{b:[COAT, "M42 10 L35 23 L50 16 Z", "M58 10 L65 23 L50 16 Z"], d:"M50 16 L50 96 M33 28 L43 28 L43 38 L33 38 Z M57 28 L67 28 L67 38 L57 38 Z M30 60 L44 60 L44 76 L30 76 Z M56 60 L70 60 L70 76 L56 76 Z "+CUFF_C, dots:[[50,26],[50,42],[50,58],[50,74],[50,88]]},
+  sherpa:{b:[JACK, STAND], f:[["M57 30 L69 30 L69 44 L57 44 Z","dk",1,true,"nylon"],["M27 77 L73 77 L73 82 L27 82 Z","dk",1,true,"nylon"]], z:["M50 6 L50 82"], d:CUFF_J},
+  coach:{b:[COACH, "M42 11 L35 23 L50 17 Z", "M58 11 L65 23 L50 17 Z"], d:"M50 17 L50 83 M31 52 L36 63 M69 52 L64 63 M27 76 Q50 82 73 76 "+CUFF_J, dots:[[50,26],[50,38],[50,50],[50,62],[50,74],[30,79],[70,79]]},
+  moto:{b:[JACK, "M42 11 L31 22 L38 31 L47 18 Z", "M58 11 L67 25 L61 30 L53 18 Z"], f:[["M46 70.5 L52 70.5 L52 77.5 L46 77.5 Z","dk",1,true]],
+    z:["M58 18 L40 48 L43 82"], d:"M30 34 L39 30 M60 42 L67 54 M27 71 L73 71 M27 77 L73 77 M12 60 L15 74 M88 60 L85 74 "+CUFF_J, dots:[[33,23],[64,26]]},
+  blazer:{b:[JACK, "M42 11 L36 22 L40 26 L45 42 L50 50 L48 16 Z", "M58 11 L64 22 L60 26 L55 42 L50 50 L52 16 Z"], d:"M50 50 L50 82 M31 64 L42 64 M58 64 L69 64 M57 34 L66 34 "+CUFF_J, dots:[[50,60],[50,70]]},
+  cardigan:{b:[LONG], d:"M42 12 L50 44 L58 12 M50 44 L50 88 "+RIB_L+" "+CUFF_L, dots:[[50,54],[50,64],[50,74]]},
+  shearling:{b:[JACK], f:[["M42 11 L28 25 L37 33 L50 20 L63 33 L72 25 L58 11 Q50 8 42 11 Z",FUR,1,true,"fleece"],["M27 75 L73 75 L73 82 L27 82 Z",FUR,1,true,"fleece"],["M8.6 73 L19.6 76 L18 82 L8 80 Z",FUR,1,true,"fleece"],["M91.4 73 L80.4 76 L82 82 L92 80 Z",FUR,1,true,"fleece"]],
+    d:"M50 20 L50 75 M31 50 L37 62 M69 50 L63 62", fd:"M33 22 q2 -2 4 0 M40 27 q2 -2 4 0 M56 27 q2 -2 4 0 M63 22 q2 -2 4 0 M33 78 q2 -2 4 0 M45 78 q2 -2 4 0 M57 78 q2 -2 4 0 M65 78 q2 -2 4 0"},
+  fleeceZip:{b:[JACK, STAND], f:[["M56 30 L67 30 L67 37 L56 37 Z","dk",1,true,"nylon"]], z:["M50 6 L50 82"], d:"M27 78 L73 78 "+CUFF_J},
+  pufferHood:{b:[HOOD, JACK], z:["M50 22 L50 82"], d:"M41 15 Q50 6 59 15 M27 34 L73 34 M27 48 L73 48 M27 62 L73 62 M27 76 L73 76 M38.5 18 L38.5 82 M61.5 18 L61.5 82 M14 44 L23 44 M86 44 L77 44 M12 60 L21 60 M88 60 L79 60"},
+  quiltLiner:{b:[ROUNDJ], d:"M40.5 13.5 Q50 21.5 59.5 13.5 M50 19 L50 82 M27 32 L45 50 L27 68 M73 32 L55 50 L73 68 M36 18 L50 32 L64 18 M27 50 L50 73 L73 50 M38 82 L50 70 L62 82 M27 79 L73 79 "+CUFF_J, dots:[[50,28],[50,42],[50,56],[50,70]]},
+  peacoat:{b:[COATS, "M42 10 L32 21 L36 25 L39 40 L50 47 L46 15 Z", "M58 10 L68 21 L64 25 L61 40 L50 47 L54 15 Z"], d:"M31 60 L35 72 M69 60 L65 72 "+CUFF_C, dots:[[43,53],[57,53],[43,63],[57,63],[43,73],[57,73]]},
+  coat:{b:[COAT, "M42 10 L34 20 L38 24 L42 42 L50 50 L47 15 Z", "M58 10 L66 20 L62 24 L58 42 L50 50 L53 15 Z"], d:"M50 50 L50 96 M30 66 L42 66 M58 66 L70 66 "+CUFF_C, dots:[[50,58],[50,70],[50,82]]},
+  duffle:{b:[HOOD, COAT], f:[["M43 38 L49 38 L49 41 L43 41 Z",FUR,1,true],["M43 52 L49 52 L49 55 L43 55 Z",FUR,1,true],["M43 66 L49 66 L49 69 L43 69 Z",FUR,1,true]],
+    d:"M41 15 Q50 6 59 15 M28 28 Q50 34 72 28 M50 22 L50 96 M49 39.5 L57 39.5 M49 53.5 L57 53.5 M49 67.5 L57 67.5 M30 74 L44 74 L44 88 L30 88 Z M56 74 L70 74 L70 88 L56 88 Z "+CUFF_C},
+  trench:{b:[COAT, "M42 10 L34 20 L38 24 L42 42 L50 50 L47 15 Z", "M58 10 L66 20 L62 24 L58 42 L50 50 L53 15 Z", "M53 17 L64 18 L66 34 L55 33 Z"], f:[["M28 55 L72 55 L72 60 L28 60 Z","dk",1,true]],
+    d:"M26 16 L35 14 M65 14 L74 16 M30 70 L36 82 M70 70 L64 82 M14 58 L24 58 M86 58 L76 58 "+CUFF_C, dots:[[44,45],[56,45],[44,68],[56,68]]},
+  trenchShort:{b:[COATS, "M42 10 L34 20 L38 24 L42 40 L50 46 L47 15 Z", "M58 10 L66 20 L62 24 L58 40 L50 46 L53 15 Z"], f:[["M28 56 L72 56 L72 61 L28 61 Z","dk",1,true]],
+    d:"M26 16 L35 14 M65 14 L74 16 M31 66 L35 76 M69 66 L65 76 "+CUFF_C, dots:[[44,50],[56,50],[44,70],[56,70]]},
+  downParka:{b:[HOOD, COAT], z:["M50 22 L50 96"], d:"M41 15 Q50 6 59 15 M28 34 L72 34 M28 48 L72 48 M28 62 L73 62 M27 76 L74 76 M26 90 L75 90 M14 44 L23 44 M86 44 L77 44 M12 60 L21 60 M88 60 L79 60"},
+  shell:{b:[HOODB, SHELL], z:["M50 22 L50 89"], d:"M41 15 Q50 5 59 15 M53 22 L53 89 M58 30 L66 41 M28 24 L42 21 M58 21 L72 24 M31 56 L35 68 M15 40 L24 41 M85 40 L76 41", dots:[[30,88],[70,88]]},
+  openShirt:{b:[SHIRT].concat(CAMP_S), d:"M50 31 L50 87 "+CUFF_S, dots:[[50,42],[50,56],[50,70]]},
+  puffer:{b:[JACK], d:"M28 34 L72 34 M28 48 L72 48 M28 62 L72 62 M28 76 L72 76 M14 44 L23 44 M86 44 L77 44 M12 60 L21 60 M88 60 L79 60", z:["M50 18 L50 82"]},
+
+  /* bottoms */
+  jeans:{b:[PANT], d:JEANS_D+" M29 88 L45.4 88 M54.6 88 L71.6 88", dots:[[31.5,24.5],[68.5,24.5]]},
+  jeansLoose:{b:[BAGGY], d:LOOSE_D, dots:[[30,25.5],[70,25.5]]},
+  jeansPanel:{b:[BAGGY], f:[["M25 60 L48.3 60 L46 94 L23 94 Z","dk",0.55,false],["M51 14 L72.3 14 L73.6 36 L51 36 Z","dk",0.55,false]], d:LOOSE_D},
+  workPant:{b:[PANTW], d:"M29 14 L71 14 M46 14 L46 30 Q47 33.5 50 34.5 M38 14 L30 30 M62 14 L70 30 M71.6 32 L75 32 L75.2 44 L72 44 M29.6 36 L37 36 L37 54 L30.3 54 M33 36 L33 46 M26.4 88 L45.5 88 M54.5 88 L73.6 88"},
+  cargo:{b:[PANT], d:"M30 14 L70 14 M46 14 L46 29 Q47 33 50 34 M39 14 L31 28 M61 14 L69 28 M31 44 L40 44 L40 60 L31.2 60 M31 48 L40 48 M60 44 L69 44 L69.4 60 L60 60 Z M60 48 L69 48 M29 88 L45.4 88 M54.6 88 L71.6 88"},
+  sweatpant:{b:[TAPER], d:"M30 15 L70 15 M47 15 L46 23 M53 15 L54 23 M31 84 L45.5 84 M54.5 84 L69 84 M35 15 Q34 22 30.4 24 M65 15 Q66 22 69.6 24"},
+  chino:{b:[PANT], d:"M30 14 L70 14 M46 14 L46 29 Q47 33 50 34 M39 14 L31 28 M61 14 L69 28 M38 34 L37 92 M62 34 L63 92", dots:[[50,11]]},
+  slacks:{b:[WIDE], d:"M30 14 L70 14 M46 14 L46 30 M42 14 L43 26 M58 14 L57 26 M38 22 L31 94 M62 22 L69 94 M39 14 L31.5 28 M61 14 L68.5 28", dots:[[50,11]]},
+  slacksCord:{b:[WIDE], d:"M30 14 L70 14 M46 14 L46 30 M42 14 L43 26 M58 14 L57 26 M39 14 L31.5 28 M61 14 L68.5 28"},
+  flare:{b:[FLARE], d:"M31 15 L69 15 M36 8 L36 15 M42 8 L42 15 M48 8 L48 15 M54 8 L54 15 M60 8 L60 15 M66 8 L66 15 M40 22 Q38 46 40 62 Q41 80 35 94 M60 22 Q62 46 60 62 Q59 80 65 94"},
+  flow:{b:[FLOW], d:"M31 17 L69 17 M35 10 L35 17 M41 10 L41 17 M47 10 L47 17 M53 10 L53 17 M59 10 L59 17 M65 10 L65 17 M48 17 L46 26 M52 17 L54 26 M36 40 L28 92 M64 40 L72 92"},
+  workShort:{b:[LSHORT], d:"M27 20 L73 20 M46 20 L46 32 Q47 36 50 37 M37 20 L29 34 M63 20 L71 34 M72.8 36 L76.5 36 L77 48 L73.8 48 M27.9 38 L35 38 L35 56 L28.9 56 M22.4 70 L46.3 70 M53.7 70 L77.6 70"},
+  shorts:{b:[SHORT], d:"M28 28 L72 28 M46 28 L46 38 Q47 41 50 42 M38 28 L30 40 M62 28 L70 40 M22.5 62 L46.4 62 M53.6 62 L77.5 62"},
+  bball:{b:[BSHORT], f:[["M26 18 L74 18 L74.8 25 L25.2 25 Z","dk",1,true],["M71 25 L74.8 25 L80 68 L76.5 68 Z","dk",0.8,false],["M29 25 L25.2 25 L20 68 L23.5 68 Z","dk",0.8,false]], d:"M48 25 L47 33 M52 25 L53 33 M20.5 64 L46.4 64 M53.6 64 L79.5 64"},
+  wideShort:{b:[WSHORT], d:"M28 23 L72 23 M33 16 L33 23 M39 16 L39 23 M45 16 L45 23 M55 16 L55 23 M61 16 L61 23 M67 16 L67 23 M48 23 L47 32 M52 23 L53 32 M20.6 68 L46.3 68 M53.7 68 L79.4 68"},
+  tailoredShort:{b:[SHORT], d:"M28 28 L72 28 M42 28 L43 38 M58 28 L57 38 M38 36 L34 66 M62 36 L66 66 M39 28 L31 40 M61 28 L69 40", dots:[[50,25]]},
+  skirt:{b:["M35 12 L65 12 L80 90 L20 90 Z"], d:"M35 18 L65 18 M40 18 L32 90 M45 18 L41 90 M50 18 L50 90 M55 18 L59 90 M60 18 L68 90"},
+  denimSkirt:{b:["M33 12 L67 12 L74 92 L26 92 Z"], d:"M33 18 L67 18 M47 18 L47 32 M40 18 Q38 26 32.4 28 M60 18 Q62 26 67.6 28 M50 78 L50 92 M26.5 88 L73.5 88", dots:[[34.5,27],[65.5,27]]},
+  skirtS:{b:["M33 24 L67 24 L78 70 L22 70 Z"], d:"M33 30 L67 30 M40 30 L36 70 M60 30 L64 70"},
+  knitSkirt:{b:["M34 12 L66 12 L70 92 L30 92 Z"], d:"M34 18 L66 18 M38 18 L36 92 M44 18 L43 92 M50 18 L50 92 M56 18 L57 92 M62 18 L64 92"},
+  satinSkirt:{b:["M35 12 L65 12 L76 84 Q50 90 24 84 Z"], d:"M35 18 L65 18 M42 20 Q40 50 34 82 M56 20 Q60 50 66 82"},
+
+  /* footwear, side view with the toe to the right */
+  canvasLow:{b:["M11 62 Q11 47 24 45 L40 44 Q52 53 70 56 L85 59.5 Q92 61.5 92 68 L92 70 L11 70 Z"], f:[["M9 70 L93 70 L93 77 Q93 80 89 80 L13 80 Q9 80 9 76 Z",RUBBER,1,true],["M79 58 Q92 60.5 92.5 70 L79 70 Q77.5 63 79 58 Z",RUBBER,1,true]], d:"M28 49 L34 55 M34 47.5 L40 53.5 M40 49.5 L46 55.5 M24 46 Q30 52 30 69", fd:"M10 74 L92 74"},
+  leatherLow:{b:["M10 63 Q11 48 24 47 L42 46 Q54 54 72 57 L87 60 Q93 62.5 92 69 L10 70 Z"], f:[["M9 70 L93 70 L93 75 Q93 77 90 77 L12 77 Q9 77 9 74 Z",RUBBER,1,true]], d:"M29 50 L35 56 M35 48.5 L41 54.5 M41 50.5 L47 56.5 M22 47.5 Q24 58 21 69"},
+  runner:{b:["M10 60 Q10 44 24 42 L40 41 Q52 50 70 53 L86 57 Q94 60 92 67 L10 68 Z"], f:[["M74 54 Q90 57 92 67 L76 67 Q73.5 60 74 54 Z","dk",1,true],["M10 60 Q10 46 20 43 L25 43 L23 67 L10 67 Z","dk",1,true],["M30 64 Q42 48 60 52 Q46 54 38 66 Z","dk",1,true],["M8 67 L93 67 L92 73 Q90 77 85 77 L14 77 Q8 77 8 72 Z",RUBBER,1,true]], d:"M30 46 L35 51 M35 44.5 L40 49.5 M40 46.5 L45 51.5", fd:"M10 72 Q30 69 50 72 Q70 75 91 71"},
+  terrace:{b:["M10 64 Q11 52 22 50 L42 49 Q56 56 74 58 L88 61 Q94 63 93 69 L10 70 Z"], f:[["M68 57 L80 58.5 L87 61 Q92.5 63.5 92.5 69 L70 69 Q71.5 63 68 57 Z","dk",1,true],["M10 64 Q11 54 17 51.5 L19 69 L10 69 Z","dk",1,true],["M9 70 L94 70 L93 75 Q91 77.5 86 77.5 L13 77.5 Q9 77.5 9 74 Z",GUM,1,true]], d:"M44 51 L48 57 M48 50.5 L52 56.5 M52 52 L56 58"},
+  hoopHigh:{b:["M18 22 L42 20 L44 46 Q58 54 76 56 L89 60 Q95 64 93 72 L18 72 Z"], f:[["M74 55.8 Q91 59 93 72 L74 72 Q72 63 74 55.8 Z","dk",1,true],["M18 38 L31 38 L31 72 L18 72 Z","dk",1,true],["M18 22 L42 20 L42.3 26 L18 28 Z","dk",1,true],["M16 72 L95 72 L94.5 79 L16 79 Z",RUBBER,1,true]], d:"M42 28 L45 33 M42.5 34 L46 39 M43 40 L47 45 M31 46 Q50 56 72 60"},
+  loafer:{b:["M10 66 Q12 54 28 53 L60 52 Q82 53 90 63 Q94 70 90 74 L10 74 Z"], f:[["M9 74 L91 74 L91 78 L9 78 Z",SOLE,1,true]], d:"M44 54 Q56 62 70 55 M52 57 L60 57 M60 52.5 Q72 53 84 58"},
+  derby:{b:["M10 64 Q12 50 28 48 L46 47 Q60 54 76 56 L88 60 Q94 64 92 71 L10 72 Z"], f:[["M9 72 L93 72 L93 77 L9 77 Z",SOLE,1,true]], d:"M30 49 Q38 58 50 60 M46 48 L44 56 M49 50 L47 58 M52 52 L50 59"},
+  workBoot:{b:["M20 18 L48 18 L50 48 Q64 50 80 56 Q92 60 90 72 L20 72 Z"], f:[["M18 72 L91 72 L91 80 L18 80 Z",SOLE,1,true]], d:"M62 52 Q72 49 82 57 M20 24 L48 24 M40 27 L48 27 M40 33 L48.4 33 M40 39 L48.8 39 M41 45 L49.4 45"},
+  chelsea:{b:["M22 14 L48 14 L50 50 Q66 52 82 58 Q92 62 90 74 L22 74 Z","M24 14 L26 6 L30 6 L32 14 Z"], f:[["M34 16 L46 16 L42 44 Z","dk",1,true],["M20 74 L91 74 L91 79 L20 79 Z",SOLE,1,true]]},
+  corkSandal:{s:[["M24 64 Q34 46 50 64",7],["M54 64 Q66 48 80 64",7]], f:[["M8 72 Q8 64 18 64 L84 64 Q94 66 92 74 L10 74 Z",CORK,1,true,"cork"],["M8 74 L92 74 L92 78 L8 78 Z",SOLE,1,true]], k:"M35 50 L39 50 M65 51 L69 51"},
+  sportSandal:{s:[["M22 66 Q30 44 46 66",5],["M50 66 Q60 46 74 66",5],["M18 66 Q16 52 24 46",5]], f:[["M9 72 Q10 66 26 66 L84 66 Q94 68 92 76 L10 76 Z","dk",1,true],["M9 76 L92 76 L92 80 L9 80 Z",SOLE,1,true]]},
+  maryJane:{b:["M12 66 Q14 54 30 54 L62 54 Q84 55 90 64 Q93 70 89 73 L12 73 Z"], so:[["M34 54 Q42 40 52 42",4]], f:[["M11 73 L90 73 L90 77 L11 77 Z",SOLE,1,true]], dots:[[52,42]]},
+  trail:{b:["M10 60 Q10 44 24 42 L40 41 Q52 50 70 53 L86 57 Q94 60 92 66 L10 67 Z"], f:[["M76 54.6 Q91 57.5 92 66 L77 66 Q75 60 76 54.6 Z","dk",1,true],["M8 67 L93 67 L92 74 Q90 79 85 79 L14 79 Q8 79 8 74 Z",SOLE,1,true]], d:"M30 46 L35 51 M35 44.5 L40 49.5 M40 46.5 L45 51.5 M12 56 Q30 60 52 58"},
+
+  /* headwear and accessories */
+  cap:{b:["M20 62 Q20 30 50 30 Q78 30 80 62 Z","M60 62 Q86 58 95 68 L58 68 Z"], d:"M50 31 L46 62 M34 36 L30 62 M66 36 L68 62", dots:[[50,30],[40,42]]},
+  bucket:{b:["M14 62 Q22 46 31 46 L69 46 Q78 46 86 62 Z","M31 47 Q32 26 50 26 Q68 26 69 47 Z"], d:"M31 42 L69 42 M20 58 Q50 52 80 58"},
+  skullcap:{b:["M24 70 Q24 30 50 28 Q76 30 76 70 Z"], d:"M24 62 L76 62 M30 62 L30 70 M36 62 L36 70 M42 62 L42 70 M50 62 L50 70 M58 62 L58 70 M64 62 L64 70 M70 62 L70 70 M32 46 L32 58 M41 36 L41 58 M50 30 L50 58 M59 36 L59 58 M68 46 L68 58"},
+  scarf:{b:["M56 8 L74 8 L74 52 L58 48 Z","M32 8 L56 8 L56 72 L46 90 L32 74 Z"], d:"M36 76 L34 84 M42 82 L40 90 M32 30 L56 30"},
+  sunglasses:{s:[["M42 44 Q50 38 58 44",3],["M10 42 L3 37",3],["M90 42 L97 37",3]], b:[["M10 40 L42 40 L42 52 Q42 64 26 64 Q10 64 10 52 Z","#26292e","acetate"],["M58 40 L90 40 L90 52 Q90 64 74 64 Q58 64 58 52 Z","#26292e","acetate"]]},
+  glasses:{s:[["M16 52 a14 14 0 1 0 28 0 a14 14 0 1 0 -28 0",3.5],["M56 52 a14 14 0 1 0 28 0 a14 14 0 1 0 -28 0",3.5],["M44 50 Q50 45 56 50",3]]},
+  necklace:{s:[["M18 14 Q50 84 82 14",2.5]], b:["M44 56 a6 6 0 1 0 12 0 a6 6 0 1 0 -12 0"]},
+  watch:{b:["M40 6 L60 6 L60 94 L40 94 Z",["M32 50 a18 18 0 1 0 36 0 a18 18 0 1 0 -36 0","#c4c7cc","metal"]], f:[["M36 50 a14 14 0 1 0 28 0 a14 14 0 1 0 -28 0","#f4f2ec",1,true]], d:"M40 18 L60 18 M40 82 L60 82", ink:["M50 50 L50 39 M50 50 L57 54","#2a2a2a",1.1]},
+  tote:{s:[["M36 38 Q36 14 50 14 Q64 14 64 38",4]], b:["M22 38 L78 38 L82 92 L18 92 Z"], d:"M22 46 L78 46"},
+  twoWayTote:{s:[["M24 40 Q50 -2 76 40",2.5],["M38 38 Q38 20 50 20 Q62 20 62 38",4]], b:["M20 38 L80 38 L80 88 L20 88 Z"], d:"M20 46 L80 46 M44 38 L44 46 L56 46 L56 38"},
+  cross:{s:[["M28 52 L64 8",3]], b:["M24 50 L76 50 Q80 50 80 56 L80 84 Q80 88 76 88 L24 88 Q20 88 20 84 L20 56 Q20 50 24 50 Z"], f:[["M45 70 L55 70 L55 77 L45 77 Z","dk",1,true]], d:"M20 60 L80 60 M50 60 L50 70"},
+  shoulderBag:{s:[["M24 52 Q50 12 76 52",3.5]], b:["M20 50 Q20 86 50 86 Q80 86 80 50 Z"], d:"M24 54 Q50 58 76 54"},
+  backpack:{s:[["M44 12 Q50 4 56 12",3]], b:["M28 26 Q28 12 50 12 Q72 12 72 26 L74 90 L26 90 Z"], d:"M34 58 L66 58 L66 84 L34 84 Z M28 30 Q50 38 72 30"},
+  sling:{s:[["M30 46 L70 8",3]], b:["M26 44 Q26 36 36 36 L64 36 Q74 36 74 44 L74 64 Q74 72 64 72 L36 72 Q26 72 26 64 Z"], d:"M30 46 Q50 52 70 46"},
+  umbrella:{b:["M8 52 Q50 4 92 52 Q82 46 71 52 Q60 46 50 52 Q40 46 29 52 Q18 46 8 52 Z"], d:"M50 14 Q34 30 29 52 M50 14 Q66 30 71 52 M50 14 L50 52", k:"M50 52 L50 84 Q50 92 42 90"}
+};
+
+function lum(hex){
+  var n = parseInt(hex.slice(1),16), r=(n>>16&255)/255, g=(n>>8&255)/255, b=(n&255)/255;
+  return 0.2126*r + 0.7152*g + 0.0722*b;
+}
+function hexMix(hex, to, t){
+  var a = parseInt(hex.slice(1),16), b = parseInt(to.slice(1),16);
+  var ch = function(sh){ return Math.round(((a>>sh)&255)*(1-t) + ((b>>sh)&255)*t); };
+  return "#"+((1<<24)|(ch(16)<<16)|(ch(8)<<8)|ch(0)).toString(16).slice(1);
+}
+function toneOf(c, hex){
+  if (c === "dk") return lum(hex) < 0.14 ? hexMix(hex, "#ffffff", 0.22) : hexMix(hex, "#000000", 0.3);
+  if (c === "lt") return hexMix(hex, "#ffffff", 0.6);
+  return c;
+}
+
+/* ---------- realistic rendering: every item gets a fabric, which sets its texture, stitching, sheen and buttons ---------- */
+var FAM = {};
+[["tee","tee teeHeavy teePocket teeGraphic polo camp shirtS jersey tankRib sqTop teeFit"],
+ ["long","long stripe thermal turtle inner oxford oxfordEmb western flannel stripeShirt bandShirt blouse longShirt knit knitFine cable vneck turtleKnit knitBand knitCrop hoodie hoodieChest hoodieBlock hoodieZip sweat quarterZip fleeceHalf cardigan openShirt"],
+ ["jacket","workJacket santaFe vista trucker chore overshirt bomber harrington sherpa coach moto blazer shearling fleeceZip pufferHood quiltLiner shell puffer"],
+ ["coat","parkaWork coatWork peacoat coat duffle trench trenchShort downParka"],
+ ["vest","vest"], ["dress","dress dressShirt dressFloral dressL"],
+ ["pants","jeans jeansLoose jeansPanel workPant cargo sweatpant chino slacks slacksCord flare flow"],
+ ["shorts","workShort shorts bball wideShort tailoredShort"],
+ ["skirt","skirt denimSkirt skirtS knitSkirt satinSkirt"],
+ ["shoe","canvasLow leatherLow runner terrace hoopHigh loafer derby workBoot chelsea corkSandal sportSandal maryJane trail"],
+ ["hat","cap bucket skullcap"], ["bag","tote twoWayTote cross shoulderBag backpack sling umbrella"]
+].forEach(function(r){ r[1].split(" ").forEach(function(k){ FAM[k] = r[0]; }); });
+
+/* soft fold lines per garment family, drawn blurred inside the silhouette */
+var FOLDS = {
+  tee:"M29 36 Q34 45 36 55 M71 36 Q66 45 64 55 M17 33 Q21 37 20 42 M83 33 Q79 37 80 42 M41 68 Q46 75 44 87 M60 64 Q56 74 58 87",
+  long:"M28 34 Q33 45 35 57 M72 34 Q67 45 65 57 M11 49 Q16 53 20 51 M89 49 Q84 53 80 51 M10 63 Q15 66 19 64 M90 63 Q85 66 81 64 M41 68 Q46 76 44 87 M60 64 Q56 75 58 87",
+  jacket:"M28 34 Q33 45 34 59 M72 34 Q67 45 66 59 M10 47 Q15 51 19 49 M90 47 Q85 51 81 49 M9 61 Q14 64 18 62 M91 61 Q86 64 82 62 M38 60 Q42 70 40 81 M62 60 Q58 70 60 81",
+  coat:"M29 32 Q33 45 33 61 M71 32 Q67 45 67 61 M12 45 Q17 49 21 47 M88 45 Q83 49 79 47 M11 59 Q16 62 20 60 M89 59 Q84 62 80 60 M36 66 Q41 80 36 95 M64 66 Q59 80 64 95",
+  vest:"M33 44 Q38 57 36 72 M67 44 Q62 57 64 72",
+  dress:"M40 46 Q36 66 29 91 M60 46 Q64 66 71 91 M50 50 Q53 70 48 91",
+  pants:"M33 28 Q39 33 45 31 M55 31 Q61 33 67 28 M31 52 Q38 56 45 53 M55 53 Q62 56 69 52 M30 67 Q37 70 44 67 M56 67 Q63 70 70 67 M29 85 Q37 82 45 86 M55 86 Q63 82 71 85",
+  shorts:"M31 33 Q38 37 45 34 M55 34 Q62 37 69 33 M26 52 Q34 56 45 52 M55 52 Q66 56 74 52",
+  skirt:"M42 22 Q38 56 29 89 M58 22 Q62 56 71 89 M50 24 Q53 56 50 89",
+  shoe:"M50 51 Q56 57 54 65 M61 53 Q66 58 64 65 M28 55 Q40 60 52 58",
+  hat:"M33 40 Q38 50 36 61 M67 40 Q62 50 64 61",
+  bag:"M29 50 Q32 70 27 88 M71 50 Q68 70 73 88 M25 86 Q50 81 75 86"
+};
+var WRINKLES = "M36 30 Q40 33 44 31 M56 40 Q60 43 64 41 M34 72 Q38 74 42 72 M58 76 Q62 78 66 76 M44 52 Q48 55 52 53";
+/* worn-in lighter areas on denim */
+var FADES = {
+  pants:[[38,44,5,16],[62,44,5,16],[37,75,4,8],[63,75,4,8]], shorts:[[37,42,5,8],[63,42,5,8]],
+  jacket:[[37,52,6,10],[63,52,6,10],[14,58,3,9],[86,58,3,9]], long:[[37,52,6,10],[63,52,6,10]],
+  coat:[[38,56,7,14],[62,56,7,14]], skirt:[[50,52,10,18]], dress:[[50,56,9,16]]
+};
+
+/* t: texture layers ["p" pattern | "f" noise filter, id, opacity]; th: topstitch thread (1 = tone, string = colour);
+   btn: button finish; gloss: specular strength; fade: denim wear; puff: quilted shading; wrinkle: extra creases */
+var MATS = {
+  jersey:{}, mesh:{}, rib:{}, waffle:{}, sweat:{}, fleece:{}, knit:{}, wool:{},
+  denim:{th:"#cf9445", btn:"metal", fade:1}, canvas:{th:1, btn:"metal"}, twill:{th:1}, shirting:{th:1, btn:"light"},
+  flannel:{th:1, btn:"light"}, linen:{th:1, wrinkle:1}, cord:{th:1}, nylon:{th:1, gloss:.45}, down:{gloss:.45, puff:1},
+  leather:{th:1, gloss:.55}, suede:{th:1}, satin:{gloss:.8}, acetate:{gloss:.7}, metal:{gloss:.9}, cork:{}, rubber:{}
+};
+var MAT_ZH = {jersey:"棉質針織",mesh:"網眼布",rib:"羅紋",waffle:"華夫格",sweat:"棉質毛圈",fleece:"搖粒絨",knit:"針織",wool:"羊毛",
+  denim:"丹寧",canvas:"帆布",twill:"斜紋布",shirting:"襯衫布",flannel:"法蘭絨",linen:"亞麻",cord:"燈芯絨",nylon:"尼龍",down:"羽絨",
+  leather:"皮革",suede:"麂皮",satin:"緞面",acetate:"板材",metal:"金屬",cork:"軟木",rubber:"橡膠"};
+var FOLD_OP = {knit:.18,sweat:.2,fleece:.15,wool:.2,rib:.18,waffle:.2,jersey:.24,satin:.32,leather:.3,nylon:.3,down:.1,linen:.32,metal:0,acetate:0};
+var DOWN_GL = {pufferHood:1, puffer:1, downParka:1, quiltLiner:1};
+var MAT_NAME = {"連帽機能外套":"sweat","工作寬褲":"denim","網眼球衣背心":"mesh","籃球短褲":"mesh","復古慢跑鞋":"suede","低筒德訓鞋":"leather",
+  "高筒籃球鞋":"leather","防水機能鞋":"mesh","勃肯涼鞋":"suede","運動涼鞋":"nylon","兩用托特包":"nylon","碎花長洋裝":"shirting",
+  "工裝派克大衣":"canvas","工裝長大衣":"canvas","工裝襯衫外套":"canvas","刷毛運動褲":"sweat","棒球帽":"twill","漁夫帽":"canvas",
+  "太陽眼鏡":"acetate","細框眼鏡":"acetate","銀色項鍊":"metal","皮革錶帶手錶":"leather"};
+var MAT_RULES = [
+  [/緞面|雪紡/,"satin"], [/燈芯絨/,"cord"], [/麂皮/,"suede"],
+  [/皮革|皮鞋|樂福|德比|切爾西|瑪莉珍|小白鞋|靴/,"leather"],
+  [/丹寧|牛仔/,"denim"], [/亞麻/,"linen"], [/搖粒絨|刷毛|毛絨/,"fleece"],
+  [/羽絨|鋪棉|防水|防風|機能|教練|飛行|Harrington|傘|斜背包|胸前小包/,"nylon"],
+  [/羊毛|大衣|西裝外套|海軍/,"wool"],
+  [/羅紋/,"rib"], [/華夫格/,"waffle"], [/針織|毛衣|毛帽|圍巾/,"knit"],
+  [/帽T|大學T|拉鍊衫|套頭衫|運動褲/,"sweat"], [/法蘭絨/,"flannel"],
+  [/襯衫|牛津/,"shirting"], [/帆布|工作|工裝|托特|後背包/,"canvas"],
+  [/西裝|卡其|喇叭|風衣|厚棉|裙|寬褲|五分褲/,"twill"],
+  [/T恤|T$|背心|上衣|發熱衣|打底|POLO|洋裝/,"jersey"]
+];
+function matOf(it){
+  if (DOWN_GL[it.gl]) return "down";
+  if (MAT_NAME[it.n]) return MAT_NAME[it.n];
+  for (var i = 0; i < MAT_RULES.length; i++) if (MAT_RULES[i][0].test(it.n)) return MAT_RULES[i][1];
+  return {top:"jersey",inner:"jersey",mid:"knit",outer:"canvas",bottom:"twill",shoes:"leather",head:"twill",bag:"canvas"}[it.slot] || "jersey";
+}
+
+/* shared light, gradients and buttons; inserted once and referenced by every drawing */
+function radial(id, a, b, c){
+  return '<radialGradient id="'+id+'" cx=".36" cy=".3" r=".75"><stop offset="0" stop-color="'+a+'"/><stop offset=".55" stop-color="'+b+'"/><stop offset="1" stop-color="'+c+'"/></radialGradient>';
+}
+var FX = '<svg class="fx" aria-hidden="true" focusable="false"><defs>'
+  + '<filter id="f-soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="1.3"/></filter>'
+  + '<filter id="f-puff" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="1.3"/></filter>'
+  + '<filter id="f-fade" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.6"/></filter>'
+  + '<linearGradient id="g-lin" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".14"/><stop offset=".42" stop-color="#fff" stop-opacity="0"/><stop offset=".6" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".16"/></linearGradient>'
+  + '<radialGradient id="g-vig" cx=".5" cy=".45" r=".62"><stop offset=".5" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".14"/></radialGradient>'
+  + '<linearGradient id="g-spec" x1=".1" y1="0" x2=".9" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".26" stop-color="#fff" stop-opacity="0"/><stop offset=".33" stop-color="#fff" stop-opacity=".6"/><stop offset=".4" stop-color="#fff" stop-opacity="0"/><stop offset=".6" stop-color="#fff" stop-opacity="0"/><stop offset=".67" stop-color="#fff" stop-opacity=".28"/><stop offset=".73" stop-color="#fff" stop-opacity="0"/></linearGradient>'
+  + '<linearGradient id="g-fold" x1="0" y1="0" x2="1" y2=".4"><stop offset="0" stop-color="#000" stop-opacity=".1"/><stop offset=".3" stop-color="#fff" stop-opacity=".13"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/><stop offset=".68" stop-color="#000" stop-opacity=".15"/><stop offset=".86" stop-color="#fff" stop-opacity=".06"/><stop offset="1" stop-color="#000" stop-opacity=".08"/></linearGradient>'
+  + radial("g-btn-metal","#f3dfae","#b8893f","#6d4f22") + radial("g-btn-light","#ffffff","#e9e4d9","#a39c8e")
+  + radial("g-btn-dark","#8a7867","#3d3129","#1a1411") + radial("g-zip","#f4f4f4","#a9a9a9","#5b5b5b")
+  + '</defs></svg>';
+
+function stripeTone(hex){ return lum(hex) > .45 ? hexMix(hex, "#000000", .5) : hexMix(hex, "#ffffff", .55); }
+function texture(cid, mat, fam, g, hex, c){
+  var M = MATS[mat] || MATS.jersey, s = '<g clip-path="url(#'+cid+')">', tid = texId(mat);
+  if (g && g.pl){
+    var pc = stripeTone(hex);
+    s += '<path d="'+g.pl[0]+'" fill="none" stroke="'+pc+'" stroke-opacity="'+g.pl[2]+'" stroke-width="'+g.pl[1]+'"/>';
+    if (g.pl[3]) s += '<path d="'+g.pl[0]+'" fill="none" stroke="#fff" stroke-opacity=".25" stroke-width=".6"/>';
+  }
+  if (tid){ c = c || 1; s += '<g transform="scale('+f2(c)+')"><rect x="'+f2(-20/c)+'" y="'+f2(-20/c)+'" width="'+f2(140/c)+'" height="'+f2(140/c)+'" fill="url(#'+tid+')"/></g>'; }
+  if (M.fade && FADES[fam]){
+    s += '<g filter="url(#f-fade)" fill="#fff" opacity=".2">';
+    FADES[fam].forEach(function(e){ s += '<ellipse cx="'+e[0]+'" cy="'+e[1]+'" rx="'+e[2]+'" ry="'+e[3]+'"/>'; });
+    s += '</g>';
+  }
+  if (M.gloss) s += '<rect width="100" height="100" fill="url(#g-spec)" opacity="'+M.gloss+'"/>';
+  return s + '</g>';
+}
+function strap(p, c){
+  var w = p[1];
+  return '<path d="'+p[0]+'" fill="none" stroke="'+hexMix(c,"#000000",.42)+'" stroke-width="'+(w+1.1)+'" stroke-linecap="round"/>'
+    + '<path d="'+p[0]+'" fill="none" stroke="'+c+'" stroke-width="'+w+'" stroke-linecap="round"/>'
+    + '<path d="'+p[0]+'" fill="none" stroke="#fff" stroke-opacity=".26" stroke-width="'+(w*.3).toFixed(2)+'" stroke-linecap="round" transform="translate(-.25 -.35)"/>';
+}
+function zipper(z, hex){
+  var m = /M\s*([-\d.]+)[\s,]+([-\d.]+)/.exec(z);
+  var s = '<path d="'+z+'" fill="none" stroke="'+hexMix(hex,"#000000",.35)+'" stroke-width="2.3" stroke-linecap="round"/>'
+    + '<path d="'+z+'" fill="none" stroke="#c4c3bf" stroke-width="1.1" stroke-dasharray=".45 .45"/>';
+  if (m) s += '<rect x="'+(+m[1]-1.4).toFixed(1)+'" y="'+(+m[2]+.8).toFixed(1)+'" width="2.8" height="4.4" rx=".9" fill="url(#g-zip)" stroke="#4d4d4d" stroke-width=".25"/>';
+  return s;
+}
+function seams(d, M, hex, L, cid){
+  if (M.puff){
+    return '<g clip-path="url(#'+cid+')"><g filter="url(#f-puff)" fill="none" stroke-linecap="round"><path d="'+d+'" stroke="#000" stroke-opacity=".4" stroke-width="2.4"/></g>'
+      + '<g filter="url(#f-puff)" fill="none" stroke-linecap="round" transform="translate(0 2.3)"><path d="'+d+'" stroke="#fff" stroke-opacity=".24" stroke-width="2"/></g></g>'
+      + '<path d="'+d+'" fill="none" stroke="'+hexMix(hex,"#000000",.5)+'" stroke-opacity=".8" stroke-width=".45" stroke-linecap="round"/>';
+  }
+  var s = '<path d="'+d+'" fill="none" stroke="#000" stroke-opacity=".32" stroke-width=".8" stroke-linecap="round" stroke-linejoin="round"/>'
+    + '<path d="'+d+'" fill="none" stroke="#fff" stroke-opacity=".2" stroke-width=".55" stroke-linecap="round" transform="translate(.45 .5)"/>';
+  if (M.th) s += '<path d="'+d+'" fill="none" stroke="'+(typeof M.th === "string" ? M.th : hexMix(hex, L > .45 ? "#000000" : "#ffffff", .38))+'" stroke-width=".42" stroke-dasharray="1 .75" stroke-linecap="round" transform="translate(-.7 -.55)"/>';
+  return s;
+}
+var svgSeq = 0;
+function svg(key, hex, mat, o){
+  o = o || {};
+  var g = G[key] || G.tee, fam = FAM[key] || "acc", M = MATS[mat] || MATS.jersey, id = "gx" + (++svgSeq), L = lum(hex);
+  var under = [], item = [], toned = [], extra = [];
+  (g.u||[]).forEach(function(p){ under.push({d:p[0], c:toneOf(p[1],hex), ol:true}); });
+  (g.b||[]).forEach(function(p){
+    if (typeof p === "string") item.push({d:p, c:hex, ol:true});
+    else extra.push({d:p[0], c:p[1], m:p[2]||null, ol:true});
+  });
+  (g.f||[]).forEach(function(p){
+    var o = {d:p[0], c:toneOf(p[1],hex), a:p[2], ol:p[3], m:p[4]||null};
+    if (!p[4] && (p[1] === "dk" || p[1] === "lt")) toned.push(o); else extra.push(o);
+  });
+  var all = under.concat(item, toned, extra), straps = o.noStrap ? [] : (g.s||[]).concat(g.so||[]);
+  var clip = function(cid, list){ return '<clipPath id="'+cid+'">'+list.map(function(o){ return '<path d="'+o.d+'"/>'; }).join("")+'</clipPath>'; };
+  var paint = function(o){
+    return '<path d="'+o.d+'" fill="'+o.c+'"'+(o.a != null && o.a < 1 ? ' fill-opacity="'+o.a+'"' : '')
+      + (o.ol ? ' stroke="'+hexMix(o.c,"#000000",.3)+'" stroke-opacity=".55" stroke-width=".4" stroke-linejoin="round"' : '')+'/>';
+  };
+  var defs = clip(id+"a", item.concat(toned)) + clip(id+"z", all), s = "", cal = calOf(key), tc = TEX_MAG/cal[0];
+  under.forEach(function(o){ s += paint(o); });
+  if (!o.noStrap) (g.s||[]).forEach(function(p){ s += strap(p, hex); });
+  item.forEach(function(o){ s += paint(o); });
+  toned.forEach(function(o){ s += paint(o); });
+  if (item.length || toned.length) s += texture(id+"a", mat, fam, g, hex, tc);
+  extra.forEach(function(o, i){
+    s += paint(o);
+    if (o.m){ defs += clip(id+"e"+i, [o]); s += texture(id+"e"+i, o.m, fam, null, o.c, tc); }
+  });
+
+  var F = FOLDS[fam] || "", fo = FOLD_OP[mat] == null ? .26 : FOLD_OP[mat];
+  if (M.wrinkle && F) F += " " + WRINKLES;
+  s += '<g clip-path="url(#'+id+'z)"><rect width="100" height="100" fill="url(#g-lin)"/><rect width="100" height="100" fill="url(#g-vig)"/>';
+  if (F && fo){
+    s += '<g filter="url(#f-soft)" fill="none" stroke-linecap="round"><path d="'+F+'" stroke="#000" stroke-opacity="'+(fo*.75).toFixed(2)+'" stroke-width="2"/></g>'
+      + '<g filter="url(#f-soft)" fill="none" stroke-linecap="round" transform="translate(1.1 -.8)"><path d="'+F+'" stroke="#fff" stroke-opacity="'+(fo*.6).toFixed(2)+'" stroke-width="1.6"/></g>';
+  }
+  s += '</g>';
+
+  if (!o.noStrap) (g.so||[]).forEach(function(p){ s += strap(p, hex); });
+  (g.z||[]).forEach(function(z){ s += zipper(z, hex); });
+  if (g.d) s += seams(g.d, M, hex, L, id+"z");
+  if (g.fd) s += '<path d="'+g.fd+'" fill="none" stroke="rgba(20,20,26,.35)" stroke-width="1.2" stroke-linecap="round"/>';
+  var bt = M.btn || (L > .5 ? "dark" : "light");
+  (g.dots||[]).forEach(function(p){ s += '<circle cx="'+p[0]+'" cy="'+p[1]+'" r="1.75" fill="url(#g-btn-'+bt+')" stroke="rgba(0,0,0,.45)" stroke-width=".3"/>'; });
+  if (g.ink) s += '<path d="'+g.ink[0]+'" fill="none" stroke="'+g.ink[1]+'" stroke-width="'+g.ink[2]+'" stroke-linecap="round"/>';
+  if (g.k) s += '<path d="'+g.k+'" fill="none" stroke="#2c2622" stroke-width="2.4" stroke-linecap="round"/><path d="'+g.k+'" fill="none" stroke="#fff" stroke-opacity=".25" stroke-width=".7" stroke-linecap="round" transform="translate(-.4 -.3)"/>';
+  var bar = "";
+  var fx = (fam === "shoe" || fam === "acc") ? "f-hard" : "f-cloth";
+  return (o.nested ? '<svg x="0" y="0" width="100" height="100" viewBox="0 0 100 100" overflow="visible">' : '<svg viewBox="0 0 100 100" aria-hidden="true" focusable="false">')
+    + '<defs>'+defs+'</defs><g filter="url(#'+fx+')">'+(o.flip ? '<g transform="matrix(-1 0 0 1 100 0)">'+s+'</g>' : s)+'</g>'+bar+'</svg>';
+}
+
+/* ---------- fabric textures ----------
+   Each fabric is drawn once on a canvas as a seamless tile TEX_T cm square: a height map of yarns, stitches or grain
+   lit from the top left, colour variation (heather, slubs, flecks) and loose fibres, laid over the garment colour as
+   light and dark detail. Weave structure, yarn size and contrast follow real fabric photos on Poliigon and pngtree,
+   used only as visual reference; nothing from those sites is copied into the page. */
+var TEX_T = 14.4, TEX_P = 12.5, TEX_N = Math.round(TEX_T*TEX_P), TEX_MAG = 1.5, TEX_DONE = {}, PI2 = Math.PI*2;
+function th(i, j, s){
+  var h = Math.imul(i, 374761393) ^ Math.imul(j, 668265263) ^ Math.imul(s + 1, 1442695041);
+  h = Math.imul(h ^ (h >>> 13), 1274126177); h ^= h >>> 16;
+  return (h >>> 0) / 4294967296;
+}
+function wr(i, n){ return ((i % n) + n) % n; }
+function fr(x){ return x - Math.floor(x); }
+function sm(a, b, x){ var t = (x - a)/(b - a); t = t < 0 ? 0 : t > 1 ? 1 : t; return t*t*(3 - 2*t); }
+/* profile of a round yarn across its width, t from 0 to 1 */
+function cyl(t){ t = 2*t - 1; return t*t < 1 ? Math.sqrt(1 - t*t) : 0; }
+/* value noise that wraps every nx by ny cells */
+function vn(x, y, nx, ny, s){
+  var i = Math.floor(x), j = Math.floor(y), fx = x - i, fy = y - j;
+  var i0 = wr(i,nx), i1 = wr(i+1,nx), j0 = wr(j,ny), j1 = wr(j+1,ny);
+  var a = th(i0, j0, s), b = th(i1, j0, s), c = th(i0, j1, s), d = th(i1, j1, s);
+  var ux = fx*fx*(3-2*fx), uy = fy*fy*(3-2*fy);
+  return a + (b-a)*ux + (c-a)*uy + (a-b-c+d)*ux*uy;
+}
+/* noise with features cx by cy cm (both must divide the tile) */
+function hn(X, Y, cx, cy, s){ var nx = Math.round(TEX_T/cx), ny = Math.round(TEX_T/cy); return vn(X/TEX_T*nx, Y/TEX_T*ny, nx, ny, s); }
+/* noise along one yarn: t in units of L, wraps every per */
+function n1(t, per, s){ return vn(t, 0, per, 1, s); }
+function fb(X, Y, n, oct, s, ax, ay){
+  ax = ax || 1; ay = ay || 1;
+  var v = 0, amp = .5, tot = 0;
+  for (var o = 0; o < oct; o++){ var nx = n*ax, ny = n*ay; v += amp * vn(X/TEX_T*nx, Y/TEX_T*ny, nx, ny, s + o*13); tot += amp; amp *= .5; n *= 2; }
+  return v / tot;
+}
+/* cellular noise: distance to the nearest and second-nearest seed, in cell units */
+function wo(X, Y, cell, s){
+  var n = Math.round(TEX_T/cell), gx = X/cell, gy = Y/cell, i0 = Math.floor(gx), j0 = Math.floor(gy), r = {d1:9, d2:9, id:0};
+  for (var j = j0-1; j <= j0+1; j++) for (var i = i0-1; i <= i0+1; i++){
+    var wi = wr(i,n), wj = wr(j,n), px = i + .15 + .7*th(wi, wj, s), py = j + .15 + .7*th(wi, wj, s+5);
+    var dx = gx - px, dy = gy - py, d = Math.sqrt(dx*dx + dy*dy);
+    if (d < r.d1){ r.d2 = r.d1; r.d1 = d; r.id = th(wi, wj, s+9); } else if (d < r.d2) r.d2 = d;
+  }
+  return r;
+}
+
+/* woven cloth, yarn pitch p cm; up(i, j) is true where the lengthwise yarn lies on top.
+   q.w yarn width (1 = yarns touch), wq weft width factor, sl slub thickness, L slub length, tw ply twist,
+   wa / wf colour of lengthwise / crosswise yarns, yv yarn-to-yarn colour spread, sv slub colour, lo height of the yarn underneath */
+function weave(X, Y, p, up, o, q){
+  var dw = (q.dw == null ? .22 : q.dw)*p, fz = q.fz == null ? .18 : q.fz;
+  if (dw){ var X0 = X; X += dw*(hn(X, Y, 1.2, 1.2, 7) - .5)*2; Y += dw*(hn(X0, Y, 1.2, 1.2, 8) - .5)*2; }
+  var n = Math.round(TEX_T/p), gx = X/p, gy = Y/p, i = Math.floor(gx), j = Math.floor(gy), fx = gx - i, fy = gy - j;
+  i = wr(i, n); j = wr(j, n);
+  var L = q.L || 1.8, per = Math.round(TEX_T/L), sl = q.sl || 0, w = q.w || 1;
+  var sv = n1(Y/L, per, 11 + i*31) - .5, sf = n1(X/L, per, 23 + j*37) - .5;
+  var ww = Math.min(1.3, w*(1 + sl*2*sv)), wf = Math.min(1.3, w*(q.wq || 1)*(1 + sl*2*sf));
+  var top = up(i, j), lo = q.lo || .45, tw = q.tw || 0;
+  var dip = function(f, a, b){ return (a ? 1 : .62 + .38*sm(0, .5, f)) * (b ? 1 : .62 + .38*sm(0, .5, 1 - f)); };
+  var hv = cyl(.5 + (fx - .5)/ww) * dip(fy, up(i, wr(j-1, n)), up(i, wr(j+1, n)));
+  var hh = cyl(.5 + (fy - .5)/wf) * dip(fx, !up(wr(i-1, n), j), !up(wr(i+1, n), j));
+  if (tw){ hv *= 1 - tw*(.5 + .5*Math.cos(PI2*(gy*2 + fx*.8))); hh *= 1 - tw*(.5 + .5*Math.cos(PI2*(gx*2 + fy*.8))); }
+  if (fz){ hv *= 1 - fz*hn(X, Y, .06, .36, 3); hh *= 1 - fz*hn(X, Y, .36, .06, 4); }
+  if (top) hh *= lo; else hv *= lo;
+  if (hv >= hh){ o.h = hv; o.a = (q.wa || 0) + (q.yv || 0)*2*(th(i, 0, 41) - .5) + (q.sv || 0)*2*sv; }
+  else { o.h = hh; o.a = (q.wf || 0)*(q.wr ? 1 - q.wr*th(i, j, 47) : 1) + (q.yv || 0)*2*(th(j, 1, 43) - .5) + (q.sv || 0)*2*sf; }
+}
+function plain(i, j){ return (i + j) % 2 === 0; }
+/* knit: one V stitch in a w x h cm cell; its two slanted loops reach into the rows above and below */
+function vst(fx, fy, w, h){
+  var best = 0, el = Math.sqrt(.16*w*w + h*h), A = .56*el, B = .19*w;
+  for (var r = -1; r <= 1; r++) for (var k = -1; k <= 1; k += 2){
+    var ex = k*.4*w/el, ey = -h/el, dx = (fx - .5 - k*.2)*w, dy = (fy - r - .5)*h;
+    var u = dx*ex + dy*ey, v = -dx*ey + dy*ex, d = (u/A)*(u/A) + (v/B)*(v/B);
+    if (d < 1){ var hl = Math.sqrt(1 - d)*(.82 + .18*Math.cos(PI2*u/(B*1.4))); if (hl > best) best = hl; }
+  }
+  return best;
+}
+/* purl side: staggered rows of small horizontal bumps */
+var PC = [[.5,.25],[0,.75],[1,.75],[.5,1.25],[0,-.25],[1,-.25]];
+function pst(fx, fy){
+  var best = 0;
+  for (var k = 0; k < 6; k++){ var dx = (fx - PC[k][0])/.32, dy = (fy - PC[k][1])/.2, d = dx*dx + dy*dy; if (d < 1) best = Math.max(best, Math.sqrt(1 - d)); }
+  return best;
+}
+function knitAt(X, Y, w, h){ var gx = X/w, gy = Y/h; return vst(gx - Math.floor(gx), gy - Math.floor(gy), w, h); }
+
+/* g: height (o.h, 0 to 1) and colour (o.a) at X, Y cm; b relief in cm; s shading; o hollows darker; p, pw sheen;
+   f loose fibres {n per 100 cm2, l length, w width, c curl, lt share of light fibres, al opacity}; fk fibre strength;
+   k [light, dark] strength of the finished texture */
+var TEXDEF = {
+  denim:{g:function(X, Y, o){
+      weave(X, Y, .45, function(i, j){ return (i + j) % 4 < 3; }, o, {w:1.06, sl:.22, L:1.2, tw:.3, wf:.5, wr:.85, yv:.1, sv:.4, lo:.55, dw:.3});
+      o.a += .3*(hn(X, Y, .45, 3.6, 5) - .5) + .18*(hn(X, Y, .12, .12, 6) - .5);
+      if (th(Math.floor(X/.12), Math.floor(Y/.12), 9) > .975) o.a += .65;
+    }, b:.1, s:.8, o:.45, k:[.42,.42]},
+  canvas:{g:function(X, Y, o){
+      weave(X, Y, .4, plain, o, {w:1.06, sl:.14, L:1.2, tw:.35, yv:.16, sv:.22, lo:.55});
+      o.a += .1*(fb(X, Y, 3, 3, 21) - .5);
+    }, b:.13, s:1, o:.6, k:[.42,.5]},
+  twill:{g:function(X, Y, o){
+      weave(X, Y, .4, function(i, j){ return (i + j) % 3 < 2; }, o, {w:1.05, sl:.06, L:1.8, tw:.2, wf:.16, yv:.06, lo:.5});
+    }, b:.1, s:.9, o:.45, k:[.3,.36]},
+  shirting:{g:function(X, Y, o){
+      weave(X, Y, .3, function(i, j){ return ((i >> 1) + j) % 2 === 0; }, o, {w:.98, wq:1.2, sl:.1, L:1.2, tw:.2, wf:.32, yv:.08, sv:.15, lo:.5});
+    }, b:.08, s:.85, o:.4, k:[.32,.3]},
+  flannel:{g:function(X, Y, o){
+      weave(X, Y, .45, function(i, j){ return (i + j) % 4 < 2; }, o, {w:1.08, sl:.2, L:1.2, tw:.1, lo:.6, dw:.35});
+      o.h = .5 + (o.h - .5)*.45;
+      o.a = .3*(fb(X, Y, 8, 3, 51, 1, 2) - .5) + .22*(hn(X, Y, .1, .1, 53) - .5);
+    }, b:.07, s:.7, o:.3, f:[{n:520, l:.35, w:.06, c:4, lt:.55, al:.38}], fk:1, k:[.36,.34]},
+  linen:{g:function(X, Y, o){
+      weave(X, Y, .6, plain, o, {w:.8, sl:.45, L:1.2, tw:.18, yv:.22, sv:.4, lo:.55});
+      o.a += .1*(fb(X, Y, 4, 2, 61) - .5);
+    }, b:.16, s:1, o:.7, f:[{n:30, l:.5, w:.045, c:2, lt:.6, al:.25}], fk:.8, k:[.38,.44]},
+  cord:{g:function(X, Y, o){
+      var f = fr(X/1.2), w = cyl(.5 + (f - .5)/.86), pile = hn(X, Y, .06, .3, 81) - .5;
+      o.h = Math.pow(w, .6)*(.9 + .2*pile);
+      o.a = .26*pile + .12*(hn(X, Y, 1.2, 3.6, 83) - .5);
+    }, b:.25, s:1, o:.5, k:[.36,.48]},
+  jersey:{g:function(X, Y, o){
+      o.h = knitAt(X, Y, .4, .3);
+      o.a = .36*(hn(X, Y, 1.44, .3, 91) - .5) + .2*(hn(X, Y, .1, .1, 93) - .5);
+    }, b:.06, s:.8, o:.4, f:[{n:250, l:.16, w:.05, c:3, lt:.5, al:.3}], fk:.8, k:[.34,.36]},
+  knit:{g:function(X, Y, o){
+      var i = Math.floor(X/1.2), j = Math.floor(Y/.9);
+      o.h = knitAt(X, Y, 1.2, .9);
+      o.a = .16*(th(wr(i,12), wr(j,16), 101) - .5) + .12*(hn(X, Y, .12, .12, 103) - .5);
+    }, b:.3, s:1, o:.6, f:[{n:70, l:.3, w:.035, c:5, lt:.7, al:.3}], fk:.7, k:[.4,.5]},
+  rib:{g:function(X, Y, o){
+      var gx = X/.6, gy = Y/.45, i = Math.floor(gx), j = Math.floor(gy), fx = gx - i, fy = gy - j;
+      o.h = i % 2 === 0 ? .35 + .65*vst(fx, fy, .6, .45) : .25*pst(fx, fy);
+      o.a = .1*(hn(X, Y, .12, .12, 111) - .5);
+    }, b:.28, s:1, o:.7, k:[.36,.5]},
+  waffle:{g:function(X, Y, o){
+      var fx = fr(X/.9), fy = fr(Y/.9), e = Math.min(fx, 1 - fx, fy, 1 - fy);
+      var ridge = 1 - sm(.06, .2, e), pocket = .25 + .15*Math.sin(Math.PI*fx)*Math.sin(Math.PI*fy);
+      o.h = Math.max(ridge, pocket) + .08*knitAt(X, Y, .3, .24);
+      o.a = .08*(hn(X, Y, .12, .12, 121) - .5);
+    }, b:.25, s:1, o:.6, k:[.34,.46]},
+  sweat:{g:function(X, Y, o){
+      o.h = knitAt(X, Y, .45, .36);
+      o.a = .3*(hn(X, Y, .15, .1, 131) - .5) + .18*(fb(X, Y, 6, 2, 133) - .5);
+    }, b:.08, s:.8, o:.4, f:[{n:1500, l:.22, w:.085, c:3, lt:.5, al:.55}], fk:1, k:[.44,.46]},
+  fleece:{g:function(X, Y, o){
+      var r = wo(X, Y, .6, 141), dome = Math.max(0, 1 - r.d1/.62);
+      o.h = Math.pow(dome, .7)*(.85 + .3*(hn(X, Y, .1, .1, 143) - .5));
+      o.a = .18*(r.id - .5) + .15*dome;
+    }, b:.3, s:.9, o:.7, f:[{n:180, l:.3, w:.045, c:9, lt:.75, al:.32}], fk:.9, k:[.42,.5]},
+  wool:{g:function(X, Y, o){
+      o.h = fb(X, Y, 48, 2, 151);
+      o.a = .24*(fb(X, Y, 6, 3, 153) - .5) + .28*(hn(X, Y, .1, .1, 155) - .5);
+    }, b:.06, s:.6, o:.3, f:[{n:1700, l:.24, w:.055, c:3, lt:.5, al:.42}], fk:1.1, k:[.4,.42]},
+  nylon:{g:function(X, Y, o){
+      weave(X, Y, .24, plain, o, {w:1.02, lo:.6, yv:.03});
+      var ux = fr(X/1.2)*5, uy = fr(Y/1.2)*5;
+      if (ux < 1) o.h = Math.max(o.h, 1.25*cyl(ux));
+      if (uy < 1) o.h = Math.max(o.h, 1.25*cyl(uy));
+      o.a += .06*(fb(X, Y, 3, 2, 161) - .5);
+    }, b:.05, s:.8, o:.3, p:.35, pw:20, k:[.24,.22]},
+  down:{g:function(X, Y, o){
+      weave(X, Y, .2, plain, o, {w:1.02, lo:.7});
+      var cr = 1 - Math.abs(2*fb(X, Y, 4, 3, 165, 1, 3) - 1);
+      o.h = .15*o.h + .85*cr;
+      o.a = .04*(fb(X, Y, 6, 2, 167) - .5);
+    }, b:.35, s:.6, o:.25, p:.5, pw:10, k:[.26,.22]},
+  leather:{g:function(X, Y, o){
+      var r = wo(X, Y, .4, 171), e = sm(0, .14, r.d2 - r.d1);
+      o.h = e*(1 - .25*r.d1) + .06*(hn(X, Y, .06, .06, 173) - .5);
+      o.a = .1*(fb(X, Y, 3, 3, 175) - .5) + .05*(r.id - .5);
+    }, b:.08, s:.9, o:.5, p:.45, pw:14, k:[.3,.38]},
+  suede:{g:function(X, Y, o){
+      o.h = .5*hn(X, Y, .06, .06, 181) + .5*hn(X, Y, .15, .1, 183);
+      o.a = .8*(fb(X, Y, 4, 4, 185) - .5) + .45*(hn(X, Y, .06, .06, 187) - .5) + .25*(fb(X, Y, 8, 2, 189, 2, 1) - .5);
+    }, b:.05, s:.6, o:.3, f:[{n:300, l:.15, w:.05, c:2, lt:.5, al:.3}], fk:.7, k:[.38,.4]},
+  satin:{g:function(X, Y, o){
+      weave(X, Y, .24, function(i, j){ return (i*2 + j) % 5 !== 0; }, o, {w:1.04, lo:.8});
+      o.h = .08*o.h + .92*fb(X, Y, 2, 2, 191, 1, 2);
+      o.a = 0;
+    }, b:.6, s:.5, o:.1, p:.7, pw:6, k:[.3,.2]},
+  mesh:{g:function(X, Y, o){
+      var j = Math.floor(Y/.4), ox = wr(j, 36) % 2 ? .3 : 0, fx = fr((X + ox)/.6) - .5, fy = fr(Y/.4) - .5;
+      var d = Math.sqrt(fx*fx*1.4 + fy*fy*2.2);
+      if (d < .3){ o.h = 0; o.a = -.6; return; }
+      o.h = sm(.3, .5, d)*(.85 + .15*(hn(X, Y, .1, .1, 195) - .5));
+      o.a = 0;
+    }, b:.15, s:1, o:.6, k:[.3,.6]},
+  cork:{g:function(X, Y, o){
+      var r = wo(X, Y, .24, 201);
+      o.h = Math.max(0, 1 - r.d1/.75)*(.7 + .6*r.id);
+      o.a = .5*(r.id - .5) + .15*(hn(X, Y, .06, .06, 203) - .5);
+    }, b:.08, s:.8, o:.4, k:[.4,.5]},
+  rubber:{g:function(X, Y, o){
+      o.h = hn(X, Y, .1, .1, 211);
+      o.a = .08*(fb(X, Y, 6, 2, 213) - .5);
+    }, b:.03, s:.5, o:.2, k:[.14,.18]}
+};
+
+/* loose fibres, drawn on a grey canvas and read back as light (+) and dark (-) */
+function fibers(sets, seed){
+  var N = TEX_N, cv = document.createElement("canvas"); cv.width = cv.height = N;
+  var cx = cv.getContext("2d"), r = seed*7919 + 17;
+  var rnd = function(){ r = (Math.imul(r, 1103515245) + 12345) | 0; return ((r >>> 8) & 0xffffff) / 16777216; };
+  cx.fillStyle = "#808080"; cx.fillRect(0, 0, N, N); cx.lineCap = "round"; cx.lineJoin = "round";
+  sets.forEach(function(f){
+    var cnt = Math.round(f.n*TEX_T*TEX_T/100);
+    cx.lineWidth = f.w*TEX_P;
+    for (var k = 0; k < cnt; k++){
+      var x = rnd()*TEX_T, y = rnd()*TEX_T, ang = rnd()*PI2, len = f.l*(.5 + rnd()), cu = (rnd() - .5)*2*(f.c || 0);
+      var pts = [[x, y]], x0 = x, x1 = x, y0 = y, y1 = y;
+      for (var s = 0; s < 5; s++){
+        ang += cu*len/5 + (rnd() - .5)*.3; x += Math.cos(ang)*len/5; y += Math.sin(ang)*len/5; pts.push([x, y]);
+        x0 = Math.min(x0, x); x1 = Math.max(x1, x); y0 = Math.min(y0, y); y1 = Math.max(y1, y);
+      }
+      cx.strokeStyle = (rnd() < f.lt ? "rgba(255,255,255," : "rgba(0,0,0,") + (f.al*(.5 + .5*rnd())).toFixed(3) + ")";
+      for (var oy = -1; oy <= 1; oy++) for (var ox = -1; ox <= 1; ox++){
+        if (x0 + ox*TEX_T > TEX_T || x1 + ox*TEX_T < 0 || y0 + oy*TEX_T > TEX_T || y1 + oy*TEX_T < 0) continue;
+        cx.beginPath();
+        for (var m = 0; m < pts.length; m++){ var PX = (pts[m][0] + ox*TEX_T)*TEX_P, PY = (pts[m][1] + oy*TEX_T)*TEX_P; if (m) cx.lineTo(PX, PY); else cx.moveTo(PX, PY); }
+        cx.stroke();
+      }
+    }
+  });
+  var d = cx.getImageData(0, 0, N, N).data, out = new Float32Array(N*N);
+  for (var k2 = 0; k2 < N*N; k2++) out[k2] = (d[k2*4] - 128)/127;
+  return out;
+}
+/* each fabric's tile is built once, a moment after it is first asked for, so drawing never waits on it;
+   it lands in the shared defs as pattern #tx-<fabric> and every drawing that refers to it picks it up */
+var TEX_Q = [];
+function texId(mat){
+  if (!TEXDEF[mat] || TEX_DONE[mat] === 2) return null;
+  if (!TEX_DONE[mat]){ TEX_DONE[mat] = 3; TEX_Q.push(mat); if (TEX_Q.length === 1) setTimeout(texRun, 0); }
+  return "tx-" + mat;
+}
+function texRun(){ var m = TEX_Q.shift(); if (m) texBuild(m); if (TEX_Q.length) setTimeout(texRun, 0); }
+function texBuild(mat){
+  var T = TEXDEF[mat], id = "tx-" + mat;
+  TEX_DONE[mat] = 2;
+  try {
+    var N = TEX_N, H = new Float32Array(N*N), A = new Float32Array(N*N), o = {h:0, a:0}, mean = 0, k, px, py;
+    for (py = 0; py < N; py++) for (px = 0; px < N; px++){
+      o.h = 0; o.a = 0; T.g((px + .5)/TEX_P, (py + .5)/TEX_P, o);
+      k = py*N + px; H[k] = o.h; A[k] = o.a; mean += o.h;
+    }
+    mean /= N*N;
+    var F = T.f ? fibers(T.f, mat.length*13 + mat.charCodeAt(0)) : null;
+    var Lx = -.5, Ly = -.5, Lz = .7071, hl = Math.sqrt(.5 + (1 + Lz)*(1 + Lz)), Hx = Lx/hl, Hy = Ly/hl, Hz = (1 + Lz)/hl;
+    var g = (T.b || .1)*TEX_P/2, sh = T.s == null ? 1 : T.s, ao = T.o || 0, pw = T.pw || 16, sp0 = Math.pow(Hz, pw), fk = T.fk || 1;
+    var cv = document.createElement("canvas"); cv.width = cv.height = N;
+    var cx = cv.getContext("2d"), img = cx.createImageData(N, N), D = img.data;
+    for (py = 0; py < N; py++){
+      var ru = wr(py - 1, N)*N, rd = wr(py + 1, N)*N, row = py*N;
+      for (px = 0; px < N; px++){
+        k = row + px;
+        var gx = (H[row + wr(px + 1, N)] - H[row + wr(px - 1, N)])*g, gy = (H[rd + px] - H[ru + px])*g;
+        var il = 1/Math.sqrt(gx*gx + gy*gy + 1), nx = -gx*il, ny = -gy*il, nz = il;
+        var v = sh*((nx*Lx + ny*Ly + nz*Lz)/Lz - 1) + ao*(H[k] - mean) + A[k];
+        if (T.p) v += T.p*(Math.pow(Math.max(0, nx*Hx + ny*Hy + nz*Hz), pw) - sp0);
+        if (F) v += fk*F[k];
+        v = v < -1 ? -1 : v > 1 ? 1 : v;
+        if (v >= 0){ D[k*4] = D[k*4+1] = D[k*4+2] = 255; D[k*4+3] = Math.round(v*T.k[0]*255); }
+        else { D[k*4] = D[k*4+1] = D[k*4+2] = 0; D[k*4+3] = Math.round(-v*T.k[1]*255); }
+      }
+    }
+    cx.putImageData(img, 0, 0);
+    document.querySelector(".fx defs").insertAdjacentHTML("beforeend", '<pattern id="'+id+'" patternUnits="userSpaceOnUse" width="'+TEX_T+'" height="'+TEX_T+'"><image href="'+cv.toDataURL("image/png")+'" width="'+TEX_T+'" height="'+TEX_T+'" preserveAspectRatio="none"/></pattern>');
+    TEX_DONE[mat] = 1;
+  } catch(e){}
+}
+/* a close-up of the fabric at about 10 px per cm, w x h cm, for the colour strip and the outfit list */
+function swatch(mat, hex, w, h){
+  var tid = texId(mat), M = MATS[mat] || MATS.jersey, r = '<rect width="'+w+'" height="'+h+'"';
+  return '<svg viewBox="0 0 '+w+' '+h+'" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">'
+    + r+' fill="'+hex+'"/>' + (tid ? r+' fill="url(#'+tid+')"/>' : '')
+    + (M.gloss ? r+' fill="url(#g-spec)" opacity="'+M.gloss+'"/>' : '') + r+' fill="url(#g-fold)"/></svg>';
+}
+
+/* soft cloth: wavy edges, rounded light from the top left, and a soft shadow; rigid items skip the waviness */
+function lightFx(id, src, blur, scale, sh){
+  return '<feGaussianBlur in="'+src+'" stdDeviation="'+blur+'" result="b"/>'
+    + '<feDiffuseLighting in="b" surfaceScale="'+scale+'" diffuseConstant="1" lighting-color="#ffffff" result="l"><feDistantLight azimuth="225" elevation="58"/></feDiffuseLighting>'
+    + '<feComponentTransfer in="l" result="dk"><feFuncR type="linear" slope="1.18"/><feFuncG type="linear" slope="1.18"/><feFuncB type="linear" slope="1.18"/></feComponentTransfer>'
+    + '<feBlend in="'+src+'" in2="dk" mode="multiply" result="m"/><feComposite in="m" in2="'+src+'" operator="in" result="m2"/>'
+    + '<feColorMatrix in="l" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  2.6 0 0 0 -2.2" result="hl"/><feComposite in="hl" in2="'+src+'" operator="in" result="hl2"/>'
+    + '<feColorMatrix in="'+src+'" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .38 0" result="sa"/><feGaussianBlur in="sa" stdDeviation="'+sh[0]+'"/><feOffset dx="'+sh[1]+'" dy="'+sh[2]+'" result="shd"/>'
+    + '<feMerge><feMergeNode in="shd"/><feMergeNode in="m2"/><feMergeNode in="hl2"/></feMerge>';
+}
+FX = FX.replace('</defs></svg>',
+  '<filter id="f-cloth" x="-15%" y="-15%" width="135%" height="135%" color-interpolation-filters="sRGB">'
+  + '<feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="1" seed="21" result="w"/>'
+  + '<feDisplacementMap in="SourceGraphic" in2="w" scale="1.6" xChannelSelector="R" yChannelSelector="G" result="c"/>'
+  + lightFx("f-cloth", "c", 2.6, 3.2, [2.2, 1.2, 2.6]) + '</filter>'
+  + '<filter id="f-hard" x="-15%" y="-15%" width="135%" height="135%" color-interpolation-filters="sRGB">'
+  + '<feOffset in="SourceGraphic" dx="0" dy="0" result="c"/>'
+  + lightFx("f-hard", "c", 1.2, 2.5, [1.8, 1, 2.2]) + '</filter>'
+  + '</defs></svg>');
+
+/* real-world size: centimetres per drawing unit, [horizontal, vertical] */
+var CAL = {top:[1.14,.96], bottom:[1.05,1.18], shoe:[.33,.33]};
+var CAL_G = {cap:.37, capFront:.37, bucket:.42, skullcap:.42, scarf:.55, scarfWorn:.55, glasses:.21, sunglasses:.16, necklace:.28,
+  watch:.11, tote:.6, twoWayTote:.6, shoulderBag:.5, cross:.42, sling:.5, backpack:.62, umbrella:1.2};
+function calOf(key){
+  if (CAL_G[key]) return [CAL_G[key], CAL_G[key]];
+  var f = FAM[key];
+  if (f === "pants" || f === "shorts" || f === "skirt") return CAL.bottom;
+  if (f === "shoe") return CAL.shoe;
+  return CAL.top;
+}
+function f2(n){ return Math.round(n*100)/100; }
+/* the longest round length, in cm, that fits in 40 drawing units at this item's scale */
+function barFor(key){
+  var c = calOf(key)[0], cands = [50,20,10,5,2];
+  for (var i = 0; i < cands.length; i++) if (cands[i]/c <= 40) return {cm:cands[i], u:cands[i]/c};
+  return {cm:2, u:2/c};
+}
+
+/* ---------- whole-outfit preview: the worn pieces layered in place at true scale, no body ----------
+   composite space is in centimetres with the neck point at (0, 0) */
+G.capFront = {b:["M30 62 Q30 32 50 32 Q70 32 70 62 Z","M23 62 Q50 77 77 62 Q50 68 23 62 Z"], d:"M50 33 L50 61 M40 35 Q37 48 38.5 61 M60 35 Q63 48 61.5 61", dots:[[50,32]]};
+G.scarfWorn = {b:["M40 34 L53 34 L51 84 L40 88 Z","M50 32 L66 32 L68 94 L53 98 Z","M24 10 Q50 24 76 10 L79 30 Q50 46 21 30 Z"], d:"M42 86 L41 92 M46 86 L46 92 M56 96 L55 100 M61 95 L61 100 M65 94 L66 99 M26 18 Q50 32 74 18"};
+
+var BOX = {};
+function gbox(key){
+  if (BOX[key]) return BOX[key];
+  var g = G[key] || G.tee, ns = "http://www.w3.org/2000/svg", host = document.querySelector(".fx"), grp = document.createElementNS(ns, "g");
+  var add = function(d){ var p = document.createElementNS(ns, "path"); p.setAttribute("d", d); grp.appendChild(p); };
+  (g.b||[]).forEach(function(p){ add(typeof p === "string" ? p : p[0]); });
+  (g.f||[]).forEach(function(p){ add(p[0]); });
+  (g.s||[]).concat(g.so||[]).forEach(function(p){ add(p[0]); });
+  var b = {x:0, y:8, width:100, height:86};
+  try { if (host){ host.appendChild(grp); var r = grp.getBBox(); if (r && r.height) b = r; } } catch(e){}
+  if (grp.parentNode) grp.parentNode.removeChild(grp);
+  return (BOX[key] = {x:b.x, y:b.y, w:b.width, h:b.height});
+}
+var WAIST_Y = 47, FLOOR_Y = 152, LEG_X = 14.2;
+var LAYER_K = {inner:.97, top:1, mid:1.03, outer:1.07};
+var COAT_FIT = {sp:46, sy:1.32, x0:24, x1:76};
+var DRESS_FIT = {dress:{sy:1.7}, dressShirt:{sy:1.6}, dressFloral:{sy:1.9}, dressL:{sy:1.9, x0:21, x1:79}};
+var HAT_AT = {cap:["capFront",69], bucket:["bucket",62], skullcap:["skullcap",70]};
+
+function nested(key, hex, mat, flip){ return svg(key, hex, mat, {nested:1, flip:flip}); }
+function at(tx, ty, sx, sy, inner){ return '<g transform="translate('+f2(tx)+' '+f2(ty)+') scale('+f2(sx)+(sy != null ? ' '+f2(sy) : '')+')">'+inner+'</g>'; }
+
+/* tops, mid layers, outerwear and dresses hang from the neck point; long coats and dresses are lengthened below the waist so sleeves keep their length */
+function wear(p, role, open, uid){
+  var key = p.item.gl, fam = FAM[key], box = gbox(key), hem = box.y + box.h, defs = "", body, fit = null, cal = calOf(key);
+  if (fam === "coat") fit = COAT_FIT;
+  else if (fam === "dress"){ var df = DRESS_FIT[key] || {}; fit = {sp:40, sy:df.sy || 1.7, x0:df.x0 || 12, x1:df.x1 || 88}; }
+  if (fit){
+    defs += '<clipPath id="'+uid+'u"><rect x="-60" y="-60" width="220" height="'+(fit.sp+60)+'"/><rect x="-60" y="'+fit.sp+'" width="'+(fit.x0+60)+'" height="200"/><rect x="'+fit.x1+'" y="'+fit.sp+'" width="'+(160-fit.x1)+'" height="200"/></clipPath>'
+      + '<clipPath id="'+uid+'l"><rect x="'+fit.x0+'" y="'+fit.sp+'" width="'+(fit.x1-fit.x0)+'" height="200"/></clipPath>';
+    body = '<g clip-path="url(#'+uid+'u)">'+nested(key, p.hex, p.mat)+'</g>'
+      + '<g clip-path="url(#'+uid+'l)"><g transform="translate(0 '+fit.sp+') scale(1 '+fit.sy+') translate(0 '+(-fit.sp)+')">'+nested(key, p.hex, p.mat)+'</g></g>';
+    hem = fit.sp + (hem - fit.sp) * fit.sy;
+  } else body = nested(key, p.hex, p.mat);
+  var t = 'scale('+(LAYER_K[role] || 1)+') scale('+cal[0]+' '+cal[1]+') translate(-50 -14)', pre = "";
+  if (open){
+    var xl = f2(47 - 8*(hem-18)/242), xr = f2(100 - xl), hm = f2(hem);
+    defs += '<clipPath id="'+uid+'o"><path clip-rule="evenodd" d="M-60 -60H160V260H-60Z M47 18 L53 18 L61 260 L39 260 Z"/></clipPath>';
+    pre = '<g transform="'+t+'"><g filter="url(#f-soft)" opacity=".45" fill="none" stroke="#000" stroke-width="2.6" stroke-linecap="round"><path d="M47 20 L'+xl+' '+hm+' M53 20 L'+xr+' '+hm+'"/></g></g>';
+    body = '<g clip-path="url(#'+uid+'o)">'+body+'</g><path d="M47 18 L'+xl+' '+hm+' M53 18 L'+xr+' '+hm+'" fill="none" stroke="'+hexMix(p.hex,"#000000",.45)+'" stroke-width=".8"/>';
+  }
+  return {defs:defs, svg:pre + '<g transform="'+t+'">'+body+'</g>'};
+}
+function placeBottom(p){
+  var key = p.item.gl, box = gbox(key), cal = calOf(key);
+  return '<g transform="translate(0 '+WAIST_Y+') scale('+cal[0]+' '+cal[1]+') translate(-50 '+f2(-box.y)+')">'+nested(key, p.hex, p.mat)+'</g>';
+}
+function placeShoes(p){
+  var key = p.item.gl, box = gbox(key), s = CAL.shoe[0], ty = FLOOR_Y - (box.y + box.h)*s;
+  return at(-LEG_X - 64*s, ty, s, s, nested(key, p.hex, p.mat, true)) + at(LEG_X - 36*s, ty, s, s, nested(key, p.hex, p.mat));
+}
+function placeHead(p){
+  var gk = p.item.gl, h = HAT_AT[gk], s;
+  if (h){ s = CAL_G[h[0]]; return at(-50*s, -5 - h[1]*s, s, null, nested(h[0], p.hex, p.mat)); }
+  if (gk === "glasses" || gk === "sunglasses"){ s = CAL_G[gk]; return at(-50*s, 9 - 52*s, s, null, nested(gk, p.hex, p.mat)); }
+  if (gk === "scarf"){ s = CAL_G.scarfWorn; return at(-50*s, -3 - 10*s, s, null, nested("scarfWorn", p.hex, p.mat)); }
+  if (gk === "necklace"){ s = CAL_G.necklace; return at(-50*s, -14*s, s, null, nested(gk, p.hex, p.mat)); }
+  if (gk === "watch"){ s = CAL_G.watch; return at(-46 - 50*s, 76 - 50*s, s, null, nested(gk, p.hex, p.mat)); }
+  return "";
+}
+function placeBag(p){
+  var gk = p.item.gl, s = CAL_G[gk] || .5, box = gbox(gk);
+  return at(34 - box.x*s, 84 - box.y*s, s, null, nested(gk, p.hex, p.mat));
+}
+/* a closed umbrella standing beside the outfit: about 82 cm tall */
+function placeUmbrella(p){
+  var c = p.hex, e = hexMix(c, "#000000", .42), k = "#2c2622", canopy = "M36.4 139 Q38.7 136.4 41 139 L39.4 191 L38 191 Z";
+  return '<g transform="translate(-82.7 -44)" filter="url(#f-hard)">'
+    + '<path d="M38.9 125 L38.9 118.5 Q38.9 114.6 35.9 115 Q33.6 115.5 34.1 118" fill="none" stroke="'+k+'" stroke-width="1.3" stroke-linecap="round"/>'
+    + '<path d="M38.9 118 L38.7 139" stroke="'+k+'" stroke-width="1"/>'
+    + '<path d="'+canopy+'" fill="'+c+'" stroke="'+e+'" stroke-width=".4" stroke-linejoin="round"/>'
+    + '<path d="'+canopy+'" fill="url(#g-spec)" opacity=".5"/>'
+    + '<path d="M38.4 140 L38.7 189 M37.4 146 L38.2 186 M39.8 146 L39 186" fill="none" stroke="#000" stroke-opacity=".22" stroke-width=".35"/>'
+    + '<path d="M36.9 160 L40.3 160" stroke="'+e+'" stroke-width="1.4"/>'
+    + '<path d="M38.7 191 L38.8 198" stroke="'+k+'" stroke-width=".8" stroke-linecap="round"/></g>';
+}
+/* a scale bar u units long labelled in cm; end = true draws it right-aligned with the label on its left */
+function scaleBar(x, y, cm, u, fs, end){
+  var x0 = end ? x - u : x, tx = end ? x0 - fs*.45 : x0 + u + fs*.45;
+  return '<g fill="none" stroke="#7a756b" stroke-width="'+f2(fs*.13)+'"><path d="M'+f2(x0)+' '+f2(y)+' H'+f2(x0+u)+' M'+f2(x0)+' '+f2(y-fs*.33)+' V'+f2(y+fs*.33)+' M'+f2(x0+u)+' '+f2(y-fs*.33)+' V'+f2(y+fs*.33)+'"/></g>'
+    + '<text x="'+f2(tx)+'" y="'+f2(y+fs*.33)+'" font-size="'+fs+'" fill="#7a756b" text-anchor="'+(end ? "end" : "start")+'" font-family="IBM Plex Mono, ui-monospace, monospace">'+cm+' cm</text>';
+}
+var figSeq = 0;
+function figure(pieces, open){
+  var by = {}, uid = "fg" + (++figSeq), defs = "", s = "";
+  pieces.forEach(function(p){ by[p.key] = p; });
+  var head = by.head, hg = head && head.item.gl;
+  if (by.umb) s += placeUmbrella(by.umb);
+  if (by.shoes) s += placeShoes(by.shoes);
+  if (by.bottom) s += placeBottom(by.bottom);
+  ["inner","top","mid"].forEach(function(r){ if (by[r]){ var w = wear(by[r], r, false, uid+r); defs += w.defs; s += w.svg; } });
+  if (hg === "necklace") s += placeHead(head);
+  if (by.outer){ var wo2 = wear(by.outer, "outer", open, uid+"x"); defs += wo2.defs; s += wo2.svg; }
+  if (hg === "scarf") s += placeHead(head);
+  if (by.bag) s += placeBag(by.bag);
+  if (head && hg !== "necklace" && hg !== "scarf") s += placeHead(head);
+  s += scaleBar(-60, 156, 20, 20, 3.6);
+  var names = pieces.filter(function(p){ return p.key !== "extra"; }).map(function(p){ return p.item.n; }).join("、");
+  return '<svg viewBox="-66 -30 146 190" role="img" aria-label="'+esc("整體穿搭預覽："+names)+'"><defs>'+defs+'</defs>'+s+'</svg>';
+}
+
+/* ---------- helpers ---------- */
+function hash(str){ var h = 2166136261; for (var i=0;i<str.length;i++){ h ^= str.charCodeAt(i); h = Math.imul(h,16777619); } return h>>>0; }
+function rng(seed){ return function(){ seed |= 0; seed = seed + 0x6D2B79F5 | 0; var t = Math.imul(seed ^ seed>>>15, 1|seed); t = t + Math.imul(t ^ t>>>7, 61|t) ^ t; return ((t ^ t>>>14)>>>0)/4294967296; }; }
+function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+function todayISO(){
+  try { return new Intl.DateTimeFormat("en-CA",{timeZone:"Asia/Taipei",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date()); }
+  catch(e){ return new Date().toISOString().slice(0,10); }
+}
+function dow(iso){ var p = iso.split("-").map(Number); return new Date(Date.UTC(p[0],p[1]-1,p[2])).getUTCDay(); }
+var DOW_ZH = ["日","一","二","三","四","五","六"], DOW_EN = ["SUN","MON","TUE","WED","THU","FRI","SAT"];
+function mmdd(iso){ return iso.slice(5,7)+"/"+iso.slice(8,10); }
+function uvLabel(u){ if(u==null) return ""; if(u<=2) return "低量級"; if(u<=5) return "中量級"; if(u<=7) return "高量級"; if(u<=10) return "過量級"; return "危險級"; }
+function rainLv(desc, pp){
+  if (pp!=null){ var lv = pp>=60 ? 2 : pp>=30 ? 1 : 0; return (lv===1 && /雷/.test(desc)) ? 2 : lv; }
+  if (/雷|大雨|豪雨/.test(desc)) return 2;
+  if (/短暫/.test(desc)) return 1;
+  if (/雨/.test(desc)) return 2;
+  return 0;
+}
+var ACCU = {1:"晴",2:"大致晴朗",3:"晴時多雲",4:"多雲時晴",5:"薄霧",6:"多雲",7:"陰",8:"陰天",11:"霧",12:"陣雨",13:"多雲有陣雨",14:"晴時多雲偶陣雨",
+  15:"雷雨",16:"多雲有雷雨",17:"晴時多雲有雷雨",18:"雨",19:"小雪",20:"多雲有小雪",21:"晴時有小雪",22:"雪",23:"多雲有雪",24:"結冰",25:"冰霰",26:"凍雨",29:"雨夾雪",
+  30:"炎熱",31:"寒冷",32:"強風",33:"晴朗",34:"大致晴朗",35:"局部多雲",36:"多雲時晴",37:"薄霧",38:"多雲",39:"局部多雲有陣雨",40:"多雲有陣雨",41:"局部多雲有雷雨",
+  42:"多雲有雷雨",43:"多雲有小雪",44:"多雲有雪"};
+function accu(icon, phrase){ return ACCU[icon] || phrase || "多雲"; }
+
+/* ---------- state ---------- */
+var TODAY = todayISO();
+var state = {city:"tpe", date:null, period:"all", palette:"earth", style:"J", gender:"u", view:"flat", open:true,
+  manual:false, forced:false, mT:20, mW:"sun", mSwing:false, shuffle:0, bump:{}};
+try {
+  var saved = JSON.parse(localStorage.getItem("ootd-prefs")||"null");
+  if (saved && typeof saved === "object") ["city","period","palette","style","gender","view"].forEach(function(k){ if (typeof saved[k]==="string") state[k]=saved[k]; });
+  var savedPlaces = JSON.parse(localStorage.getItem("ootd-places")||"[]");
+  if (Array.isArray(savedPlaces)) PLACES = savedPlaces.filter(function(p){
+    return p && typeof p.key==="string" && typeof p.name==="string" && /^[0-9A-Za-z_.,:-]{1,40}$/.test(p.key);
+  }).slice(0,5).map(function(p){ return {id:"q:"+p.key, name:p.name.slice(0,40), sub:String(p.sub||"").slice(0,80), key:p.key, d:[]}; });
+} catch(e){}
+function savePlaces(){ try { localStorage.setItem("ootd-places", JSON.stringify(PLACES.map(function(p){ return {name:p.name, sub:p.sub, key:p.key}; }))); } catch(e){} }
+if (!CITIES.concat(PLACES).some(function(c){return c.id===state.city;})) state.city="tpe";
+if (["all","day","night"].indexOf(state.period)<0) state.period="all";
+if (["m","f","u"].indexOf(state.gender)<0) state.gender="u";
+if (["flat","fig"].indexOf(state.view)<0) state.view="flat";
+if (!PALETTES[state.palette]) state.palette="earth";
+if (!STYLES[state.style]) state.style="J";
+function savePrefs(){ try { localStorage.setItem("ootd-prefs", JSON.stringify({city:state.city,period:state.period,palette:state.palette,style:state.style,gender:state.gender,view:state.view})); } catch(e){} }
+
+function byId(id){ var all = CITIES.concat(PLACES); for (var i=0;i<all.length;i++) if (all[i].id===id) return all[i]; return null; }
+function city(){ return byId(state.city) || CITIES[0]; }
+function todayFor(c){ var L = c.key && LIVE[c.key]; return L ? L.today : TODAY; }
+function rowsOf(c){ var L = c.key && LIVE[c.key], t = todayFor(c); return (L ? L.rows : c.d).filter(function(r){ return r[0] >= t; }); }
+function rows(){ return rowsOf(city()); }
+function hasSnapshot(c){ return c.d.some(function(r){ return r[0] >= TODAY; }); }
+function currentRow(){ var rs = rows(); for (var i=0;i<rs.length;i++) if (rs[i][0]===state.date) return rs[i]; return rs[0]; }
+
+/* ---------- controls ---------- */
+function renderCities(){
+  var opt = function(c){ return '<option value="'+esc(c.id)+'"'+(c.id===state.city?" selected":"")+'>'+esc(c.name)+'</option>'; };
+  $("#city").innerHTML = '<optgroup label="台灣縣市">'+CITY_ORDER.map(function(id){ return opt(byId(id)); }).join("")+'</optgroup>'
+    + (PLACES.length ? '<optgroup label="搜尋過的地點">'+PLACES.map(opt).join("")+'</optgroup>' : '');
+}
+function renderDays(){
+  var c = city(), rs = rows(), box = $("#days"), t = todayFor(c);
+  if (!rs.length){
+    state.forced = true; state.manual = true; box.hidden = true; box.innerHTML = "";
+    $("#staleNote").hidden = false;
+    var waiting = c.key && (mcp || OM) && liveStatus.mode === "loading";
+    $("#staleNote").textContent = waiting ? "正在取得這個地點的天氣，先用自訂氣溫。"
+      : c.d.length ? "內建預報只到 "+mmdd(c.d[c.d.length-1][0])+"，先用自訂氣溫來搭。"
+      : "這個地點沒有內建預報，先用自訂氣溫來搭。";
+  } else {
+    if (state.forced) state.manual = false;
+    state.forced = false; box.hidden = false; $("#staleNote").hidden = true;
+    if (!rs.some(function(r){ return r[0]===state.date; })) state.date = rs[0][0];
+    box.innerHTML = rs.map(function(r, i){
+      var name = r[0]===t ? "今天" : (i===1 && rs[0][0]===t ? "明天" : "週"+DOW_ZH[dow(r[0])]);
+      var id = "day-"+r[0];
+      return '<input class="sr" type="radio" name="day" id="'+id+'" value="'+r[0]+'"'+(r[0]===state.date?" checked":"")+'>'
+        + '<label class="day" for="'+id+'"><b>'+name+'</b><span>'+mmdd(r[0])+' · '+r[1]+'–'+r[2]+'°</span></label>';
+    }).join("");
+  }
+  $("#manualOn").checked = state.manual;
+  $("#manualOn").disabled = state.forced;
+  $("#manualBox").hidden = !state.manual;
+}
+function renderPalettes(){
+  $("#palettes").innerHTML = PAL_ORDER.map(function(k){
+    var P = PALETTES[k], cols = Object.keys(P.colors).slice(0,6);
+    return '<input class="sr" type="radio" name="palette" id="palette-'+k+'" value="'+k+'"'+(k===state.palette?" checked":"")+'>'
+      + '<label class="chip" for="palette-'+k+'"><span class="dots" aria-hidden="true">'
+      + cols.map(function(c){ return '<i style="background:'+P.colors[c]+'"></i>'; }).join("")
+      + '</span><span>'+P.name+'</span></label>';
+  }).join("");
+}
+function renderStyles(){
+  $("#styles").innerHTML = STYLE_ORDER.map(function(k){
+    var S = STYLES[k];
+    return '<input class="sr" type="radio" name="style" id="style-'+k+'" value="'+k+'"'+(k===state.style?" checked":"")+'>'
+      + '<label class="chip" for="style-'+k+'"><b>'+S.name+'</b><small>'+S.desc+'</small></label>';
+  }).join("");
+}
+function syncRadios(){
+  var p = document.getElementById("period-"+state.period); if (p) p.checked = true;
+  var g = document.getElementById("gender-"+state.gender); if (g) g.checked = true;
+}
+
+/* ---------- weather context ---------- */
+function weatherCtx(){
+  if (state.manual){
+    var desc = {sun:"晴",cloud:"多雲",rain:"下雨"}[state.mW];
+    return {manual:true, T:state.mT, lo:null, hi:null, flo:null, fhi:null, uv:null, pp:null, desc:desc,
+      rain: state.mW==="rain" ? 2 : 0, swing: state.mSwing ? 8 : 0,
+      sunny: state.mW==="sun" && state.mT>=24 && state.period!=="night"};
+  }
+  var r = currentRow();
+  var lo=r[1], hi=r[2], flo=r[3], fhi=r[4], uv=r[5], dd=r[6], nd=r[7];
+  var ppD = r.length>8 ? r[8] : null, ppN = r.length>9 ? r[9] : null, wind = r[10] || null, gust = r.length>11 ? r[11] : null;
+  var T, swing, desc, rain, pp;
+  if (state.period==="day"){ T = Math.round(flo*0.2 + fhi*0.8); swing = 0; desc = dd; rain = rainLv(dd,ppD); pp = ppD; }
+  else if (state.period==="night"){ T = Math.round(flo*0.8 + fhi*0.2); swing = 0; desc = nd; rain = rainLv(nd,ppN); pp = ppN; wind = null; gust = null; }
+  else {
+    T = Math.round(flo*0.4 + fhi*0.6); swing = hi-lo; desc = dd===nd ? dd : dd+"，晚上"+nd;
+    rain = Math.max(rainLv(dd,ppD), rainLv(nd,ppN)); pp = (ppD==null && ppN==null) ? null : Math.max(ppD||0, ppN||0);
+  }
+  return {manual:false, T:T, lo:lo, hi:hi, flo:flo, fhi:fhi, uv:uv, pp:pp, desc:desc, rain:rain, swing:swing, wind:wind, gust:gust,
+    sunny: uv!=null && uv>=7 && T>=22 && state.period!=="night", date:r[0]};
+}
+function band(T){
+  if (T>=29) return ["炎熱","透氣短袖為主"];
+  if (T>=26) return ["偏熱","短袖就好"];
+  if (T>=23) return ["舒適","短袖或薄長袖都可以"];
+  if (T>=19) return ["微涼","長袖再加一件薄外套"];
+  if (T>=15) return ["涼","針織或帽T，外面再疊外套"];
+  if (T>=11) return ["冷","毛衣配厚外套"];
+  return ["很冷","發熱衣打底，大衣或羽絨上場"];
+}
+
+/* ---------- outfit engine ---------- */
+var LABELS = {inner:["打底","Base"], top:["上衣","Top"], mid:["中層","Mid"], outer:["外套","Outer"], bottom:["下身","Bottom"],
+  shoes:["鞋款","Shoes"], head:["配件","Accessory"], bag:["包款","Bag"], extra:["備用","Spare"], umb:["雨具","Rain"]};
+
+function build(w){
+  var T = w.T, st = state.style, gd = state.gender, P = PALETTES[state.palette];
+  var base = hash([state.city, w.date||"m", state.period, state.palette, st, gd, T, w.rain, state.manual?1:0, state.shuffle].join("|"));
+  function gOK(it){ return gd==="u" ? it.g==="u" : (it.g==="u" || it.g===gd); }
+  function rFor(key){ return rng(base ^ hash(key) ^ Math.imul((state.bump[key]||0)+1, 2654435761)); }
+  function choose(key, slot, filt, temp){
+    var r = rFor(key);
+    var p = ITEMS.filter(function(it){ return it.slot===slot && gOK(it) && (!filt || filt(it)); });
+    if (!p.length) p = ITEMS.filter(function(it){ return it.slot===slot && gOK(it); });
+    var inT = p.filter(function(it){ return temp>=it.lo && temp<=it.hi; });
+    if (!inT.length){
+      var dist = function(it){ return temp<it.lo ? it.lo-temp : temp-it.hi; };
+      inT = p.slice().sort(function(a,b){ return dist(a)-dist(b); }).slice(0,3);
+    }
+    var byS = inT.filter(function(it){ return it.st.indexOf(st) >= 0; });
+    var pool = byS.length ? byS : inT;
+    return {item: pool[Math.floor(r()*pool.length)], r:r};
+  }
+  function color(list, r, avoid){
+    var opts = list.filter(function(c){ return avoid.indexOf(c) < 0; });
+    var L = opts.length ? opts : list;
+    return L[Math.floor(r()*L.length)];
+  }
+
+  var needInner = T<=10, needTop = T>10, needMid = T<=18, needOuter = T<=16 || (T>=19 && T<=22);
+  var wantExtra = !needOuter && ((state.period==="all" && w.swing>=6) || T>=27) && T>=17;
+  var picks = {}, col = {};
+
+  if (needInner){ var a = choose("inner","inner",null,T); picks.inner=a; col.inner = color(P.light, a.r, []); }
+  if (needTop){ var t = choose("top","top",null,T); picks.top=t; }
+  if (needMid){ var m = choose("mid","mid",null,T); picks.mid=m; }
+  if (needOuter){
+    var o = choose("outer","outer", w.rain>=2 ? function(it){ return it.f.indexOf("rain")>=0; } : function(it){ return it.f.indexOf("rain")<0; }, T);
+    picks.outer=o;
+  }
+  var onePiece = picks.top && picks.top.item.f.indexOf("one")>=0;
+  if (!onePiece){ picks.bottom = choose("bottom","bottom",null,T); }
+  picks.shoes = choose("shoes","shoes", w.rain>=2 ? function(it){ return it.f.indexOf("wp")>=0; } : null, T);
+  var headF = null;
+  if (T<=12) headF = function(it){ return it.gl==="skullcap" || it.gl==="scarf"; };
+  else if (w.sunny) headF = function(it){ return it.gl==="cap" || it.gl==="bucket" || it.gl==="sunglasses"; };
+  else if (state.period==="night") headF = function(it){ return it.gl!=="sunglasses"; };
+  picks.head = choose("head","head",headF,T);
+  picks.bag = choose("bag","bag",null,T);
+  if (wantExtra){
+    picks.extra = T>=23
+      ? choose("extra","outer", function(it){ return it.f.indexOf("ac")>=0; }, 24)
+      : choose("extra","outer", function(it){ return it.f.indexOf("rain")<0; }, T);
+  }
+
+  var layered = !!(picks.mid || picks.outer);
+  if (picks.top) col.top = onePiece ? color(P.main, picks.top.r, []) : color(layered ? P.light.concat(P.light, P.main) : P.main.concat(P.light), picks.top.r, []);
+  if (picks.mid) col.mid = color(P.main, picks.mid.r, [col.top, col.inner]);
+  if (picks.outer) col.outer = color(P.main.concat(P.base), picks.outer.r, [col.top, col.mid]);
+  if (picks.bottom) col.bottom = color(P.base, picks.bottom.r, [col.top, col.inner]);
+  col.shoes = color(P.shoes, picks.shoes.r, []);
+  col.head = color(P.accent.concat(P.base), picks.head.r, []);
+  col.bag = color(P.accent.concat(P.base), picks.bag.r, [col.head]);
+  if (picks.extra) col.extra = color(P.main.concat(P.light), picks.extra.r, [col.top]);
+
+  var order = ["outer","mid","top","inner","bottom","shoes","head","bag","extra"];
+  var pieces = [];
+  order.forEach(function(k){
+    if (!picks[k]) return;
+    var it = picks[k].item, cname = col[k], hex = P.colors[cname];
+    if (it.f.indexOf("silver")>=0){ cname = "銀"; hex = "#b9bdc4"; }
+    var lab = LABELS[k];
+    if (k==="top" && onePiece) lab = ["洋裝","Dress"];
+    var tag = "";
+    if (k==="extra") tag = (T>=27 && state.period==="all" && w.swing>=6) ? "早晚・冷氣房" : (T>=27 ? "冷氣房備用" : "早晚加穿");
+    pieces.push({key:k, label:lab[0], en:lab[1], item:it, cname:cname, hex:hex, tag:tag, mat:matOf(it)});
+  });
+  if (w.rain>=1){
+    var uc = color(P.accent, rFor("umb"), []);
+    pieces.push({key:"umb", label:"雨具", en:"Rain", item:{n: w.rain>=2 ? "長柄傘" : "折疊傘", gl:"umbrella", c:0, f:""}, cname:uc, hex:P.colors[uc], tag:"", mat:"nylon"});
+  }
+  return pieces;
+}
+
+/* ---------- render ---------- */
+var lastCopy = "", prevKeys = {};
+function render(opts){
+  opts = opts || {};
+  var w = weatherCtx(), T = w.T, P = PALETTES[state.palette], S = STYLES[state.style];
+  var pieces = build(w);
+  var c = city();
+
+  // weather band
+  var dIso = w.manual ? TODAY : w.date;
+  $("#wxDate").textContent = dIso.slice(5,7)+"."+dIso.slice(8,10);
+  $("#wxDow").textContent = DOW_EN[dow(dIso)];
+  $("#wxCity").textContent = w.manual ? "自訂條件" : c.name;
+  $("#wxT").textContent = T;
+  var meta = [];
+  if (w.manual){
+    meta.push(["Weather 天氣", w.desc]);
+    meta.push(["Swing 溫差", state.mSwing ? "早晚溫差大" : "溫差不大"]);
+  } else {
+    meta.push(["Temp 氣溫", w.lo+"–"+w.hi+"°C"]);
+    meta.push(["Feels 體感", w.flo+"–"+w.fhi+"°C"]);
+    meta.push(["Sky 天氣", w.desc]);
+    if (w.pp!=null) meta.push(["Rain 降雨機率", w.pp+"%"]);
+    if (w.uv!=null) meta.push(["UV 紫外線", w.uv+" "+uvLabel(w.uv)]);
+    if (w.wind) meta.push(["Wind 風", w.wind]);
+  }
+  $("#wxMeta").innerHTML = meta.map(function(m){ return '<div><dt>'+m[0]+'</dt><dd>'+esc(m[1])+'</dd></div>'; }).join("");
+
+  // heading
+  var b = band(T);
+  $("#lookTitle").innerHTML = S.name+'<span class="x">×</span>'+P.name;
+  var per = {all:"整天外出", day:"白天出門", night:"晚上出門"}[state.period];
+  $("#lookSub").textContent = per+"・"+b[0]+"，"+b[1];
+
+  // flat-lay tiles
+  var n = pieces.length;
+  var cols = n<=3 ? n : n===4 ? 4 : (n===5||n===6||n===9) ? 3 : 4;
+  var flat = $("#flat");
+  flat.style.setProperty("--cols", cols);
+  flat.setAttribute("data-odd", n%2 ? "1" : "0");
+  flat.innerHTML = pieces.map(function(p){
+    var changed = opts.pop && prevKeys[p.key] && prevKeys[p.key] !== p.item.n+p.cname;
+    return '<button type="button" class="tile'+(p.tag?" is-spare":"")+'" data-key="'+p.key+'" aria-label="'+esc(p.label+"："+p.cname+MAT_ZH[p.mat]+" "+p.item.n+(p.item.ref?"，參考 "+p.item.ref:"")+"，換一件")+'">'
+      + '<span class="tile-slot"><b>'+p.label+'</b><i>'+p.en.toUpperCase()+'</i>'
+      + (p.tag ? '<span class="tile-tag">'+p.tag+'</span>' : '') + '</span>'
+      + '<span class="tile-art'+(changed?" pop":"")+'">'+svg(p.item.gl, p.hex, p.mat)+'</span>'
+      + '<span class="tile-name">'+esc(p.item.n)+'</span>'
+      + '<span class="tile-scale" aria-hidden="true"><i style="width:'+f2(barFor(p.item.gl).u*.88)+'%"></i>'+barFor(p.item.gl).cm+' cm</span>'
+      + '<span class="tile-color"><i style="background:'+p.hex+'"></i>'+esc(p.cname)+'・'+MAT_ZH[p.mat]+'</span>'
+      + (p.item.ref ? '<span class="tile-ref">參考 '+esc(p.item.ref)+'</span>' : '')
+      + '</button>';
+  }).join("");
+  prevKeys = {}; pieces.forEach(function(p){ prevKeys[p.key] = p.item.n+p.cname; });
+
+  // whole-outfit preview
+  var fig = state.view === "fig";
+  flat.hidden = fig; $("#stage").hidden = !fig;
+  var vr = document.getElementById("view-"+state.view); if (vr) vr.checked = true;
+  if (fig){
+    var hasOuter = pieces.some(function(p){ return p.key === "outer"; });
+    $("#openWrap").hidden = !hasOuter;
+    $("#openOuter").checked = state.open;
+    $("#fig").innerHTML = figure(pieces, state.open && hasOuter);
+    $("#wearList").innerHTML = pieces.map(function(p){
+      return '<li><button type="button" data-key="'+p.key+'" aria-label="'+esc(p.label+"："+p.cname+MAT_ZH[p.mat]+" "+p.item.n+"，換一件")+'">'
+        + '<span class="w-fab">'+swatch(p.mat, p.hex, 3, 3)+'</span><span class="w-main"><span class="w-name"><b>'+p.label+'</b>'+esc(p.item.n)+'</span>'
+        + '<span class="w-sub">'+esc(p.cname)+'・'+MAT_ZH[p.mat]+(p.item.ref ? '・參考 '+esc(p.item.ref) : '')+'</span></span>'
+        + (p.key === "extra" ? '<span class="w-tag">備用，未穿上</span>' : '')+'</button></li>';
+    }).join("");
+  }
+
+  // colours and fabrics used, shown as close-ups at about 10 px per cm
+  var seen = {}, sw = [];
+  pieces.forEach(function(p){ var k = p.cname+p.mat; if (!seen[k]){ seen[k]=1; sw.push(p); } });
+  $("#strip").innerHTML = sw.map(function(p){
+    return '<div class="sw"><span class="sw-fab">'+swatch(p.mat, p.hex, 30, 4.6)+'</span><span class="sw-lab">'+esc(p.cname)+'・'+MAT_ZH[p.mat]+'<em>'+p.hex+'</em></span></div>';
+  }).join("");
+
+  // notes
+  var tips = [];
+  if (!w.manual && state.period==="all" && w.swing>=7) tips.push("早晚溫差約 "+w.swing+"°C，用洋蔥式穿搭，中午熱了就把外層脫掉。");
+  if (w.manual && state.mSwing) tips.push("早晚溫差大，用洋蔥式穿搭，外層挑方便穿脫的款式。");
+  if (w.rain>=2) tips.push("預報有雨，帆布鞋和麂皮先休息，換上防水鞋款並帶把長柄傘。");
+  else if (w.rain===1) tips.push("可能有短暫陣雨，包裡放一把折疊傘。");
+  if (w.uv!=null && state.period!=="night"){
+    if (w.uv>=8) tips.push("紫外線 "+w.uv+" 屬"+uvLabel(w.uv)+"，帽子、太陽眼鏡和防曬都用上。");
+    else if (w.uv>=6) tips.push("紫外線"+uvLabel(w.uv)+"，出門前記得擦防曬。");
+  }
+  if (w.gust!=null && w.gust>=40) tips.push("陣風可達 "+w.gust+" km/h，帽子容易被吹走，外層挑防風材質。");
+  if (T>=27) tips.push("捷運和辦公室冷氣通常很強，帶件薄外搭進室內。");
+  if (w.fhi!=null && w.fhi>=34 && state.period!=="night") tips.push("體感最高到 "+w.fhi+"°C，選亞麻、棉麻這類透氣材質。");
+  if (T<=10) tips.push("低溫時脖子、手腕、腳踝保暖最有感，圍巾和長襪很值得。");
+  if (T>=15 && T<=22 && tips.length<2) tips.push("這個溫度最適合疊穿，內外層顏色一深一淺會更有層次。");
+  if (!tips.length) tips.push("天氣穩定，照自己的風格穿就好。");
+  $("#wxTips").innerHTML = tips.slice(0,3).map(function(t){ return "<li>"+esc(t)+"</li>"; }).join("");
+  $("#styleTips").innerHTML = '<li class="style-li">'+esc(S.tip)+'</li><li class="style-li">'+esc(P.tip)+'</li>'
+    + '<li class="style-li">'+S.name+'單品參考：'+BRANDS[state.style].map(function(b){ return '<a href="'+b[1]+'" target="_blank" rel="noopener noreferrer">'+esc(b[0])+'</a>'; }).join("、")+'</li>';
+
+  // clo meter
+  var sum = 0.06;
+  pieces.forEach(function(p){ if (p.key!=="extra" && p.key!=="umb") sum += p.item.c; });
+  var rec = Math.min(2.4, Math.max(0.3, 0.3 + (29-T)*0.055));
+  var diff = sum - rec, cls, status;
+  if (Math.abs(diff) <= 0.2){ cls="ok"; status="保暖度剛好"; }
+  else if (diff < 0){ cls="cold"; status="偏涼，可以再加一層"; }
+  else { cls="warn"; status="偏熱，可以少穿一件"; }
+  var MAX = 2.5, pct = function(v){ return Math.min(100, v/MAX*100).toFixed(1); };
+  $("#clo").innerHTML =
+      '<div class="clo-head"><div class="lbl-sm"><b>保暖度</b>Clo</div><span class="pill '+cls+'">'+status+'</span></div>'
+    + '<div><div class="bar" role="img" aria-label="這套約 '+sum.toFixed(2)+' clo，建議約 '+rec.toFixed(2)+' clo"><span class="fill" style="width:'+pct(sum)+'%"></span><span class="mark" style="left:'+pct(rec)+'%"></span></div>'
+    + '<div class="scale" aria-hidden="true">'+[0,0.5,1,1.5,2].map(function(v){ return '<span style="left:'+pct(v)+'%">'+(v===0?"0":v.toFixed(1))+'</span>'; }).join("")+'</div></div>'
+    + '<div class="legend"><span><i></i>這套約 '+sum.toFixed(2)+' clo</span><span><i class="m"></i>'+T+'°C 建議約 '+rec.toFixed(2)+' clo</span></div>'
+    + '<p class="fine">clo 是衣物隔熱單位，1 clo 約等於一套西裝。數值依 ISO 9920 的常見衣物值粗估，備用外套和雨具不列入。</p>';
+
+  // copy text
+  var head = w.manual ? "OOTD｜自訂條件 "+mmdd(TODAY) : "OOTD｜"+c.name+" "+mmdd(w.date)+"（"+DOW_ZH[dow(w.date)]+"）";
+  lastCopy = [head, "穿搭體感 "+T+"°C・"+w.desc, S.name+" × "+P.name+"・"+per, ""]
+    .concat(pieces.map(function(p){ return p.label+"　"+p.item.n+"・"+p.cname+(p.tag?"（"+p.tag+"）":"")+(p.item.ref?"　參考 "+p.item.ref:""); }))
+    .join("\n");
+}
+
+/* ---------- toast ---------- */
+var toastTimer = null;
+function toast(msg, withJump){
+  $("#toastMsg").textContent = msg;
+  $("#toastBtn").hidden = !withJump;
+  $("#toast").hidden = false;
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function(){ $("#toast").hidden = true; }, withJump ? 3600 : 2200);
+}
+function changed(){
+  state.bump = {};
+  savePrefs();
+  render({pop:true});
+  if (window.innerWidth < 920){
+    var r = $("#look").getBoundingClientRect();
+    if (r.bottom < 80) toast("穿搭已更新", true);
+  }
+}
+
+/* ---------- events ---------- */
+$("#city").addEventListener("change", function(e){ state.city = e.target.value; renderDays(); changed(); watchCurrent(); });
+$("#days").addEventListener("change", function(e){ if (e.target.name==="day"){ state.date = e.target.value; changed(); } });
+$("#periodSeg").addEventListener("change", function(e){ state.period = e.target.value; changed(); });
+$("#genderSeg").addEventListener("change", function(e){ state.gender = e.target.value; changed(); });
+$("#palettes").addEventListener("change", function(e){ state.palette = e.target.value; changed(); });
+$("#styles").addEventListener("change", function(e){ state.style = e.target.value; changed(); });
+$("#manualOn").addEventListener("change", function(e){ state.manual = e.target.checked; $("#manualBox").hidden = !state.manual; changed(); });
+$("#mT").addEventListener("input", function(e){ state.mT = +e.target.value; $("#mTOut").textContent = state.mT+"°C"; changed(); });
+document.querySelectorAll('input[name="mW"]').forEach(function(el){ el.addEventListener("change", function(e){ state.mW = e.target.value; changed(); }); });
+$("#mSwing").addEventListener("change", function(e){ state.mSwing = e.target.checked; changed(); });
+$("#look").addEventListener("click", function(e){
+  var t = e.target.closest("#flat [data-key], #wearList [data-key]"); if (!t) return;
+  var k = t.getAttribute("data-key"), box = t.closest("#wearList") ? "#wearList" : "#flat";
+  state.bump[k] = (state.bump[k]||0) + 1;
+  render({pop:true});
+  var again = document.querySelector(box+' [data-key="'+k+'"]'); if (again) again.focus();
+});
+$("#viewSeg").addEventListener("change", function(e){ state.view = e.target.value; savePrefs(); render(); });
+$("#openOuter").addEventListener("change", function(e){ state.open = e.target.checked; render(); });
+$("#shuffle").addEventListener("click", function(){ state.shuffle++; state.bump = {}; render({pop:true}); });
+$("#copy").addEventListener("click", function(){
+  var t = lastCopy;
+  function fallback(){
+    var ta = $("#copyBox"); ta.value = t; ta.hidden = false; ta.focus(); ta.select();
+    var ok = false; try { ok = document.execCommand("copy"); } catch(err){}
+    if (ok){ ta.hidden = true; toast("已複製穿搭清單"); } else toast("無法自動複製，文字已選取，請手動複製");
+  }
+  try {
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(function(){ $("#copyBox").hidden = true; toast("已複製穿搭清單"); }, fallback);
+    } else fallback();
+  } catch(err){ fallback(); }
+});
+$("#toastBtn").addEventListener("click", function(){
+  $("#toast").hidden = true;
+  $("#look").scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block:"start"});
+});
+
+/* ---------- AccuWeather live forecast through the viewer's connector ---------- */
+var MCPS = "AccuWeather®", DAILY = "widgets-daily-claude", SEARCH = "widgets-search-claude";
+var mcp = null, unwatch = null, retried = {}, liveStatus = {mode:"loading"}, PROV = "AccuWeather", OM = false;
+
+function parsePayload(res){
+  var p = res && res.payload;
+  if (typeof p === "string"){ try { p = JSON.parse(p); } catch(e){ return null; } }
+  return p && typeof p === "object" ? p : null;
+}
+function num(v){ return typeof v === "number" && isFinite(v) ? v : null; }
+function ingest(key, res){
+  var p = parsePayload(res);
+  if (!p || !Array.isArray(p.dailyForecast)) return false;
+  var out = p.dailyForecast.map(function(d){
+    var day = d && d.day || {}, night = d && d.night || {}, dx = day.extended || {};
+    var dt = String(d && d.date || "").slice(0,10);
+    var hi = num(day.temperature), lo = num(night.temperature);
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(dt) || hi==null || lo==null) return null;
+    var fhi = num(day.realFeelValue), flo = num(night.realFeelValue);
+    if (fhi==null) fhi = hi; if (flo==null) flo = lo;
+    var uv = dx.uv ? num(dx.uv.value) : null;
+    var gust = parseInt(String(dx.gusts||""), 10);
+    return [dt, Math.round(Math.min(lo,hi)), Math.round(Math.max(lo,hi)), Math.round(Math.min(flo,fhi)), Math.round(Math.max(flo,fhi)),
+      uv==null ? null : Math.round(uv), accu(day.icon, day.iconPhrase), accu(night.icon, night.iconPhrase),
+      num(day.rainProbabilityValue), num(night.rainProbabilityValue), typeof dx.wind==="string" ? dx.wind.slice(0,24) : null, isFinite(gust) ? gust : null];
+  }).filter(Boolean);
+  if (!out.length) return false;
+  var loc = p.location || {}, lt = String(loc.localIsoDate||"").slice(0,10);
+  LIVE[key] = {rows: out, today: /^\d{4}-\d{2}-\d{2}$/.test(lt) ? lt : TODAY, at: (res.cache && res.cache.storedAt) || Date.now()};
+  return true;
+}
+function hhmm(ms){ try { return new Intl.DateTimeFormat("zh-TW",{hour:"2-digit",minute:"2-digit",hour12:false}).format(new Date(ms)); } catch(e){ return ""; } }
+function fallbackText(){ return hasSnapshot(city()) ? "目前用中央氣象署 10/12 預報快照。" : "先用自訂氣溫來搭。"; }
+function placeNote(){ var c = city(); return c.sub ? "・對應地點 "+c.sub : ""; }
+function setStatus(mode, text, btnLabel, btnFn){
+  liveStatus = {mode:mode};
+  $("#wxStatus").setAttribute("data-mode", mode);
+  $("#wxStatusText").textContent = text;
+  var b = $("#wxStatusBtn");
+  if (btnLabel){ b.hidden = false; b.textContent = btnLabel; b.onclick = btnFn; } else { b.hidden = true; b.onclick = null; }
+  var live = city().key && LIVE[city().key], src = $("#src");
+  if (live && OM) src.innerHTML = '天氣資料 <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo.com</a>';
+  else src.textContent = live ? "AccuWeather 即時預報" : "中央氣象署一週預報・10/12 擷取";
+}
+function openPerms(){
+  window.claude.use("permissions").then(function(p){ return p ? p.manage() : Promise.reject(); })
+    .catch(function(){ setStatus("warn", "請從這個頁面的權限選單開啟 AccuWeather。"+fallbackText()); });
+}
+function inputFor(key){ return {queryParams:{locationKey:key, unit:"metric"}}; }
+function showLive(key){
+  if (key !== city().key || !LIVE[key]) return;
+  setStatus("live", PROV+" 即時預報・"+hhmm(LIVE[key].at)+" 更新"+placeNote());
+  renderDays(); render();
+}
+function askOnce(key, input){
+  mcp.callTool(MCPS, DAILY, input).then(function(res){
+    if (ingest(key, res)) showLive(key, res); else setStatus("warn", "AccuWeather 回傳的資料讀不懂。"+fallbackText());
+  }, function(err){ handleErr(err, key, input); });
+}
+function handleErr(err, key, input){
+  var code = (err && err.code) || "upstream_error";
+  var deny = ["needs_reauth","server_not_connected","selection_required","blocked_by_policy","approval_required","not_in_manifest","consent_required","not_granted","capability_disabled","capability_removed","user_changed"];
+  if (deny.indexOf(code) >= 0) delete LIVE[key];
+  if (key !== city().key) return;
+  var fb = fallbackText(), kept = !!LIVE[key];
+  if (code==="user_changed") return;
+  if (code==="server_not_connected" || code==="selection_required") setStatus("warn", "到 claude.ai 的「設定 → 連接器」加入 AccuWeather®，就能看即時天氣。"+fb);
+  else if (code==="needs_reauth") setStatus("warn", "AccuWeather® 需要重新連線，請到 claude.ai 的「設定 → 連接器」重新連接。"+fb);
+  else if (code==="approval_required") setStatus("warn", "讀取 AccuWeather 需要你同意。"+fb, "同意並讀取", function(){ askOnce(key, input); });
+  else if (code==="not_in_manifest" || code==="consent_required") setStatus("warn", "這個頁面目前沒有 AccuWeather 的使用權限。"+fb, "權限設定", openPerms);
+  else if (code==="blocked_by_policy") setStatus("warn", "組織政策不允許這個頁面使用 AccuWeather。"+fb);
+  else if (code==="not_granted" || code==="capability_disabled" || code==="capability_removed") setStatus("snap", "這個檢視無法連線 AccuWeather。"+fb);
+  else if (code==="tool_error") setStatus("warn", "AccuWeather 回報錯誤："+((err && err.message) || "未知錯誤")+"。"+(kept ? "先顯示上一次的結果。" : fb));
+  else if (err && err.retryable && !retried[key]){
+    retried[key] = true;
+    setStatus(kept ? "live" : "warn", "AccuWeather 暫時沒有回應，稍後自動重試。"+(kept ? "先顯示上一次的結果。" : fb));
+    setTimeout(function(){ if (mcp) mcp.invalidate(MCPS, DAILY, input).catch(function(){}); }, (err.retryAfterMs || 0) + 2000 + Math.random()*3000);
+  }
+  else setStatus(kept ? "live" : "warn", "暫時拿不到 AccuWeather 資料。"+(kept ? "先顯示上一次的結果。" : fb));
+  renderDays(); render();
+}
+function watchCurrent(){
+  if (OM){ omLoad(false); return; }
+  if (unwatch){ try { unwatch(); } catch(e){} unwatch = null; }
+  if (!mcp) return;
+  var c = city(); if (!c.key) return;
+  var key = c.key, input = inputFor(key);
+  if (LIVE[key]) showLive(key, null);
+  else setStatus("loading", "正在向 AccuWeather 取得"+c.name+"的天氣…");
+  try {
+    unwatch = mcp.watchTool(MCPS, DAILY, input, function(ev){
+      if (ev.type === "data"){
+        if (ingest(key, ev.result)){ retried[key] = false; showLive(key, ev.result); }
+        else if (key === city().key) setStatus("warn", "AccuWeather 回傳的資料讀不懂。"+fallbackText());
+      } else handleErr(ev.error, key, input);
+    }, {cache:{staleTime:300000, gcTime:3600000}, refetchInterval:1800000});
+  } catch(e){ setStatus("warn", "暫時拿不到 AccuWeather 資料。"+fallbackText()); }
+}
+function syncSearch(){
+  var on = !!mcp || OM;
+  $("#qBtn").disabled = !on;
+  $("#q").disabled = !on;
+  $("#q").placeholder = OM ? "搜尋其他城市，例如 東京、Seoul" : mcp ? "搜尋其他城市，例如 Tokyo, Japan" : "連上 AccuWeather 後可搜尋其他城市";
+}
+function showFound(t){ var f = $("#found"); f.textContent = t; f.hidden = !t; }
+$("#searchForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  var q = $("#q").value.trim().slice(0,60);
+  if (!q || !(mcp || OM)) return;
+  if (OM){ omSearch(q); return; }
+  $("#qBtn").disabled = true; showFound("搜尋中…");
+  mcp.callTool(MCPS, SEARCH, {queryParams:{query:q}}, {cache:{staleTime:300000}}).then(function(res){
+    var p = parsePayload(res), hit = p && Array.isArray(p.results) ? p.results[0] : null;
+    var key = hit && String(hit.locationKey||"");
+    if (!key || !/^[0-9A-Za-z_-]{1,40}$/.test(key)){ showFound("找不到「"+q+"」。試試英文名稱加國家，例如 Tokyo, Japan。"); return; }
+    var id = "q:"+key, sub = String(hit.name||"").slice(0,80);
+    PLACES = [{id:id, name:q, sub:sub, key:key, d:[]}].concat(PLACES.filter(function(x){ return x.id !== id; })).slice(0,5);
+    savePlaces();
+    state.city = id; $("#q").value = "";
+    renderCities(); renderDays(); changed(); watchCurrent();
+    showFound("AccuWeather 對應到 "+sub+"。地點不對的話，換個寫法再搜一次，例如加上國家。");
+  }, function(err){
+    var code = err && err.code;
+    showFound(code==="server_not_connected" ? "先到 claude.ai 的「設定 → 連接器」加入 AccuWeather®。"
+      : (code==="not_in_manifest" || code==="consent_required" || code==="approval_required") ? "搜尋需要先允許這個頁面使用 AccuWeather。"
+      : code==="tool_error" ? "搜尋失敗："+((err && err.message) || "未知錯誤")
+      : "現在無法搜尋地點，稍後再試。");
+  }).then(function(){ $("#qBtn").disabled = !(mcp || OM); });
+});
+function startLive(){
+  if (!window.claude || typeof window.claude.use !== "function"){ startOM(); return; }
+  window.claude.use("mcp").then(function(ns){
+    mcp = ns || null; syncSearch();
+    if (!mcp){ setStatus("snap", "這個檢視無法連線 AccuWeather。"+fallbackText()); renderDays(); render(); return; }
+    // use the connector name exactly as the page's manifest lists it
+    var listed; try { listed = mcp.listTools(); } catch(e){ listed = Promise.reject(e); }
+    Promise.resolve(listed).then(function(r){
+      var s = (r && r.servers || []).filter(function(x){ return /accuweather/i.test(x.server); })[0];
+      if (s) MCPS = s.server;
+    }).catch(function(){}).then(watchCurrent);
+  }, function(){ syncSearch(); setStatus("snap", "這個檢視無法連線 AccuWeather。"+fallbackText()); });
+}
+
+/* ---------- outside Claude (the public copy): Open-Meteo forecast and place search, no account or key needed ---------- */
+var OM_DAILY = "weather_code,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,uv_index_max,wind_speed_10m_max,wind_gusts_10m_max,wind_direction_10m_dominant";
+var WMO = {0:"晴",1:"晴時多雲",2:"多雲時晴",3:"陰",45:"霧",48:"霧",51:"毛毛雨",53:"毛毛雨",55:"毛毛雨",56:"凍毛毛雨",57:"凍毛毛雨",
+  61:"小雨",63:"雨",65:"大雨",66:"凍雨",67:"凍雨",71:"小雪",73:"雪",75:"大雪",77:"霰",80:"短暫陣雨",81:"陣雨",82:"強陣雨",85:"陣雪",86:"大陣雪",
+  95:"雷雨",96:"雷雨夾冰雹",99:"雷雨夾冰雹"};
+var CMP = ["N","NE","E","SE","S","SW","W","NW"], omSeq = 0;
+function omKey(lat, lon){ return "om:"+(+lat).toFixed(3)+","+(+lon).toFixed(3); }
+function omPos(key){ var m = /^om:(-?\d+(?:\.\d+)?),(-?\d+(?:\.\d+)?)$/.exec(key||""); return m ? {lat:+m[1], lon:+m[2]} : null; }
+function prevISO(iso){ var p = iso.split("-").map(Number), t = new Date(Date.UTC(p[0], p[1]-1, p[2]-1)); return t.toISOString().slice(0,10); }
+/* one line for a stretch of hours: thunder wins, rain needs three hours to lead, a shorter shower is added to the sky */
+function omDesc(codes){
+  var n = {}, rainH = 0, thunder = 0;
+  codes.forEach(function(c){ if (c == null) return; n[c] = (n[c]||0) + 1; if (c >= 95) thunder++; else if (c >= 51) rainH++; });
+  var top = function(f){ var k = null; Object.keys(n).forEach(function(s){ var c = +s; if (f(c) && (k == null || n[c] > n[k] || (n[c] === n[k] && c > k))) k = c; }); return k; };
+  if (thunder) return WMO[top(function(c){ return c >= 95; })];
+  if (rainH >= 3) return WMO[top(function(c){ return c >= 51 && c < 95; })];
+  var dry = top(function(c){ return c < 51; });
+  if (rainH) return (dry == null || dry === 0 ? "晴時多雲" : WMO[dry]) + "短暫陣雨";
+  return dry == null ? null : WMO[dry];
+}
+/* daily rows in the same shape as the AccuWeather ones; daytime is 06:00-17:59, the night runs to 05:59 next morning */
+function omIngest(key, j){
+  var d = j && j.daily, h = j && j.hourly;
+  if (!d || !Array.isArray(d.time) || !h || !Array.isArray(h.time)) return false;
+  var A = function(o, k, i){ return Array.isArray(o[k]) ? num(o[k][i]) : null; }, hrs = {};
+  h.time.forEach(function(t, i){
+    var dt = String(t).slice(0,10), hr = parseInt(String(t).slice(11,13), 10);
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(dt) || !isFinite(hr)) return;
+    var day = hr >= 6 && hr < 18, k = hr < 6 ? prevISO(dt) : dt;
+    var b = hrs[k] || (hrs[k] = {dc:[], dp:[], nc:[], np:[]});
+    (day ? b.dc : b.nc).push(A(h, "weather_code", i)); (day ? b.dp : b.np).push(A(h, "precipitation_probability", i));
+  });
+  var mx = function(a){ var v = null; a.forEach(function(x){ if (x != null && (v == null || x > v)) v = x; }); return v; };
+  var out = d.time.map(function(dt, i){
+    var hi = A(d, "temperature_2m_max", i), lo = A(d, "temperature_2m_min", i);
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(String(dt)) || hi == null || lo == null) return null;
+    var fhi = A(d, "apparent_temperature_max", i), flo = A(d, "apparent_temperature_min", i);
+    if (fhi == null) fhi = hi; if (flo == null) flo = lo;
+    var uv = A(d, "uv_index_max", i), b = hrs[dt] || {dc:[], dp:[], nc:[], np:[]};
+    var dd = omDesc(b.dc) || WMO[A(d, "weather_code", i)] || "多雲", nd = omDesc(b.nc) || dd;
+    var ws = A(d, "wind_speed_10m_max", i), wd = A(d, "wind_direction_10m_dominant", i), wg = A(d, "wind_gusts_10m_max", i);
+    var wind = ws == null ? null : (wd == null ? "" : CMP[Math.round(wd/45) % 8]+" ") + Math.round(ws)+" km/h";
+    return [dt, Math.round(Math.min(lo,hi)), Math.round(Math.max(lo,hi)), Math.round(Math.min(flo,fhi)), Math.round(Math.max(flo,fhi)),
+      uv == null ? null : Math.round(uv), dd, nd, mx(b.dp), mx(b.np), wind, wg == null ? null : Math.round(wg)];
+  }).filter(Boolean);
+  if (!out.length) return false;
+  LIVE[key] = {rows: out, today: out[0][0], at: Date.now()};
+  return true;
+}
+function omLoad(force){
+  var c = city(), key = c.key, pos = omPos(key);
+  if (!pos){ setStatus("snap", fallbackText()); return; }
+  var L = LIVE[key];
+  if (L && !force && Date.now() - L.at < 600000){ showLive(key); return; }
+  if (L) showLive(key); else { setStatus("loading", "正在向 Open-Meteo 取得"+c.name+"的天氣…"); renderDays(); }
+  var seq = ++omSeq;
+  fetch("https://api.open-meteo.com/v1/forecast?latitude="+pos.lat+"&longitude="+pos.lon+"&daily="+OM_DAILY
+    + "&hourly=weather_code,precipitation_probability&timezone=auto&forecast_days=7&wind_speed_unit=kmh")
+    .then(function(r){ if (!r.ok) throw new Error("HTTP "+r.status); return r.json(); })
+    .then(function(j){ if (!omIngest(key, j)) throw new Error("bad data"); showLive(key); })
+    .catch(function(){
+      if (key !== city().key || seq !== omSeq) return;
+      var kept = !!LIVE[key];
+      setStatus(kept ? "live" : "warn", "暫時拿不到 Open-Meteo 資料。"+(kept ? "先顯示上一次的結果。" : fallbackText()), "重試", function(){ omLoad(true); });
+      renderDays(); render();
+    });
+}
+function omSearch(q){
+  $("#qBtn").disabled = true; showFound("搜尋中…");
+  fetch("https://geocoding-api.open-meteo.com/v1/search?count=1&language=zh&format=json&name="+encodeURIComponent(q))
+    .then(function(r){ if (!r.ok) throw new Error("HTTP "+r.status); return r.json(); })
+    .then(function(j){
+      var hit = j && Array.isArray(j.results) ? j.results[0] : null, lat = hit && num(hit.latitude), lon = hit && num(hit.longitude);
+      if (lat == null || lon == null){ showFound("找不到「"+q+"」。換個寫法再試，例如英文名稱 Tokyo。"); return; }
+      var key = omKey(lat, lon), id = "q:"+key;
+      var sub = [hit.name, hit.admin1, hit.country].filter(function(x, i, a){ return typeof x === "string" && x && a.indexOf(x) === i; }).join("、").slice(0,80);
+      PLACES = [{id:id, name:q.slice(0,40), sub:sub, key:key, d:[]}].concat(PLACES.filter(function(x){ return x.id !== id; })).slice(0,5);
+      savePlaces();
+      state.city = id; $("#q").value = "";
+      renderCities(); renderDays(); changed(); watchCurrent();
+      showFound("Open-Meteo 對應到 "+sub+"。地點不對的話，換個寫法再搜一次。");
+    })
+    .catch(function(){ showFound("現在無法搜尋地點，稍後再試。"); })
+    .then(function(){ $("#qBtn").disabled = false; });
+}
+function startOM(){
+  OM = true; PROV = "Open-Meteo";
+  CITIES.forEach(function(c){ if (c.lat != null) c.key = omKey(c.lat, c.lon); });
+  PLACES = PLACES.filter(function(p){ return omPos(p.key); });
+  if (!byId(state.city)) state.city = "tpe";
+  renderCities(); syncSearch(); omLoad(false);
+  setInterval(function(){ if (!document.hidden) omLoad(true); }, 1800000);
+}
+
+/* ---------- boot ---------- */
+document.body.insertAdjacentHTML("afterbegin", FX);
+renderCities(); renderPalettes(); renderStyles(); syncRadios(); renderDays(); render(); syncSearch(); startLive();
+})();
+</script>
+
+</body>
+</html>
